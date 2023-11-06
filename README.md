@@ -29,8 +29,8 @@ Fly.io is a simple Docker image built with Go.
 * flyctl - for deployment
 * Fly.io - for the serverless hosting platform
 
-```flyctl``` is a CLI tool from ![Fly.io](http://fly.io)
-You can read about it ![here](https://fly.io/docs/hands-on/).
+```flyctl``` is a CLI tool from [Fly.io](http://fly.io)
+You can read about it [here](https://fly.io/docs/hands-on/).
 
 ## Where we were:
-![2023-11-05-21-59-08](2023-11-05-21-59-08.png)  
+[](2023-11-05-21-59-08.png)  
