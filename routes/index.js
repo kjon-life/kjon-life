@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 /* source quotes and maxims from TODO link to github quotes */
-const quotes = require('../quotes.json');
-const maxims = require('../maxims.json');
+const quotes = require('../public/quotes.json');
+const maxims = require('../public/maxims.json');
 /* const articles = require('../articles.json'); */
 
 /* GET home page. */
@@ -26,10 +26,10 @@ router.get('/', function(req, res, next) {
       content: 'things other people said (that i love)',
       author: 'Latin maxims',
       photographer: 'Zdeněk Macháček',
-      backdropImg: 'images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg',
-      frontImg: 'images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg',
-      photoCreditLink: 'https://unsplash.com/@mex_face_poze?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
-      photoPageLink: 'https://unsplash.com/photos/IccZ_e4Tci0'
+      backdropImg: 'images/unsplash/zdenek-machacek-yWSJtyCB2R4-unsplash.jpg',
+      frontImg: 'images/unsplash/zdenek-machacek-yWSJtyCB2R4-unsplash.jpg',
+      photoCreditLink: 'https://unsplash.com/@zmachacek?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+      photoPageLink: 'https://unsplash.com/photos/yWSJtyCB2R4'
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ router.get('/', function(req, res, next) {
       content: '( 雀の涙 : suzume no namida )',
       author: 'unkown',
       photographer: 'Amariei Mihai',
-      backdropImg: 'images/unsplash/brett-jordan-POMpXtcVYHo-unsplash.jpg',
+      backdropImg: 'images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg',
       frontImg: 'images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg',
       photoCreditLink: 'https://unsplash.com/@mex_face_poze?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
       photoPageLink: 'https://unsplash.com/photos/IccZ_e4Tci0'
@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
       author: 'from "Many Winters"',
       photographer: 'Leonardo Sanches',
       backdropImg: 'images/unsplash/leonardo-sanches-1nCYl1wBhv4-unsplash.jpg',
-      frontImg: 'images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg',
+      frontImg: 'images/unsplash/leonardo-sanches-1nCYl1wBhv4-unsplash.jpg',
       photoCreditLink: 'https://unsplash.com/ja/@lesanches?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
       photoPageLink: 'https://unsplash.com/photos/1nCYl1wBhv4'
     },
@@ -61,8 +61,8 @@ router.get('/', function(req, res, next) {
       photographer: 'k jon',
       backdropImg: 'images/curious-pug-enterprise/curious-pug-dark.png',
       frontImg: 'images/curious-pug-enterprise/curious-pug-dark.png',
-      photoCreditLink: 'https://unsplash.com/@mex_face_poze?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
-      photoPageLink: 'https://unsplash.com/photos/IccZ_e4Tci0'
+      photoCreditLink: '',
+      photoPageLink: ''
     }
   ];
 

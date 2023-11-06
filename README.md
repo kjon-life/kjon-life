@@ -11,7 +11,7 @@ ___
 ___
 
 ## Where we are:
-![](2023-11-05-23-08-50.png)
+![](2023-11-06-00-36-15.png)  
 * Deployed the app on https://hellok.fly.dev/  
 ### What we're doing  
 Fly.io is a simple Docker image built with Go.
@@ -33,4 +33,5 @@ Fly.io is a simple Docker image built with Go.
 You can read about it [here](https://fly.io/docs/hands-on/).
 
 ## Where we were:
+[](2023-11-05-23-08-50.png)  
 [](2023-11-05-21-59-08.png)  
