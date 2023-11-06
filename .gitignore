@@ -104,3 +104,6 @@ celerybeat-schedule
 
 # mypy
 .mypy_cache/
+
+# node stuff
+node_modules
