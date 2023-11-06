@@ -43,7 +43,7 @@ header ul li:not(:last-child) {
 
 .wrapper {
   width: 100%;
-  background-color: white;
+  background-color: #E9E7E8;
 }
 /* articles, images, and the like */
 article {
