@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   // Sample article data
   const articles = [
     {
-      id: words,
+      id: 1,
       title: 'words', 
       content: '(things i said)',
       author: 'k jon',
@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
       photoPageLink: 'https://unsplash.com/photos/POMpXtcVYHo'
     },
     {
-      id: quotes,
+      id: 2,
       title: 'quotes',
       content: 'things other people said (that i love)',
       author: 'Latin maxims',
@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
       photoPageLink: 'https://unsplash.com/photos/yWSJtyCB2R4'
     },
     {
-      id: quotes,
+      id: 3,
       title: 'quotes',
       content: 'things other people said (that i love)',
       author: 'Latin maxims',
