@@ -9,9 +9,10 @@ ___
 - revenue operations 
 
 ___
+
 ## Where we are:
+![](2023-11-05-23-08-50.png)
 * Deployed the app on https://hellok.fly.dev/  
-![](2023-11-05-21-59-08.png)  
 ### What we're doing  
 Fly.io is a simple Docker image built with Go.
 ### Specifically:
@@ -31,3 +32,5 @@ Fly.io is a simple Docker image built with Go.
 ```flyctl``` is a CLI tool from ![Fly.io](http://fly.io)
 You can read about it ![here](https://fly.io/docs/hands-on/).
 
+## Where we were:
+![2023-11-05-21-59-08](2023-11-05-21-59-08.png)  
