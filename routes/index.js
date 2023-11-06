@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
       frontImg: 'images/unsplash/zdenek-machacek-yWSJtyCB2R4-unsplash.jpg',
       photoCreditLink: 'https://unsplash.com/@zmachacek?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
       photoPageLink: 'https://unsplash.com/photos/yWSJtyCB2R4'
-    }
+    },
     {
       id: quotes,
       title: 'quotes',
