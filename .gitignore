@@ -1,6 +1,8 @@
 # asdf versions
 .tool-versions
 
+# note that htdocs is not needed and will be removed from  future release
+
 # Environments
 .env
 .venv
