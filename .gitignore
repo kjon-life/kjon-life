@@ -12,7 +12,8 @@ ENV/
 getCal/
 
 # build notes and collateral  
-/slides
+/slides_local_docs
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
