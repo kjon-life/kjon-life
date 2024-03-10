@@ -11,13 +11,13 @@ ___
 ___
 
 ## Where we are:
-![](2023-11-06-00-36-15.png)  
 * Deployed the app on https://hellok.fly.dev/  
+![](2023-11-06-00-36-15.png)  
 ### What we're doing  
 Fly.io is a simple Docker image built with Go.
 ### Specifically:
-* The app code is a simple Go web server that printed "Hello World"
-* The app is containerized into a Docker image called flyio/hellofly 
+* The app code is a simple Go web server 
+* The app is containerized into a Docker image called `hellok` 
 * The Dockerfile uses a Go builder image to compile the app code and copies the binary into a minimal final image
 * The app listens on port 8080 by default
 * The app is deployed using flyctl which generates a fly.toml config file
