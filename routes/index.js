@@ -66,6 +66,15 @@ router.get('/', function(req, res, next) {
     }
   ];
 
+  const quotesArticle = articles.find(article => article.id === 2);
+
+  const randomQuotes = getRandomQuotes(quotes, 7);
+
+  // Update the content of the article with the random quotes and citations
+  if (quotesArticle) {
+    quotesArticle.content = randomQuotes.map((quote, index) => `${quote}[${index + 1}]`).join('<br>');
+  }
+  
   res.render('index', { 
     title: 'k jon quotes',
     description: 'quotes from k jon',
