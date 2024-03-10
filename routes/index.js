@@ -68,11 +68,31 @@ router.get('/', function(req, res, next) {
 
   const quotesArticle = articles.find(article => article.id === 2);
 
-  const randomQuotes = getRandomQuotes(quotes, 7);
+  // Get the current page number from the query parameters, default to 1
+  const currentPage = parseInt(req.query.page) || 1;
 
-  // Update the content of the article with the random quotes and citations
+  // Calculate the start and end indexes for the current page of quotes
+  const startIndex = (currentPage - 1) * 7;
+  const endIndex = startIndex + 7;
+
+  // Get the quotes for the current page
+  const pageQuotes = quotes.slice(startIndex, endIndex);
+
+  // Update the content of the article with the quotes for the current page
   if (quotesArticle) {
-    quotesArticle.content = randomQuotes.map((quote, index) => `${quote}[${index + 1}]`).join('<br>');
+    quotesArticle.content = pageQuotes.map((quote, index) => `
+      <blockquote>
+        ${quote.quote}
+        <cite>${quote.author}</cite>
+      </blockquote>
+    `).join('');
+
+    // Add the refresh button with Font Awesome icon
+    quotesArticle.content += `
+      <a href="/?page=${currentPage + 1}">
+        <i class="fa fa-refresh" aria-hidden="true"></i> Refresh Quotes
+      </a>
+    `;
   }
   
   res.render('index', { 
@@ -82,4 +102,11 @@ router.get('/', function(req, res, next) {
   });
 
 });
+
+// Function to get a random selection of quotes
+function getRandomQuotes(quotes, count) {
+  const shuffled = quotes.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
+
 module.exports = router;
