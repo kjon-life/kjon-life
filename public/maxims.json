@@ -1,16 +1,28 @@
 {
-    "maxims": [    
-    {
-        "maxim":"tres faciunt collegium","translation":"three makes company (an organization)"},
-    {
-        "maxim":"qui causa causans","translation":"the cause that causes"},
-    {
-        "maxim":"ut salutas, ita salutaberis","translation":"as you greet, so you will be greeted"},
-    {
-        "maxim":"ut sementem feceris, ita metes","translation":"as i sow, shall i reap"},
-    {
-        "maxim":"ܘܐܡܪ ܝܫܘܥ ܠܩܢܛܪܘܢܐ ܗܘ ܙܠ ܐܝܟܢܐ ܕܗܝܡܢܬ ܢܗܘܐ ܠܟ ܘܐܬܐܣܝ ܛܠܝܗ ܒܗ ܒܫܥܬܐ","translation":"And Eshu (Yeshua) said unto the Qentruna (the Centurion), Go, in such a way that you have believed, it will be unto you. And his boy was healed at that moment!"},
-    {
-        "maxim":"ventis secundis, tene cursum","translation":"favorable winds, stay the course (get in the Flow and Go)"}
-]
+    "maxims": [
+        {
+            "maxim": "tres faciunt collegium",
+            "translation": "three makes company (an organization)"
+        },
+        {
+            "maxim": "qui causa causans",
+            "translation": "the cause that causes"
+        },
+        {
+            "maxim": "ut salutas, ita salutaberis",
+            "translation": "as you greet, so you will be greeted"
+        },
+        {
+            "maxim": "ut sementem feceris, ita metes",
+            "translation": "as i sow, shall i reap"
+        },
+        {
+            "maxim": "ܘܐܡܪ ܝܫܘܥ ܠܩܢܛܪܘܢܐ ܗܘ ܙܠ ܐܝܟܢܐ ܕܗܝܡܢܬ ܢܗܘܐ ܠܟ ܘܐܬܐܣܝ ܛܠܝܗ ܒܗ ܒܫܥܬܐ",
+            "translation": "And Eshu (Yeshua) said unto the Qentruna (the Centurion), Go, in such a way that you have believed, it will be unto you. And his boy was healed at that moment!"
+        },
+        {
+            "maxim": "ventis secundis, tene cursum",
+            "translation": "favorable winds, stay the course (get in the Flow and Go)"
+        }
+    ]
 }
