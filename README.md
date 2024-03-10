@@ -8,5 +8,6 @@ ___
 - sales
 - revenue operations 
 
-
+## What it looked like
+[screencapture](htdocs/images/20240310_160200_kjonlife.png)
 
