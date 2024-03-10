@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway:wght@300&display=swap");
+/* element selectors */
 body {
   line-height: 1.6;
   letter-spacing: 0.05em;
   overflow-x: hidden;
   font-family: "Raleway", sans-serif;
   font-weight: 300;
+  background-color: whitesmoke;
 }
 
 a {
