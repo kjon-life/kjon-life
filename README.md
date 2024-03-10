@@ -34,4 +34,4 @@ You can read about it [here](https://fly.io/docs/hands-on/).
 
 ## Where we were:
 [](2023-11-05-23-08-50.png)  
-[](2023-11-05-21-59-08.png)  
+![](2023-11-05-21-59-08.png)  
