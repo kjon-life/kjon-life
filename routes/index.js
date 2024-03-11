@@ -3,7 +3,7 @@ var router = express.Router();
 /* source quotes and maxims from TODO link to github quotes */
 const quotesData = require('../public/quotes.json');
 const maxims = require('../public/maxims.json');
-const articles = require('..public/articles.json'); 
+const articles = require('../public/articles.json'); 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
