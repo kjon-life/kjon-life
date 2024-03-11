@@ -72,7 +72,7 @@ router.get('/', function(req, res, next) {
   const currentPage = parseInt(req.query.page) || 1;
 
   // Get the quotes from the quotes.json file
-  const quotes = quotesData.quotes;
+  const quotes = quotesData.quotes || [];
 
   // Calculate the start and end indexes for the current page of quotes
   const startIndex = (currentPage - 1) * 7;
@@ -93,7 +93,7 @@ router.get('/', function(req, res, next) {
     // Add the refresh button with Font Awesome icon
     quotesArticle.content += `
       <a href="/?page=${currentPage + 1}">
-        <i class="fa fa-refresh" aria-hidden="true"></i> Refresh Quotes
+        <i class="fa fa-refresh" aria-hidden="false"></i> Refresh Quotes
       </a>
     `;
   }
