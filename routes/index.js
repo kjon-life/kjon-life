@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
       "id":2,
       "title":"quotes",
       "content":"things other people said (that i love)",
-      "author":"Latin maxims",
+      "author":"as atrributed",
       "photographer":"Zdeněk Macháček",
       "backdropImg":"images/unsplash/zdenek-machacek-yWSJtyCB2R4-unsplash.jpg",
       "frontImg":"images/unsplash/zdenek-machacek-yWSJtyCB2R4-unsplash.jpg",
@@ -38,9 +38,9 @@ router.get('/', function(req, res, next) {
    },
    {
       "id":3,
-      "title":"poems",
+      "title":"lost words for beautiful things",
       "content":"( 雀の涙 : suzume no namida )",
-      "author":"unkown",
+      "author":"unknown",
       "photographer":"Amariei Mihai",
       "backdropImg":"images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg",
       "frontImg":"images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg",
@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
    },
    {
       "id":4,
-      "title":"poems",
+      "title":"when all is",
       "content":"the perfect day",
       "author":"from \"Many Winters\"",
       "photographer":"Leonardo Sanches",
@@ -60,8 +60,8 @@ router.get('/', function(req, res, next) {
    },
    {
       "id":5,
-      "title":"poems",
-      "content":"( 雀の涙 : suzume no namida )",
+      "title":"music",
+      "content":"( add playlist )",
       "author":"XXXXXX",
       "photographer":"k jon",
       "backdropImg":"images/curious-pug-enterprise/curious-pug-dark.png",
@@ -98,7 +98,7 @@ router.get('/', function(req, res, next) {
     // Add the refresh button with Font Awesome icon
     quotesArticle.content += `
     <a href="/?page=${currentPage + 1}">
-      <i class="fa fa-refresh fa-4x" aria-hidden="true"></i>&nbsp; Refresh Quotes
+      <i class="fa fa-refresh fa-4x" aria-hidden="true"></i>Refresh Quotes
     </a>
   `;
   }
