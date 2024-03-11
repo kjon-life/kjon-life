@@ -19,6 +19,7 @@ router.get('/', function(req, res, next) {
       title: 'words', 
       content: '(things i said)',
       author: 'k jon',
+      photographer: 'Brett Jordan',
       backdropImg: 'images/unsplash/brett-jordan-POMpXtcVYHo-unsplash.jpg',
       frontImg: 'images/unsplash/brett-jordan-POMpXtcVYHo-unsplash.jpg',
       photoCreditLink: 'https://unsplash.com/@brett_jordan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
