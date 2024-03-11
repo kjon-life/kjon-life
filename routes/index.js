@@ -104,7 +104,7 @@ router.get('/', function(req, res, next) {
     return shuffled.slice(0, count);
   }
 
-  res.render('index', { articles });
+  res.render('index', { articles, title: 'index'});
 });
 
 module.exports = router;
