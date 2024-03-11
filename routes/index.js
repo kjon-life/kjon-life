@@ -71,17 +71,15 @@ router.get('/', function(req, res, next) {
   // Get the current page number from the query parameters, default to 1
   const currentPage = parseInt(req.query.page) || 1;
 
-  // Convert the quotes object to an array of [key, value] pairs
-  const quotesEntries = Object.entries(quotes);
+  // Convert the quotes object to an array of values
+  const quotesArray = Object.values(quotes);
 
   // Calculate the start and end indexes for the current page of quotes
   const startIndex = (currentPage - 1) * 7;
   const endIndex = startIndex + 7;
 
   // Get the quotes for the current page
-  const pageQuotes = quotesEntries
-    .slice(startIndex, endIndex)
-    .map(([key, value]) => value);
+  const pageQuotes = quotesArray.slice(startIndex, endIndex);
 
   // Update the content of the article with the quotes for the current page
   if (quotesArticle) {
@@ -99,14 +97,6 @@ router.get('/', function(req, res, next) {
       </a>
     `;
   }
-    
-  res.render('index', { 
-    title: 'k jon quotes',
-    description: 'quotes from k jon',
-    articles: articles // pass articles data
-  });
-
-});
 
 // Function to get a random selection of quotes
 function getRandomQuotes(quotes, count) {
