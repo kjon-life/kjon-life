@@ -23,13 +23,14 @@ router.get('/', function(req, res, next) {
   // Filter quotes by authors other than "k jon"
   const otherQuotes = quotes.filter(quote => quote.author !== "k jon");
 
-  // Function to update article content with quotes
-  function updateArticleContent(article, quotes) {
-    const currentPage = parseInt(req.query.page) || 1;
-    const startIndex = (currentPage - 1) * 3;
-    const endIndex = startIndex + 3;
-    const pageQuotes = quotes.slice(startIndex, endIndex);
+// Function to update article content with quotes
+function updateArticleContent(article, quotes) {
+  const currentPage = parseInt(req.query.page) || 1;
+  const startIndex = (currentPage - 1) * 3;
+  const endIndex = startIndex + 3;
+  const pageQuotes = quotes.slice(startIndex, endIndex);
 
+  if (pageQuotes.length > 0) {
     article.content = pageQuotes.map((quote, index) => `
       <blockquote>
         ${quote.quote}
@@ -37,30 +38,41 @@ router.get('/', function(req, res, next) {
       </blockquote>
     `).join('');
 
-    article.content += `
-      <a href="/?page=${currentPage + 1}">
-        <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
-      </a>
-    `;
+    if (endIndex < quotes.length) {
+      article.content += `
+        <a href="/?page=${currentPage + 1}">
+          <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+        </a>
+      `;
+    }
+  } else {
+    const defaultQuote = quotes.find(quote => quote.default);
+    if (defaultQuote) {
+      article.content = `
+        <blockquote>
+          ${defaultQuote.quote}
+          <cite>${defaultQuote.author}</cite>
+        </blockquote>
+      `;
+    } else {
+      article.content = `
+        <p>No more quotes available.</p>
+      `;
+    }
   }
+}
 
-  // Update article 1 with quotes by "k jon"
-  const article1 = articles.find(article => article.id === 1);
-  if (article1) {
-    updateArticleContent(article1, jjQuotes);
-  }
+// Update article 1 with quotes by "k jon"
+const article1 = articles.find(article => article.id === 1);
+if (article1) {
+  updateArticleContent(article1, jjQuotes);
+}
 
-  // Update article 2 with quotes by authors other than "k jon"
-  const article2 = articles.find(article => article.id === 2);
-  if (article2) {
-    updateArticleContent(article2, otherQuotes);
-  }
-
-  // Function to get a random selection of quotes
-  function getRandomQuotes(quotes, count) {
-    const shuffled = quotes.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-  }
+// Update article 2 with quotes by authors other than "k jon"
+const article2 = articles.find(article => article.id === 2);
+if (article2) {
+  updateArticleContent(article2, otherQuotes);
+}
 
   res.render('index', { articles, title, description });
 });

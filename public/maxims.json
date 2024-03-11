@@ -18,7 +18,8 @@
         },
         {
             "maxim": "ܘܐܡܪ ܝܫܘܥ ܠܩܢܛܪܘܢܐ ܗܘ ܙܠ ܐܝܟܢܐ ܕܗܝܡܢܬ ܢܗܘܐ ܠܟ ܘܐܬܐܣܝ ܛܠܝܗ ܒܗ ܒܫܥܬܐ",
-            "translation": "And Eshu (Yeshua) said unto the Qentruna (the Centurion), Go, in such a way that you have believed, it will be unto you. And his boy was healed at that moment!"
+            "translation": "And Eshu (Yeshua) said unto the Qentruna (the Centurion), Go, in such a way that you have believed, it will be unto you. And his boy was healed at that moment!",
+            "default": true
         },
         {
             "maxim": "ventis secundis, tene cursum",
