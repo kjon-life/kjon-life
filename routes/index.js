@@ -79,8 +79,8 @@ router.get('/', function(req, res, next) {
   const quotes = quotesData.quotes || [];
 
   // Calculate the start and end indexes for the current page of quotes
-  const startIndex = (currentPage - 1) * 7;
-  const endIndex = startIndex + 7;
+  const startIndex = (currentPage - 1) * 3;
+  const endIndex = startIndex + 3;
 
   // Get the quotes for the current page
   const pageQuotes = quotes.slice(startIndex, endIndex);
