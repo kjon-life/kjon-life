@@ -5,6 +5,10 @@
 
 app = 'kjon-life'
 primary_region = 'iad'
+kill_signal = "SIGTERM"
+kill_timeout = 30
+swap_size_mb = 512
+
 
 [build]
 
