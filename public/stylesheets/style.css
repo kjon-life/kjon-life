@@ -9,6 +9,9 @@ body {
   letter-spacing: 0.05em;
   overflow-x: hidden;
   font-weight: 300;
+  /* prevent the content being covered by the header */
+  padding-top: 600px; /* Adjust the value based on the height of your header */
+
 }
 
 .container {
@@ -39,24 +42,42 @@ h2 {
   line-height: 1;
   margin: 1em 0;
 }
+
 /* navigation */
 header {
-  margin: 100px 0 -500px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Adjust the background color as needed */
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  z-index: 999; /* Ensure the header appears above other elements */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 header img {
   max-width: 10%;
   height: auto;
   margin: 20px auto 0;
 }
+
 header ul {
   list-style-type: none;
   display: flex;
+  margin: 0;
+  padding: 0;
 }
+
 header ul li:not(:last-child) {
   margin-right: 2em;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: #333; /* Adjust the link color as needed */
 }
 
 .wrapper {
