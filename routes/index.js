@@ -96,10 +96,10 @@ router.get('/', function(req, res, next) {
 
     // Add the refresh button with Font Awesome icon
     quotesArticle.content += `
-      <a href="/?page=${currentPage + 1}">
-        <i class="fa fa-whatsapp fa-4x" aria-hidden="true"></i>&nbsp;Refresh Quotes
-      </a>
-    `;
+    <a href="/?page=${currentPage + 1}">
+      <i class="fa fa-refresh fa-4x" aria-hidden="true">Refresh Quotes in i - </i>&nbsp; Refresh Quotes
+    </a>
+  `;
   }
 
   // Function to get a random selection of quotes
