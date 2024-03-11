@@ -19,10 +19,9 @@
           
           <div class="info">
             <h2><%= article.title %></h2>
-            <h3><%= article.subtitle %></h3>
             
-            <%- article.content %>
-            
+            <p><%- article.content %></p>
+            <cite><%- article.author %></cite>
             <p>
               Photo by 
               <a href="<%= article.photoCreditLink %>">
