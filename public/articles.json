@@ -23,8 +23,15 @@
     },
     {
       "id": 3,
-      "title": "lost words for beautiful things",
-      "content": "( 雀の涙 : suzume no namida )",
+      "title": "a \"sparrow's tear\"",
+      "content": [
+        "( 雀の涙 : suzume no namida )",
+        "my Buddha in Hell",
+        "birds have to fly away",
+        "live transparently in a good day",
+        "looking for and finding lost words for beautiful things",
+        "and to die alive"
+      ],
       "author": "unknown",
       "photographer": "Amariei Mihai",
       "backdropImg": "images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg",
@@ -34,8 +41,20 @@
     },
     {
       "id": 4,
-      "title": "when all is",
-      "content": "the perfect day",
+      "title": "the perfect day",
+      "content": [
+      "Today is the perfect day to die.",
+      "All living is in tune with me.",
+      "All voices sing in me.",
+      "All beauty has come to rest in my eyes.",
+      "Any bad thoughts left me.",
+      "Today is the perfect day to die.",
+      "My land is quietly surrounding me.",
+      "My field is no longer tilled.",
+      "My house is full of laughter.",
+      "The children have returned home.",
+      "Yes, today is a perfect day to die"
+      ],
       "author": "from \"Many Winters\"",
       "photographer": "Leonardo Sanches",
       "backdropImg": "images/unsplash/leonardo-sanches-1nCYl1wBhv4-unsplash.jpg",
@@ -46,7 +65,7 @@
     {
       "id": 5,
       "title": "music",
-      "content": "( add playlist )",
+      "content": "bandcamp",
       "author": "XXXXXX",
       "photographer": "k jon",
       "backdropImg": "images/curious-pug-enterprise/curious-pug-dark.png",

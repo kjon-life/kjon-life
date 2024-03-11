@@ -22,9 +22,17 @@
             <p><cite><%- article.author %></cite></p>
             
             <div class="box">
-              <%- article.content %>
+              <% if (article.id === 5) { %>
+                <%- include('partials/bandcamp') %>
+              <% } else if (Array.isArray(article.content)) { %>
+                <% article.content.forEach(line => { %>
+                  <p><%= line %></p>
+                <% }) %>
+              <% } else { %>
+                <%- article.content %>
+              <% } %>
             </div>
-            
+
             <p>
               Photo by 
               <a href="<%= article.photoCreditLink %>">
