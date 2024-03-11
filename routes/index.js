@@ -71,36 +71,46 @@ router.get('/', function(req, res, next) {
    }
   ];
 
-  const quotesArticle = articles.find(article => article.id === 2);
-
-  // Get the current page number from the query parameters, default to 1
-  const currentPage = parseInt(req.query.page) || 1;
-
   // Get the quotes from the quotes.json file
   const quotes = quotesData.quotes || [];
 
-  // Calculate the start and end indexes for the current page of quotes
-  const startIndex = (currentPage - 1) * 3;
-  const endIndex = startIndex + 3;
+  // Filter quotes by author "k jon"
+  const jjQuotes = quotes.filter(quote => quote.author === "k jon");
 
-  // Get the quotes for the current page
-  const pageQuotes = quotes.slice(startIndex, endIndex);
+  // Filter quotes by authors other than "k jon"
+  const otherQuotes = quotes.filter(quote => quote.author !== "k jon");
 
-  // Update the content of the article with the quotes for the current page
-  if (quotesArticle) {
-    quotesArticle.content = pageQuotes.map((quote, index) => `
+  // Function to update article content with quotes
+  function updateArticleContent(article, quotes) {
+    const currentPage = parseInt(req.query.page) || 1;
+    const startIndex = (currentPage - 1) * 3;
+    const endIndex = startIndex + 3;
+    const pageQuotes = quotes.slice(startIndex, endIndex);
+
+    article.content = pageQuotes.map((quote, index) => `
       <blockquote>
         ${quote.quote}
         <cite>${quote.author}</cite>
       </blockquote>
     `).join('');
 
-    // Add the refresh button with Font Awesome icon
-    quotesArticle.content += `
-    <a href="/?page=${currentPage + 1}">
-      <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>Refresh Quotes
-    </a>
-  `;
+    article.content += `
+      <a href="/?page=${currentPage + 1}">
+        <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+      </a>
+    `;
+  }
+
+  // Update article 1 with quotes by "k jon"
+  const article1 = articles.find(article => article.id === 1);
+  if (article1) {
+    updateArticleContent(article1, jjQuotes);
+  }
+
+  // Update article 2 with quotes by authors other than "k jon"
+  const article2 = articles.find(article => article.id === 2);
+  if (article2) {
+    updateArticleContent(article2, otherQuotes);
   }
 
   // Function to get a random selection of quotes
