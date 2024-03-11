@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 /* source quotes and maxims from TODO link to github quotes */
-const quotes = require('../public/quotes.json');
+const quotesData = require('../public/quotes.json');
 const maxims = require('../public/maxims.json');
 /* const articles = require('../articles.json'); */
 
@@ -93,7 +93,7 @@ router.get('/', function(req, res, next) {
     // Add the refresh button with Font Awesome icon
     quotesArticle.content += `
       <a href="/?page=${currentPage + 1}">
-        <i class="fa fa-refresh" aria-hidden="false"></i> Refresh Quotes
+        <i class="fa fa-refresh" aria-hidden="true"></i> Refresh Quotes
       </a>
     `;
   }
