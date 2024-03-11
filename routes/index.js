@@ -3,7 +3,7 @@ var router = express.Router();
 /* source quotes and maxims from TODO link to github quotes */
 const quotesData = require('../public/quotes.json');
 const maxims = require('../public/maxims.json');
-/* const articles = require('../articles.json'); */
+const articles = require('..public/articles.json'); 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -12,64 +12,7 @@ router.get('/', function(req, res, next) {
   const description = req.body.description || '';
   
 
-  // Sample article data
-  const articles = [
-    {
-      "id":1,
-      "title":"words",
-      "content":"(things i said)",
-      "author":"k jon",
-      "photographer":"Brett Jordan",
-      "backdropImg":"images/unsplash/brett-jordan-POMpXtcVYHo-unsplash.jpg",
-      "frontImg":"images/unsplash/brett-jordan-POMpXtcVYHo-unsplash.jpg",
-      "photoCreditLink":"https://unsplash.com/@brett_jordan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
-      "photoPageLink":"https://unsplash.com/photos/POMpXtcVYHo"
-   },
-   {
-      "id":2,
-      "title":"quotes",
-      "content":"things other people said (that i love)",
-      "author":"as atrributed",
-      "photographer":"Zdeněk Macháček",
-      "backdropImg":"images/unsplash/zdenek-machacek-yWSJtyCB2R4-unsplash.jpg",
-      "frontImg":"images/unsplash/zdenek-machacek-yWSJtyCB2R4-unsplash.jpg",
-      "photoCreditLink":"https://unsplash.com/@zmachacek?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
-      "photoPageLink":"https://unsplash.com/photos/yWSJtyCB2R4"
-   },
-   {
-      "id":3,
-      "title":"lost words for beautiful things",
-      "content":"( 雀の涙 : suzume no namida )",
-      "author":"unknown",
-      "photographer":"Amariei Mihai",
-      "backdropImg":"images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg",
-      "frontImg":"images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg",
-      "photoCreditLink":"https://unsplash.com/@mex_face_poze?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
-      "photoPageLink":"https://unsplash.com/photos/IccZ_e4Tci0"
-   },
-   {
-      "id":4,
-      "title":"when all is",
-      "content":"the perfect day",
-      "author":"from \"Many Winters\"",
-      "photographer":"Leonardo Sanches",
-      "backdropImg":"images/unsplash/leonardo-sanches-1nCYl1wBhv4-unsplash.jpg",
-      "frontImg":"images/unsplash/leonardo-sanches-1nCYl1wBhv4-unsplash.jpg",
-      "photoCreditLink":"https://unsplash.com/ja/@lesanches?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
-      "photoPageLink":"https://unsplash.com/photos/1nCYl1wBhv4"
-   },
-   {
-      "id":5,
-      "title":"music",
-      "content":"( add playlist )",
-      "author":"XXXXXX",
-      "photographer":"k jon",
-      "backdropImg":"images/curious-pug-enterprise/curious-pug-dark.png",
-      "frontImg":"images/curious-pug-enterprise/curious-pug-dark.png",
-      "photoCreditLink":"",
-      "photoPageLink":""
-   }
-  ];
+
 
   // Get the quotes from the quotes.json file
   const quotes = quotesData.quotes || [];
