@@ -8,6 +8,10 @@ const maxims = require('../public/maxims.json');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
+  const title = req.body.title  || '';
+  const description = req.body.description || '';
+  
+
   // Sample article data
   const articles = [
     {
@@ -104,7 +108,7 @@ router.get('/', function(req, res, next) {
     return shuffled.slice(0, count);
   }
 
-  res.render('index', { articles, title: 'index'});
+  res.render('index', { articles, title, description });
 });
 
 module.exports = router;
