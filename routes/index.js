@@ -61,7 +61,7 @@ router.get('/', function(req, res, next) {
       } else {
         article.content = `
           <div class="box">
-            <p>No more quotes available.</p>
+            <p>let silence open your ears to the song in your heart...</p>
           </div>
         `;
       }
