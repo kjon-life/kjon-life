@@ -20,17 +20,12 @@ body {
 .wrapper {
   width: 100%;
   background-color: #E9E7E8;
-  max-width: 2613px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 /* consider eliminating these
 .container {
@@ -123,7 +118,6 @@ article {
   flex-direction: column;
   position: relative;
   clear: both; /* fully display the articles */
-
 }
 
 article picture.backdrop {
