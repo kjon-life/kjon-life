@@ -7,46 +7,46 @@
     
     <div class="wrapper">
   
-    <% articles.forEach(article => { %>
-      <article id="<%= article.id %>">
-        <picture class="backdrop">
-          <img src="<%= article.backdropImg %>">
-        </picture>
-  
-        <div class="front">
-          <div class="info-backdrop"></div>
-          <img src="<%= article.frontImg %>">
-          
-          <div class="info">
-            <h2><%= article.title %></h2>
-            <p><cite><%- article.author %></cite></p>
+      <% articles.forEach(article => { %>
+        <article id="<%= article.id %>">
+          <picture class="backdrop">
+            <img src="<%= article.backdropImg %>">
+          </picture>
+    
+          <div class="front">
+            <div class="info-backdrop"></div>
+            <img src="<%= article.frontImg %>">
             
-            <div class="box">
-              <% if (article.id === 5) { %>
-                <%- include('partials/bandcamp') %>
-              <% } else if (Array.isArray(article.content)) { %>
-                <% article.content.forEach(line => { %>
-                  <p><%= line %></p>
-                <% }) %>
-              <% } else { %>
-                <%- article.content %>
-              <% } %>
+            <div class="info">
+              <h2><%= article.title %></h2>
+              <p><cite><%- article.author %></cite></p>
+              
+              
+              <p>
+                Photo by 
+                <a href="<%= article.photoCreditLink %>">
+                  <%= article.photographer %>
+                </a> 
+                on 
+                <a href="<%= article.photoPageLink %>">
+                  Unsplash
+                </a>
+              </p>
             </div>
-
-            <p>
-              Photo by 
-              <a href="<%= article.photoCreditLink %>">
-                <%= article.photographer %>
-              </a> 
-              on 
-              <a href="<%= article.photoPageLink %>">
-                Unsplash
-              </a>
-            </p>
           </div>
-        </div>
-      </article>
-    <% }) %>
+          <div class="box">
+            <% if (article.id === 5) { %>
+              <%- include('partials/bandcamp') %>
+            <% } else if (Array.isArray(article.content)) { %>
+              <% article.content.forEach(line => { %>
+                <p><%= line %></p>
+              <% }) %>
+            <% } else { %>
+              <%- article.content %>
+            <% } %>
+          </div>
+        </article>
+      <% }) %>
   
     </div>
   
