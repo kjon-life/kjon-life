@@ -95,7 +95,6 @@ article {
   flex-direction: column;
   position: relative;
   clear: both; /* should clear floats from the boxes */
-  overflow: auto; /* or overflow: hidden; */
 
 }
 
