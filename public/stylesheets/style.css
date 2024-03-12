@@ -8,7 +8,7 @@ body {
   padding: 0;
   line-height: 1.6;
   letter-spacing: 0.05em;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   font-weight: 300;
   /* prevent the content being covered by the header */
   padding-top: 33px; /* Adjust the value based on the height of your header */
@@ -193,4 +193,6 @@ footer {
   padding: 5px;
   background-color: #150050;
   color: #c88304;
+  z-index: 999; 
 }
+
