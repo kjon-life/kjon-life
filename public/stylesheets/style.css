@@ -1,26 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway:wght@300&display=swap");
 
-/* element selectors */
+/* global */
 body {
   font-family: "Raleway", sans-serif;
   background-color: whitesmoke;
-  margin: 0;  padding: 0;
+  margin: 0;
+  padding: 0;
   line-height: 1.6;
   letter-spacing: 0.05em;
   overflow-x: hidden;
   font-weight: 300;
   /* prevent the content being covered by the header */
   padding-top: 33px; /* Adjust the value based on the height of your header */
-
 }
 
+/* element selectors */
+
+/* class selectors */
 .container {
   max-width: 2613px;
   margin: 0 auto;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .box {
+  border: 1px solid #582707;
   background-color: white;
   padding: 20px;
   margin-bottom: 20px;
@@ -77,22 +86,27 @@ header ul li:not(:last-child) {
 
 header ul li a {
   text-decoration: none;
-  color: ##C88304; /* Adjust the link color as needed */
+  color: #C88304; /* Adjust the link color as needed */
 }
 
 .wrapper {
   width: 100%;
   background-color: #E9E7E8;
 }
+
 /* articles, images, and the like */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
 article {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  margin-top: 600px;
 }
-article:last-child {
-  margin-bottom: 800px;
-}
+
 article picture.backdrop {
   position: absolute;
   width: 100%;
@@ -100,19 +114,19 @@ article picture.backdrop {
   left: 0;
   top: 0;
 }
+
 article picture.backdrop img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-      object-fit: cover;
-  -o-object-position: bottom;
-      object-position: bottom;
+  object-fit: cover;
+  object-position: bottom;
   filter: blur(90px) brightness(95%) contrast(70%);
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) scaleX(1.5) scaleY(1.14);
 }
+
 article .front {
   position: relative;
   max-width: 800px;
@@ -122,7 +136,9 @@ article .front {
   box-sizing: border-box;
   padding: 20px;
   perspective: 800px;
+  flex-grow: 1;
 }
+
 article .front::after {
   position: absolute;
   content: "";
@@ -134,6 +150,7 @@ article .front::after {
   background-color: black;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
+
 article .front img {
   margin-top: 160px;
   height: auto;
@@ -141,6 +158,7 @@ article .front img {
   box-shadow: 0 -60px 80px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.5);
   position: relative;
 }
+
 article .front .info-backdrop {
   position: absolute;
   left: 50%;
@@ -150,6 +168,7 @@ article .front .info-backdrop {
   background-color: rgba(255, 255, 255, 0.4);
   transform: translate(-50%, calc(100% - 60px));
 }
+
 article .front .info {
   position: absolute;
   left: 0;
@@ -157,19 +176,24 @@ article .front .info {
   width: 100%;
   transform: translateY(100%);
 }
+
 /* playing with nth-child rotations */
 article:nth-child(even) .front::after {
   transform: translateY(-20px) rotatey(-10deg);
 }
+
 article:nth-child(even) .front img {
   transform: rotatey(-10deg);
 }
+
 article:nth-child(odd) .front::after {
   transform: translateY(-15px) rotatey(10deg);
 }
+
 article:nth-child(odd) .front img {
   transform: rotatey(10deg);
 }
+
 /* put the footer in it's own space */
 footer {
   display: flex;
