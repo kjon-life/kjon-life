@@ -26,29 +26,7 @@ body {
   align-items: center;
   min-height: 100vh;
 }
-/* consider eliminating these
-.container {
-  max-width: 2613px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
 
-.wrapper {
-  width: 100%;
-  background-color: #E9E7E8;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
-}
-*/
 .box {
   border: 1px solid #582707;
   background-color: white;
@@ -116,7 +94,9 @@ article {
   display: flex;
   flex-direction: column;
   position: relative;
-  clear: both; /* fully display the articles */
+  clear: both; /* should clear floats from the boxes */
+  overflow: auto; /* or overflow: hidden; */
+
 }
 
 article picture.backdrop {
