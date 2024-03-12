@@ -17,6 +17,22 @@ body {
 /* element selectors */
 
 /* class selectors */
+.wrapper {
+  width: 100%;
+  background-color: #E9E7E8;
+  max-width: 2613px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+/* consider eliminating these
 .container {
   max-width: 2613px;
   margin: 0 auto;
@@ -28,6 +44,17 @@ body {
   min-height: 100vh;
 }
 
+.wrapper {
+  width: 100%;
+  background-color: #E9E7E8;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+*/
 .box {
   border: 1px solid #582707;
   background-color: white;
@@ -89,17 +116,7 @@ header ul li a {
   color: #C88304; /* Adjust the link color as needed */
 }
 
-.wrapper {
-  width: 100%;
-  background-color: #E9E7E8;
-}
-
 /* articles, images, and the like */
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
-}
 
 article {
   display: flex;
