@@ -19,6 +19,17 @@
             
             <div class="info">
               <h2><%= article.title %></h2>
+              <div class="box">
+                <% if (article.id === 5) { %>
+                  <%- include('partials/bandcamp') %>
+                <% } else if (Array.isArray(article.content)) { %>
+                  <% article.content.forEach(line => { %>
+                    <p><%= line %></p>
+                  <% }) %>
+                <% } else { %>
+                  <%- article.content %>
+                <% } %>
+              </div>
               <p><cite><%- article.author %></cite></p>
               
               
@@ -33,17 +44,6 @@
                 </a>
               </p>
             </div>
-          </div>
-          <div class="box">
-            <% if (article.id === 5) { %>
-              <%- include('partials/bandcamp') %>
-            <% } else if (Array.isArray(article.content)) { %>
-              <% article.content.forEach(line => { %>
-                <p><%= line %></p>
-              <% }) %>
-            <% } else { %>
-              <%- article.content %>
-            <% } %>
           </div>
         </article>
       <% }) %>
