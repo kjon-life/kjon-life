@@ -122,6 +122,8 @@ article {
   display: flex;
   flex-direction: column;
   position: relative;
+  clear: both; /* fully display the articles */
+
 }
 
 article picture.backdrop {
