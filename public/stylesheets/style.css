@@ -20,9 +20,8 @@ body {
 .wrapper {
   width: 100%;
   background-color: #E9E7E8;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
