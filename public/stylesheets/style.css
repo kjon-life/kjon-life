@@ -196,6 +196,9 @@ footer {
   padding: 5px;
   background-color: #150050;
   color: #c88304;
-  z-index: 999; 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
