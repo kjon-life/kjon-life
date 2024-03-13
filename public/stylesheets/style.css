@@ -12,6 +12,9 @@ body {
   font-weight: 300;
   /* prevent the content being covered by the header */
   padding-top: 33px; /* Adjust the value based on the height of your header */
+  /* create space for the footer */
+  padding-bottom: 60px; /* Adjust the value based on the height of your footer */
+
 }
 
 /* element selectors */
@@ -24,7 +27,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  /* min-height: 100vh; wrapper to have a minimum height equal to the viewport height, regardless of the content inside it. */
   position: relative;
 }
 
