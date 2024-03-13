@@ -6,9 +6,6 @@ body {
   background-color: whitesmoke;
   margin: 0;
   padding: 0;
-  /* body element is a flex container */
-  display: flex;
-  flex-direction: column;
   line-height: 1.6;
   letter-spacing: 0.05em;
   /* overflow-x: hidden; */
@@ -17,7 +14,7 @@ body {
   padding-top: 33px; /* Adjust the value based on the height of your header */
   /* create space for the footer */
   padding-bottom: 60px; /* Adjust the value based on the height of your footer */
-
+  height: 100%;
 }
 
 /* element selectors */
@@ -26,11 +23,12 @@ body {
 .wrapper {
   width: 100%;
   background-color: #E9E7E8;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  min-height: 100vh;
   align-items: center;
-  height: 100%;
-  min-height: 100vh; /* wrapper to have a minimum height equal to the viewport height, regardless of the content inside it. */
-  flex: 1 auto;
+  position: relative;
 }
 
 .box {
@@ -68,6 +66,8 @@ header {
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
   z-index: 999; /* Ensure the header appears above other elements */
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -79,6 +79,7 @@ header img {
 
 header ul {
   list-style-type: none;
+  display: flex;
   margin: 0;
   padding: 0;
 }
@@ -95,7 +96,10 @@ header ul li a {
 /* articles, images, and the like */
 
 article {
+  display: flex;
+  flex-direction: column;
   position: relative;
+  flex-grow: 1;
 }
 
 article picture.backdrop {
@@ -187,10 +191,11 @@ article:nth-child(odd) .front img {
 
 /* put the footer in it's own space */
 footer {
+  display: flex;
   justify-content: center;
-  background-color: #150050;
   padding: 5px;
+  background-color: #150050;
   color: #c88304;
-  position: relative;
+  bottom: 0;
 }
 
