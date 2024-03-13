@@ -11,10 +11,13 @@ ___
 ___
 
 ## Where we are:
-* Deployed the app on https://hellok.fly.dev/  
+* Deployed the app on https://kjon-life.fly.dev/  
+
 ![](2023-11-06-00-36-15.png)  
+
 ### What we're doing  
 Fly.io is a simple Docker image built with Go.
+
 ### Specifically:
 * The app code is a simple Go web server 
 * The app is containerized into a Docker image called `hellok` 
