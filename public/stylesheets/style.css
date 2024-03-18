@@ -202,6 +202,8 @@ footer {
   padding: 5px;
   background-color: #150050;
   color: #c88304;
-  bottom: 0;
+  position: fixed;
+  bottom: 20px;
+  z-index: 999;
 }
 
