@@ -6,8 +6,8 @@ body {
   font-weight: 300;
   line-height: 1.6;
   letter-spacing: 0.05em;
-  /* overflow-x: hidden; */
-  background-color: whitesmoke;
+  overflow-x: hidden;
+  /* background-color: whitesmoke; */
 }
 
 /* class selectors */
