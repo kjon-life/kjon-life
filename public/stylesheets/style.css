@@ -14,6 +14,9 @@ body {
 .wrapper {
   width: 100%;
   background-color: #E9E7E8;
+  position: absolute;
+  gap: 20px; /* Adds 20 pixels of space between flex items */
+
 }
 
 .box {
@@ -103,9 +106,9 @@ header {
 article {
   display: flex;
   flex-direction: column;
-  position: relative;
-  margin-top: 88vh;
-  // border: 12px solid red;
+  position: absolute;
+  margin-top: auto;
+  /* border: 12px solid red; */
 
   &:last-child {
     margin-bottom: 88vh;
