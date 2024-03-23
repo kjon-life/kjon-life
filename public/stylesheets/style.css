@@ -59,7 +59,7 @@ header {
   align-items: center;
   
   img {
-    max-width: 30vw;
+    max-width: 300px;
     height: auto;
     margin: 20px auto 0;
     padding: 1em;
