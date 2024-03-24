@@ -1,19 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway:wght@300&display=swap");
 
-/* global */
 body {
-  font-family: "Raleway", sans-serif;
-  font-weight: 300;
   line-height: 1.6;
   letter-spacing: 0.05em;
   overflow-x: hidden;
-  /* background-color: whitesmoke; */
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
 }
 
-/* class selectors */
 .wrapper {
   width: 100%;
-  background-color: #E9E7E8;
+  background-color: white;
   position: relative;
 }
 
@@ -26,8 +23,6 @@ body {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   height: auto;
 }
-
-
 
 /* element selectors */
 h1,
@@ -47,7 +42,7 @@ a {
 
 /* navigation */
 header {
-  position: fixed;
+  // position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -99,13 +94,11 @@ header {
 }
 
 
-/* article selector */
-
 article {
   width: 100%;
-  position: absolute;
-  margin-top: auto;
-  /* border: 12px solid red; */
+  position: relative;
+  margin-top: 88vh;
+  // border: 12px solid red;
 
   &:last-child {
     margin-bottom: 88vh;
@@ -113,7 +106,7 @@ article {
 
   picture.backdrop {
     position: absolute;
-    width: 87%;
+    width: 100%;
     height: 99%;
     left: 0;
     top: 0;
@@ -179,7 +172,6 @@ article {
       transform: translateY(100%);
     }
   }
-  /* pseudo-classes for article to play w rotation, scaling, skewing*/
 
   &:nth-child(even) {
     .front {
@@ -205,7 +197,6 @@ article {
     }
   }
 }
-
 
 /* put the footer in it's own space */
 footer {
