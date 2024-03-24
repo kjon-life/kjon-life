@@ -40,7 +40,8 @@ a {
   color: #C88304;
 }
 
-/* navigation */
+/* navigation 
+   older iOS won't render nested CSS*/
 header {
   position: fixed;
   top: 0;
