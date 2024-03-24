@@ -14,9 +14,7 @@ body {
 .wrapper {
   width: 100%;
   background-color: #E9E7E8;
-  position: absolute;
-  gap: 20px; /* Adds 20 pixels of space between flex items */
-
+  position: relative;
 }
 
 .box {
@@ -62,9 +60,9 @@ header {
   align-items: center;
   
   img {
-    max-width: 300px;
+    max-width: 50%;
     height: auto;
-    margin: 20px auto 0;
+    margin: 40px auto 0;
     padding: 1em;
   }
   
@@ -81,20 +79,20 @@ header {
 
       a {
         text-decoration: none;
-        color: #C88304; /* Adjust the link color as needed */
+        color: #C88304; /* link color */
       }
 
       &:hover {
-        color: #A66B03; /* Change the color on hover */
-        text-decoration: underline; /* Add an underline on hover */
+        color: #3F0071; /* link color on hover */
+        text-decoration: underline; /* underline on hover */
       }
 
       &:visited {
-        color: #8E5A02; /* Change the color for visited links */
+        color: #582707; /* visited link color */
       }
 
       &:active {
-        color: #7D4E01; /* Change the color for active links */
+        color: #F5F3F5; /* active link color */
       }
     }
   }
@@ -104,8 +102,7 @@ header {
 /* article selector */
 
 article {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
   position: absolute;
   margin-top: auto;
   /* border: 12px solid red; */
@@ -115,15 +112,15 @@ article {
   }
 
   picture.backdrop {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 87%;
+    height: 99%;
     left: 0;
     top: 0;
 
     img {
       width: 100%;
-      height: 100%;
+      height: 88%;
       object-fit: cover;
       object-position: bottom;
       filter: blur(90px) brightness(95%) contrast(70%);
@@ -142,7 +139,7 @@ article {
     transform: translateY(70px);
     box-sizing: border-box;
     padding: 20px;
-    perspective: 800px;
+    perspective: 100vh;
 
     &::after {
       position: absolute;
