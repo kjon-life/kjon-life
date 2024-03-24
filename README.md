@@ -4,7 +4,11 @@
 
 <div style="display:flex; align-items:flex-start;">
   <div>
-    I'm a solutions consultant in startup to enterprise SaaS pre-sales, an avocational product manager, and management consultant experienced in transformation. I love conversations that lead to clarity of action, improved quality, and more joy.
+    I'm a solutions consultant in startup to enterprise SaaS pre-sales, 
+    an avocational product manager, 
+    and management consultant experienced in transformation. 
+    I love conversations that lead to clarity of action, 
+    improved quality, and more joy.
     <ul>
       <li>👀 curious: human process & performance</li>
       <li>🌱 interested: python, rust</li>
@@ -15,15 +19,17 @@
 </div>
 
 
-# kjon life &middot; 
-[![Fly Deploy](https://github.com/kjon-life/kjon-life/actions/workflows/fly.yml/badge.svg)](https://github.com/kjon-life/kjon-life/actions/workflows/fly.yml) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/kjon-life/kjon-life) ![GitHub License](https://img.shields.io/github/license/kjon-life/kjon-life)
+# kjon &middot; life  
+[![Fly Deploy](https://github.com/kjon-life/kjon-life/actions/workflows/fly.yml/badge.svg)](https://github.com/kjon-life/kjon-life/actions/workflows/fly.yml) 
+ ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/kjon-life/kjon-life) 
+ ![GitHub License](https://img.shields.io/github/license/kjon-life/kjon-life)
  ![GitHub top language](https://img.shields.io/github/languages/top/kjon-life/kjon-life)
  ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fkjon.life) 
  
-
-
-
-This project is an avocational exploration of web development.  
+This is a project that feeds my developer portfoio. To connect:  
+- Mention me in an issue or pull request: @kjon-life  
+- My friends connect on [Instagram: @kilo.jon](https://www.instagram.com/kilo.jon/)   
+- [LinkedIn](https://www.linkedin.com/in/jonhwilliams) works as well.
 
 
 ### Project Overview:
@@ -44,7 +50,9 @@ This project is an avocational exploration of web development.
 You can read about it [here](https://fly.io/docs/hands-on/).
 
 ### History:  
+### Serverless Hosted JS & EJS
 [March 23, 2024](2024-03-23-20-42-51.png)  
+### Static Site 
 [November 5, 2023](2023-11-06-00-36-15.png)  
 [November 5, 2023](2023-11-05-23-08-50.png)  
 [November 5, 2023](2023-11-05-21-59-08.png)  
