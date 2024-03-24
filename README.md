@@ -1,40 +1,57 @@
 
-- 👀 curious: human process & performance
-- 🌱 interested: python, rust
-- 💞️ collaborating: systems that work to create delightful experiences  
-___
-![A Maia](https://user-images.githubusercontent.com/76539355/214731371-78cb7bcb-996d-4108-9872-7af758ed5647.png)   
-- solutions engineering
-- sales
-- revenue operations 
 
-___
+# Hello! Should we talk?
 
-## Where we are:
-* Deployed the app on https://kjon-life.fly.dev/  
+<div style="display:flex; align-items:flex-start;">
+  <div>
+    I'm a solutions consultant in startup to enterprise SaaS pre-sales, an avocational product manager, and management consultant experienced in transformation. I love conversations that lead to clarity of action, improved quality, and more joy.
+    <ul>
+      <li>👀 curious: human process & performance</li>
+      <li>🌱 interested: python, rust</li>
+      <li>💞️ collaborating: systems that work to create delightful experiences</li>
+    </ul>
+  </div>
+  <img src="https://user-images.githubusercontent.com/76539355/214731371-78cb7bcb-996d-4108-9872-7af758ed5647.png" alt="A Maia" style="margin-left:1rem;">
+</div>
 
-![](2023-11-06-00-36-15.png)  
 
-### What we're doing  
-Fly.io is a simple Docker image built with Go.
+# kjon life &middot; 
+[![Fly Deploy](https://github.com/kjon-life/kjon-life/actions/workflows/fly.yml/badge.svg)](https://github.com/kjon-life/kjon-life/actions/workflows/fly.yml) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/kjon-life/kjon-life) ![GitHub License](https://img.shields.io/github/license/kjon-life/kjon-life)
+ ![GitHub top language](https://img.shields.io/github/languages/top/kjon-life/kjon-life)
+ ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fkjon.life) 
+ 
 
-### Specifically:
-* The app code is a simple Go web server 
-* The app is containerized into a Docker image called `hellok` 
+
+
+This project is an avocational exploration of web development.  
+
+
+### Project Overview:
+* App code is a simple Go web server 
+* The app is containerized into a Docker image called `kjon-life` 
 * The Dockerfile uses a Go builder image to compile the app code and copies the binary into a minimal final image
-* The app listens on port 8080 by default
-* The app is deployed using flyctl which generates a fly.toml config file
-* flyctl handles building the Docker image and deploying it to Fly's infrastructure
+* The app can be manually deployed using flyctl from the fly.toml config file
+* GitHub Actions deploys main to dev automatically
 
-### So in summary, the tech stack is:
+### Tech stack:
 * Go - for the app code
 * Docker - for containerization
-* flyctl - for deployment
+* flyctl - for manual deployment
+* GitHub Actions - for CI/CD
 * Fly.io - for the serverless hosting platform
 
 ```flyctl``` is a CLI tool from [Fly.io](http://fly.io)
 You can read about it [here](https://fly.io/docs/hands-on/).
 
-## Where we were:
-[](2023-11-05-23-08-50.png)  
-![](2023-11-05-21-59-08.png)  
+### History:  
+[March 23, 2024](2024-03-23-20-42-51.png)  
+[November 5, 2023](2023-11-06-00-36-15.png)  
+[November 5, 2023](2023-11-05-23-08-50.png)  
+[November 5, 2023](2023-11-05-21-59-08.png)  
+
+### Acknowledgements:
+
+This project [depends](https://github.com/kjon-life/kjon-life/network/dependencies) on the copious contributions of others and is possible because of the following services:
+
+- [Porkbun](https://porkbun.com/) - Domain registration and DNS management
+- [Fly.io](https://fly.io/) - Application hosting platform
