@@ -40,8 +40,8 @@ a {
   color: #C88304;
 }
 
-/* navigation 
-   older iOS won't render nested CSS*/
+/* navigation */
+/* older iOS won't render nested CSS*/
 header {
   position: fixed;
   top: 0;
@@ -54,151 +54,96 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  img {
-    max-width: 150px;
-    height: auto;
-    margin: 40px auto 0;
-    padding: 1em;
-  }
-  
-  ul {
-    list-style-type: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
- 
-    li {
-      &:not(:last-child) {
-        margin-right: 2em;
-      }
-
-      a {
-        text-decoration: none;
-        color: #C88304; /* link color */
-      }
-
-      &:hover {
-        color: #3F0071; /* link color on hover */
-        text-decoration: underline; /* underline on hover */
-      }
-
-      &:visited {
-        color: #582707; /* visited link color */
-      }
-
-      &:active {
-        color: #F5F3F5; /* active link color */
-      }
-    }
-  }
 }
 
+header img {
+  max-width: 150px;
+  height: auto;
+  margin: 40px auto 0;
+  padding: 1em;
+}
+
+header ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header ul li:not(:last-child) {
+  margin-right: 2em;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: #C88304; /* link color */
+}
+
+header ul li:hover a {
+  color: #3F0071; /* link color on hover */
+  text-decoration: underline; /* underline on hover */
+}
+
+header ul li:visited a {
+  color: #582707; /* visited link color */
+}
+
+header ul li:active a {
+  color: #F5F3F5; /* active link color */
+}
 
 article {
   width: 100%;
   position: relative;
   margin-top: 88vh;
-  // border: 12px solid red;
-
-  &:last-child {
-    margin-bottom: 88vh;
-  }
-
-  picture.backdrop {
-    position: absolute;
-    width: 100%;
-    height: 99%;
-    left: 0;
-    top: 0;
-
-    img {
-      width: 100%;
-      height: 88%;
-      object-fit: cover;
-      object-position: bottom;
-      filter: blur(90px) brightness(95%) contrast(70%);
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%) scaleX(1.5) scaleY(1.14);
-    }
-  }
-
-  .front {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-    transform: translateY(70px);
-    box-sizing: border-box;
-    padding: 20px;
-    perspective: 100vh;
-
-    &::after {
-      position: absolute;
-      content: "";
-      width: 80%;
-      height: 8px;
-      bottom: 0;
-      transform: translateY(-26px);
-      left: 10%;
-      background-color: black;
-      box-shadow: 0 1px 2px rgba(black, 0.5);
-    }
-
-    img {
-      margin-top: 160px;
-      height: auto;
-      width: 100%;
-      box-shadow: 0 -60px 80px rgba(black, 0.5), 0 1px 2px rgba(black, 0.5);
-      position: relative;
-    }
-
-    .info-backdrop {
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      width: 100vw;
-      height: 320px;
-      background-color: rgba(white, 0.4);
-      transform: translate(-50%, calc(100% - 60px));
-    }
-
-    .info {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      transform: translateY(100%);
-    }
-  }
-
-  &:nth-child(even) {
-    .front {
-      &::after {
-        transform: translateY(-26px) rotatey(-1deg);
-      }
-
-      img {
-        transform: rotatey(-1deg);
-      }
-    }
-  }
-
-  &:nth-child(odd) {
-    .front {
-      &::after {
-        transform: translateY(-26px) rotatey(1deg);
-      }
-
-      img {
-        transform: rotatey(1deg);
-      }
-    }
-  }
 }
 
+article:last-child {
+  margin-bottom: 88vh;
+}
+
+article picture.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 99%;
+  left: 0;
+  top: 0;
+}
+
+article picture.backdrop img {
+  width: 100%;
+  height: 88%;
+  object-fit: cover;
+  object-position: bottom;
+  filter: blur(90px) brightness(95%) contrast(70%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scaleX(1.5) scaleY(1.14);
+}
+
+article .front {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  transform: translateY(70px);
+  box-sizing: border-box;
+  padding: 20px;
+  perspective: 100vh;
+}
+
+article .front::after {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 8px;
+  bottom: 0;
+  transform: translateY(-26px);
+  left: 10%;
+  background-color: black;
+  box-shadow: 0 1px 2px rgba
+  
 /* put the footer in it's own space */
 footer {
   display: flex;
