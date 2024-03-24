@@ -1,12 +1,12 @@
 # CONTRIBUTING GUIDELINES
 
-Ulimately {productname} is a community-driven project. Contribution is necessary, welcome, respected, and appreciated.
+Ultimately kjon-life is a side project. Contribution is necessary, welcome, respected, and appreciated, but there is no SLA.
 
 We do support each other to uphold our [code of conduct](CODE_OF_CONDUCT.md).
 
-In time, efficiency wins when processing issues and pull requests. These guidelines sustain efficiency.
+Efficiency wins in processing issues and pull requests. These guidelines sustain efficiency.
 
-Please [search](#use-the-search) to avoid duplicating issues!.
+Please [search](#seek-and-ye-shall-find) to avoid duplicating issues!.
 
 <!-- TOC updateonsave:true depthfrom:2 -->
 
@@ -17,7 +17,7 @@ Please [search](#use-the-search) to avoid duplicating issues!.
   - [Getting started](#getting-started)
   - [You have a solution](#you-have-a-solution)
   - [You have an addition](#you-have-an-addition)
-- [Use the Search](#use-the-search-luke)
+- [Use the Search](#seek-and-ye-shall-find)
 - [Commit Guidelines](#commit-guidelines)
   - [Format](#format)
   - [Style](#style)
@@ -29,7 +29,7 @@ Please [search](#use-the-search) to avoid duplicating issues!.
 
 ### You have a problem
 
-Please be so kind as to [search](#use-the-search-luke) for any open issue already covering
+Please be so kind as to [search](#seek-and-ye-shall-find) for any open issue already covering
 your problem.
 
 If you find one, comment on it, so we know more people are experiencing it.
@@ -48,7 +48,7 @@ We will do our very best to help you.
 
 ### You have a suggestion
 
-Please be so kind as to [search](#use-the-search-luke) for any open issue already covering
+Please be so kind as to [search](#seek-and-ye-shall-find) for any open issue already covering
 your suggestion.
 
 If you find one, comment on it, so we know more people are supporting it.
@@ -72,7 +72,7 @@ _"Fixes #XXXX"_ for issue number XXXX.
 
 ### You have a solution
 
-Please be so kind as to [search](#use-the-search-luke) for any open issue already covering
+Please be so kind as to [search](#seek-and-ye-shall-find) for any open issue already covering
 your [problem](#you-have-a-problem), and any pending/merged/rejected PR covering your solution.
 
 If the solution is already reported, try it out and +1 the pull request if the
@@ -84,10 +84,9 @@ maintainers) by mentioning their GitHub handle (starting with `@`) in your messa
 
 ### You have an addition
 
-Please [do not](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#dont-send-us-your-theme-for-now)
-send themes for now.
+Please [do not](https://github.com/kjon-life/kjon-life/wiki/frontend#yes-it-could-be) send themes for now.
 
-Please be so kind as to [search](#use-the-search-luke) for any pending, merged or rejected Pull Requests
+Please be so kind as to [search](#seek-and-ye-shall-find) for any pending, merged or rejected Pull Requests
 covering or related to what you want to add.
 
 If you find one, try it out and work with the author on a common solution.
@@ -95,33 +94,25 @@ If you find one, try it out and work with the author on a common solution.
 If not, then go ahead and submit a PR. Please copy to anyone relevant (e.g. plugin
 maintainers) by mentioning their GitHub handle (starting with `@`) in your message.
 
-For any extensive change, such as a new plugin, you will have to find testers to +1 your PR.
+For any extensive change, such as a new CSS, or moving json into Redis, or adding a database, you will have to find testers to +1 your PR.
 
 ----
 
-## Use the Search, Luke
+## Seek and ye shall find
 
-_May the Force (of past experiences) be with you_
+_May the Force (of search) be with you_
 
-GitHub offers [many search features](https://help.github.com/articles/searching-github/)
-to help you check whether a similar contribution to yours already exists. Please search
-before making any contribution, it avoids duplicates and eases maintenance. Trust me,
-that works 90% of the time.
+GitHub offers [many search features](https://help.github.com/articles/searching-github/) to help you check whether a similar contribution to yours already exists. Please search before making any contribution, it avoids duplicates and eases maintenance. This covers 90% of all issues.
 
-You can also take a look at the [FAQ](https://github.com/ohmyzsh/ohmyzsh/wiki/FAQ)
-to be sure your contribution has not already come up.
+Take a look at the [FAQ](https://github.com/kjon-life/kjon-life/wiki/FAQ) to be sure your contribution has not already come up.
 
-If all fails, your thing has probably not been reported yet, so you can go ahead
-and [create an issue](#reporting-issues) or [submit a PR](#submitting-pull-requests).
+Can't find anything similar in search or FAQ? Then [create an issue](#reporting-issues) or fork the repo and [submit a PR](#submitting-pull-requests).
 
 ----
 
 ## Commit Guidelines
 
-Oh My Zsh uses the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-specification. The automatic changelog tool uses these to automatically generate
-a changelog based on the commit messages. Here's a guide to writing a commit message
-to allow this:
+kjon-life uses the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. The automatic changelog tool uses these to automatically generate a changelog based on the commit messages. Here's a guide to writing a commit message to allow this:
 
 ### Format
 
@@ -131,21 +122,19 @@ type(scope)!: subject
 
 - `type`: the type of the commit is one of the following:
 
-  - `feat`: new features.
-  - `fix`: bug fixes.
-  - `docs`: documentation changes.
-  - `refactor`: refactor of a particular code section without introducing
-    new features or bug fixes.
-  - `style`: code style improvements.
-  - `perf`: performance improvements.
-  - `test`: changes to the test suite.
-  - `ci`: changes to the CI system.
-  - `build`: changes to the build system (we don't yet have one so this shouldn't apply).
-  - `chore`: for other changes that don't match previous types. This doesn't appear
-    in the changelog.
+  - `build`: changes to the build system
+  - `chore`: for other changes that don't match previous types
+  - `ci`: changes to the CI system
+  - `docs`: documentation changes
+  - `feat`: new features
+  - `fix`: bug fixes
+  - `perf`: performance improvements
+  - `refactor`: refactor of a particular code section without introducing new features or bug fixes
+  - `revert` : revert previous commit
+  - `style`: code style improvements
+  - `test`: changes to the test suite
 
-- `scope`: section of the codebase that the commit makes changes to. If it makes changes to
-  many sections, or if no section in particular is modified, leave blank without the parentheses.
+- `scope`: section of the codebase that the commit makes changes to. If it makes changes to many sections, or if no section in particular is modified, leave blank without the parentheses.  
   Examples:
 
   - Commit that changes the `git` plugin:
@@ -200,12 +189,10 @@ type(scope)!: subject
 
 ### Style
 
-Try to keep the first commit line short. It's harder to do using this commit style but try to be
-concise, and if you need more space, you can use the commit body. Try to make sure that the commit
-subject is clear and precise enough that users will know what changed by just looking at the changelog.
+The first commit line <em>must</em> be short. Think Tweet. Short: [Format](#format) the first line but use the commit body if necessary to be clear and precise enough that users will know what changed by just looking at the changelog.
 
-----
+
 
 ## Credits
 
-We borrowed heavily from other projects, particularly [@ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/blob/master/CONTRIBUTING.md)
+We borrowed heavily from other projects for our contribution guidelines, particularly [@ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/blob/master/CONTRIBUTING.md)
