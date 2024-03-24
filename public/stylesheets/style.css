@@ -42,7 +42,7 @@ a {
 
 /* navigation */
 header {
-  // position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -55,7 +55,7 @@ header {
   align-items: center;
   
   img {
-    max-width: 50%;
+    max-width: 150px;
     height: auto;
     margin: 40px auto 0;
     padding: 1em;
