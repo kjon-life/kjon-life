@@ -94,6 +94,7 @@ header ul li:active a {
 
 murphy {
   display: flex;
+  width: 100%;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
   margin: 3em auto;
