@@ -19,7 +19,8 @@
 [![Fly Deploy](https://github.com/kjon-life/kjon-life/actions/workflows/fly.yml/badge.svg)](https://github.com/kjon-life/kjon-life/actions/workflows/fly.yml) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/kjon-life/kjon-life) ![GitHub License](https://img.shields.io/github/license/kjon-life/kjon-life)
  ![GitHub top language](https://img.shields.io/github/languages/top/kjon-life/kjon-life)
  ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fkjon.life) 
- 
+ [![GitHub Release](https://img.shields.io/github/release/kjon-life/kjon-life.svg?style=flat&tag=release/v0.0.2)](https://github.com/kjon-life/kjon-life/releases/tag/release/v0.0.2)
+
 
 
 
