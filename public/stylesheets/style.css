@@ -183,6 +183,7 @@ footer {
 }
 
 .social-media-icons {
+  font-family: "Font Awesome 5 Free";
   font-size: x-large;
   position: relative;
   top: 3em;
