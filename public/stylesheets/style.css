@@ -201,3 +201,12 @@ footer {
   top: 3em;
   text-align: center;
 }
+
+.social-media-icons i {
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+.social-media-icons i:hover{
+  transform: scale(1.1);
+}
