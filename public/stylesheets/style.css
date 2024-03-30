@@ -1,5 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway:wght@300&display=swap");
 
+:root {
+  --text-color: #333333;
+  --primary-color: #150050; /* Navy Blue */
+  --secondary-color: #3f0071; /* Indigo */
+  --accent-color: #582707; /* Burnt Sienna */
+  --highlight-color: #c88304; /* Cadmium Orange */
+  --background-color: #f5f3f5; /* Alabaster aka whitesmoke */
+  /* box-shadow variables */
+  --box-shadow-color: rgba(21, 0, 80, 0.6); /* secondary color with 60% opacity */
+  --box-shadow-second-color: rgba(63, 0, 113, 0.6); /* secondary color with 60% opacity */
+  --box-shadow-offset-x: 5px;
+  --box-shadow-blur-radius: 5px;
+  --box-shadow-ie-filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+}
+
+.shadow1 {
+  margin: 40px;
+  background-color: var(--box-shadow-color); /* Needed for IEs */
+  -moz-box-shadow: var(--box-shadow-offset-x) var(--box-shadow-offset-y) var(--box-shadow-blur-radius) var(--box-shadow-color);
+  -webkit-box-shadow: var(--box-shadow-offset-x) var(--box-shadow-offset-y) var(--box-shadow-blur-radius) var(--box-shadow-color);
+  box-shadow: var(--box-shadow-offset-x) var(--box-shadow-offset-y) var(--box-shadow-blur-radius) var(--box-shadow-color);
+
+  filter: var(--box-shadow-ie-filter);
+  -ms-filter: var(--box-shadow-ie-filter);
+  zoom: 1;
+}
+
+.shadow1 .content {
+  position: relative; /* This protects the inner element from being blurred */
+  padding: 100px;
+  background-color: var(--box-shadow-color);
+}
+
+
+/* dark theme recommended by claude via perplexity.ai 
+[data-theme="dark"] {
+  --drk-text-color: #2c3e50;
+  --drk-box-shadow: 0px 1px 2px (var(--box-shadow));
+  --drk-primary-color: #0D0B0E; /* Black Olive */
+  --drk-secondary-color: #1A1516; /* Jet Black */
+  --drk-accent-color: #2A1F00; /* Dark Olive Green */
+  --drk-highlight-color: #2B2627; /* Raisin Black */
+  --drk-tertiary-color: #3D2F3A; /* Aubergine */
+  --drk-background-color: #5A4D52; /* Quartz */
+}
+*/
+.theme-switcher span {
+  color: var(--);
+}
+
 html {
   box-sizing: border-box;
 }
@@ -16,17 +66,17 @@ body {
 
 .wrapper {
   width: 100%;
-  background-color: white;
+  background-color: var(--primary-color);
   position: relative;
 }
 
 .box {
-  border: 1px solid #582707;
-  background-color: white;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--background-color);
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px var(--box-shadow);
   height: auto;
 }
 
@@ -43,7 +93,7 @@ h2 {
 }
 
 a {
-  color: #C88304;
+  color: var(--highlight-color);
 }
 
 /* navigation */
@@ -53,9 +103,9 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #f5f3f5; /* Adjust the background color as needed */
+  background-color: var(--background-color); /* Adjust the background color as needed */
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Add a subtle shadow for depth */
   z-index: 999; /* Ensure the header appears above other elements */
   display: flex;
   flex-direction: column;
@@ -88,33 +138,37 @@ header ul li:not(:last-child) {
 
 header ul li a {
   text-decoration: none;
-  color: #C88304; /* link color */
+  color: var(--highlight-color); /* link color */
 }
 
 header ul li:hover a {
-  color: #3F0071; /* link color on hover */
+  color: var(--primary-color); /* link color on hover */
   text-decoration: underline; /* underline on hover */
 }
 
 header ul li:visited a {
-  color: #582707; /* visited link color */
+  color: var(--secondary-color); /* visited link color */
 }
 
 header ul li:active a {
-  color: #F5F3F5; /* active link color */
+  color: var(--accent-color);; /* active link color */
 }
 
 murphy {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: var(--background-color);
+
 }
 
 murphy img {
   max-width: 100%;
   height: auto;
-  padding: 3em;
+  padding: 5em;
+  border-radius: 50px;
+  box-shadow:  var(--box-shadow-color),
+             var(--box-shadow-second-color)
 }
 
 
@@ -167,50 +221,37 @@ article .front::after {
   bottom: 0;
   transform: translateY(-26px);
   left: 10%;
-  background-color: black;
-  box-shadow: 0 1px 2px rgba
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow-color);
 }
 
 article .front img {
   margin-top: 160px;
   height: auto;
   width: 100%;
-  box-shadow: 0 -60px 80px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--box-shadow-color), var(--box-shadow-second-color);
   position: relative;
 }
-article .front .info-backdrop {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 100vw;
-  height: 320px;
-  background-color: rgba(255, 255, 255, 0.4);
-  transform: translate(-50%, calc(100% - 60px));
-}
-article .front .info-backdrop .info {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  transform: translateY(100%);
-}
+
+
 article  h2 {
   animation-name: focus-in-contract;
   animation-duration: 3s;
   animation-timing-function: linear;
+}
 
-/* put the footer in it's own space 
+/* put the footer in it's own space */
 footer {
   display: flex;
   justify-content: center;
   padding: 5px;
-  background-color: #150050;
-  color: #c88304;
+  background-color: var(--primary-color);
+  color: #var(var(--highlight-color));
   position: relative;
   z-index: 333;
 } 
-*/
-/* alternative footer */
+
+/* alternative footer
 footer {
   position: absolute;
   top: calc(100vh - 3em);
@@ -221,7 +262,7 @@ footer {
   color: #c88304;
   z-index: 333;
 }
-
+ */
 .social-media-icons {
   font-family: "Font Awesome 5 Free";
   font-size: x-large;
