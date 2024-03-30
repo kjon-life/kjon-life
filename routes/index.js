@@ -1,18 +1,17 @@
 var express = require('express');
 var router = express.Router();
-/* source quotes and maxims from TODO link to github quotes */
 const quotesData = require('../public/quotes.json');
-const maxims = require('../public/maxims.json');
-const articles = require('../public/articles.json'); 
+const maximsData = require('../public/maxims.json');
+const articlesData = require('../public/articles.json'); 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
   const title = req.body.title  || '';
   const description = req.body.description || '';
-  
 
-
+  // Get the maxims from the maxims.json file
+  const maxims = maximsData.maxims || [];
 
   // Get the quotes from the quotes.json file
   const quotes = quotesData.quotes || [];
@@ -69,18 +68,18 @@ router.get('/', function(req, res, next) {
   }
 
   // Update article 1 with quotes by "k jon"
-  const article1 = articles.find(article => article.id === 1);
+  const article1 = articlesData.find(article => article.id === 1);
   if (article1) {
     updateArticleContent(article1, jjQuotes);
   }
 
   // Update article 2 with quotes by authors other than "k jon"
-  const article2 = articles.find(article => article.id === 2);
+  const article2 = articlesData.find(article => article.id === 2);
   if (article2) {
     updateArticleContent(article2, otherQuotes);
   }
 
-  res.render('index', { articles, title, description });
+  res.render('index', { articlesData, title, description });
 });
 
 module.exports = router;

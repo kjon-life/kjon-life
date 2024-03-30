@@ -24,7 +24,7 @@
             <div class="info-backdrop"></div>
             <img src="<%= article.frontImg %>">
             
-            <div class="info">
+            <div class="info" id="<%= article.slug %>">
               <h2><%= article.title %></h2>
               <div class="box">
                 <% if (article.id === 5) { %>
