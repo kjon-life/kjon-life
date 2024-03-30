@@ -1,10 +1,6 @@
 <header>
   <ul>
-    <!-- <li><a href="#1">words</a></li>
-    <li><a href="#2">quotes</a></li>
-    <li><a href="#3">sparrow</a></li>
-    <li><a href="#4">perfect</a></li>
-    <li><a href="#5">music</a></li> -->
+    <!-- the nice thing about EJS is everything is JS so we can have little helpers-->
     <% articlesData.map(article => { %>
       <li><a href="#<%= article.slug %>"><%= article.title %></a></li>
     <% }) %>

@@ -15,6 +15,25 @@
   --box-shadow-ie-filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
 }
 
+html {
+  box-sizing: border-box;
+}
+body {
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  overflow-x: hidden;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  margin: 0;
+  min-height: 100%;
+}
+
+
+.wrapper {
+  width: 100%;
+  background-color: var(--primary-color);
+  position: relative;
+}
 .shadow1 {
   margin: 40px;
   background-color: var(--box-shadow-color); /* Needed for IEs */
@@ -26,43 +45,18 @@
   -ms-filter: var(--box-shadow-ie-filter);
   zoom: 1;
 }
-
-.shadow1 .content {
+  
+.shadow1 .box {
+  color: var(--primary-color);
   position: relative; /* This protects the inner element from being blurred */
-  padding: 100px;
-  background-color: var(--box-shadow-color);
-}
-
-html {
-  box-sizing: border-box;
-}
-body {
-  line-height: 1.6;
-  letter-spacing: 0.05em;
-  overflow-x: hidden;
-  font-family: "Raleway", sans-serif;
-  font-weight: 300;
-  margin: 0;
-  min-height: 100vh;
-}
-
-
-.wrapper {
-  width: 100%;
-  background-color: var(--primary-color);
-  position: relative;
-}
-
-.box {
   border: 1px solid var(--secondary-color);
   background-color: var(--background-color);
-  padding: 20px;
+  padding: 0px 20px 0px;
   margin-bottom: 20px;
   border-radius: 8px;
-  box-shadow: 0px 1px 2px var(--box-shadow);
   height: auto;
 }
-
+  
 /* element selectors */
 h1,
 h2 {
@@ -87,13 +81,14 @@ header {
   left: 0;
   width: 100%;
   background-color: var(--background-color); /* Adjust the background color as needed */
-  padding: 20px;
+  padding: 0px 0px 0px 20px;
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Add a subtle shadow for depth */
   z-index: 999; /* Ensure the header appears above other elements */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 header h1 {
   font-size: x-large;
   font-weight: 500;
