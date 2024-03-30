@@ -5,10 +5,9 @@
     <li><a href="#3">sparrow</a></li>
     <li><a href="#4">perfect</a></li>
     <li><a href="#5">music</a></li> -->
-
-      <% articles.map(article => { %>
-        <li><a href="#<%= article.slug %>"><%= article.title %></a></li>
-      <% }) %>
+    <% articlesData.map(article => { %>
+      <li><a href="#<%= article.slug %>"><%= article.title %></a></li>
+    <% }) %>
 
     <li><a href="https://zcal.co/jonhwilliams">meet</a></li>
   </ul>

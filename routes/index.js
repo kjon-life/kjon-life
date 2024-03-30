@@ -79,7 +79,8 @@ router.get('/', function(req, res, next) {
     updateArticleContent(article2, otherQuotes);
   }
 
-  res.render('index', { articlesData, title, description });
+  res.render('index', { header: { articlesData }, articlesData, title, description });
 });
+
 
 module.exports = router;
