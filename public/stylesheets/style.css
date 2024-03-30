@@ -81,7 +81,7 @@ header {
   left: 0;
   width: 100%;
   background-color: var(--background-color); /* Adjust the background color as needed */
-  padding: 0px 0px 0px 20px;
+  padding: 20px 0px 0px 20px;
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Add a subtle shadow for depth */
   z-index: 999; /* Ensure the header appears above other elements */
   display: flex;
@@ -143,7 +143,7 @@ murphy {
 murphy img {
   max-width: 100%;
   height: auto;
-  padding: 5em;
+  padding: 10em 0em 10em;
   border-radius: 50px;
   box-shadow:  var(--box-shadow-color),
              var(--box-shadow-second-color)
