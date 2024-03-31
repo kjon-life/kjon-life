@@ -15,9 +15,10 @@
   --box-shadow-ie-filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
 }
 
-html {
+*, *::before, *::after {
   box-sizing: border-box;
 }
+
 body {
   line-height: 1.6;
   letter-spacing: 0.05em;
@@ -30,7 +31,7 @@ body {
 
 
 .wrapper {
-  width: calc(100% - 40px);
+  width: 100%; /* vs calc(100% - 0px); */
   background-color: var(--primary-color);
   position: relative;
   margin-left: auto;
@@ -81,11 +82,11 @@ a {
 header {
   position: fixed;
   top: 0;
-  left: calc((100vw - 100%) / 2); /* Adjust the left position dynamically */
-  width: calc(100% - 40px); /* Match the .wrapper's width */
-  padding: 20px 0px 20px;
-
-  background-color: var(--background-color); /* Adjust the background color as needed */
+  left: 50%; /* Center the header */
+  width: 100%; /* Full width */
+  padding: 20px 0; /* Top and bottom padding */
+  transform: translateX(-50%); /* Offset the header to align with the .wrapper */
+  background-color: var(--background-color);
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Add a subtle shadow for depth */
   z-index: 999; /* Ensure the header appears above other elements */
   display: flex;
@@ -147,8 +148,8 @@ murphy {
 murphy img {
   max-width: 100%;
   height: auto;
-  padding: 10em 10em 10em;
-  margin: 5em 0em 0em;
+  padding: 10em;
+  margin: 10em 5em 5em;
   border-radius: 50px;
   box-shadow:  var(--box-shadow-color),
              var(--box-shadow-second-color);
@@ -273,5 +274,13 @@ footer {
     letter-spacing: 0;
     filter: blur(0);
     opacity: 1;
+  }
+}
+
+/* media queries */
+@media (max-width: 480px) { /* Adjust based on the breakpoint you need */
+  header {
+    width: 100vw; /* On smaller screens, scrollbar impact is minimal or nonexistent */
+    padding: 20px 0px; /* Adjust padding if necessary */
   }
 }
