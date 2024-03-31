@@ -79,12 +79,14 @@ a {
 /* navigation */
 /* older iOS won't render nested CSS*/
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  left: 50%; /* Center the header */
+  right: 50%;
   width: 100%;
-  background-color: var(--background-color); /* Adjust the background color as needed */
   padding: 20px 0px 20px;
+
+  background-color: var(--background-color); /* Adjust the background color as needed */
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Add a subtle shadow for depth */
   z-index: 999; /* Ensure the header appears above other elements */
   display: flex;
