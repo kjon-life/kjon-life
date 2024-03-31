@@ -34,6 +34,7 @@ body {
   background-color: var(--primary-color);
   position: relative;
 }
+
 .shadow1 {
   margin: 40px;
   background-color: var(--box-shadow-color); /* Needed for IEs */
@@ -76,7 +77,7 @@ a {
 /* navigation */
 /* older iOS won't render nested CSS*/
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
