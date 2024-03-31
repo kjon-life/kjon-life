@@ -1,11 +1,13 @@
 <header>
-  <ul>
-    <!-- the nice thing about EJS is everything is JS so we can have little helpers-->
-    <% articlesData.map(article => { %>
-      <li><a href="#<%= article.slug %>"><%= article.title %></a></li>
-    <% }) %>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <nav id="navbar">
+    <ul>
+      <!-- the nice thing about EJS is everything is JS so we can have little helpers-->
+      <% articlesData.map(article => { %>
+        <li><a href="#<%= article.slug %>"><%= article.title %></a></li>
+      <% }) %>
 
-    <li><a href="https://zcal.co/jonhwilliams">meet</a></li>
-  </ul>
-  <h1></h1>
+      <li><a href="https://zcal.co/jonhwilliams">meet</a></li>
+    </ul>
+  </nav>
 </header>

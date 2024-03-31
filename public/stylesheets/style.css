@@ -82,10 +82,9 @@ a {
 header {
   position: fixed;
   top: 0;
-  left: 50%; /* Center the header */
-  width: 100%; /* Full width */
-  padding: 20px 0; /* Top and bottom padding */
-  transform: translateX(-50%); /* Offset the header to align with the .wrapper */
+  left: 0;
+  width: calc(100vw - 17px); /* Adjust 17px if necessary */
+  padding: 20px 0px;
   background-color: var(--background-color);
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Add a subtle shadow for depth */
   z-index: 999; /* Ensure the header appears above other elements */
@@ -282,5 +281,29 @@ footer {
   header {
     width: 100vw; /* On smaller screens, scrollbar impact is minimal or nonexistent */
     padding: 20px 0px; /* Adjust padding if necessary */
+  }
+}
+
+/* Initial state: hide hamburger menu */
+.hamburger {
+  display: none;
+}
+
+/* Hide navigation links on smaller screens */
+@media screen and (max-width: 600px) {
+  .hamburger {
+    display: block; /* Show hamburger icon */
+    cursor: pointer;
+    /* Additional styling here */
+  }
+  
+  #navbar {
+    display: none; /* Hide navigation links initially */
+  }
+  
+  /* Style for when navigation is active */
+  .active #navbar {
+    display: block; /* Show navigation links */
+    /* Additional responsive styling here */
   }
 }
