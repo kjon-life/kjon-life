@@ -150,8 +150,8 @@ murphy img {
   padding: 10em;
   margin: 10em 5em 5em;
   border-radius: 50px;
-  box-shadow:  0px 4px 6px var(--box-shadow-color),
-             20px 0px 6px var(--box-shadow-second-color);
+  box-shadow:  0px 4px 6px var(--box-shadow-color), 
+  20px 0px 6px var(--box-shadow-second-color);
 }
 
 
