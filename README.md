@@ -4,16 +4,10 @@
 
 <div style="display:flex; align-items:flex-start;">
   <div>
-    I'm a solutions consultant in startup to enterprise SaaS pre-sales, 
-    an avocational product manager, 
-    and management consultant experienced in transformation. 
-    I love conversations that lead to clarity of action, 
-    improved quality, and more joy.
-    <ul>
-      <li>👀 curious: human process & performance</li>
-      <li>🌱 interested: python, rust</li>
-      <li>💞️ collaborating: systems that work to create delightful experiences</li>
-    </ul>
+    I've been a builder 🍀 all my life making systems that work for enterprise, production loads. I am an `avocational` product manager, because enterprise "products" __are__ **the systems we build** to solve problems.  
+    It's a subtle, distinct difference: Individuals buy products, enterprise buys solutions. 
+    Everything we build has far-reaching effects. That nifty new feature might require re-training hundreds of employees. That data-flow optimization? Might force 600 people to change their spreadsheets. My life requires a blend of pragmatic thinking, big-picture realism, and disciplined attention to detail.
+    But in this project I've gone back to the basics, revisiting the fun stuff, the front end, the building something from scratch because it interests me.
   </div>
   <img src="https://user-images.githubusercontent.com/76539355/214731371-78cb7bcb-996d-4108-9872-7af758ed5647.png" alt="A Maia" style="margin-left:1rem;">
 </div>
