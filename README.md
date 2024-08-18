@@ -41,6 +41,7 @@ This is a project that feeds my developer portfoio. To connect:
 * GitHub Actions deploys main to dev automatically
 
 ### Tech stack:
+* Express app, with Parcel for SCSS
 * Go - for the app code
 * Docker - for containerization
 * flyctl - for manual deployment
@@ -50,7 +51,9 @@ This is a project that feeds my developer portfoio. To connect:
 ```flyctl``` is a CLI tool from [Fly.io](http://fly.io)
 You can read about it [here](https://fly.io/docs/hands-on/).
 
-### History:  
+### History: 
+### Refactor with SCSS  
+[Aug 18, 2024](not_available)  Release 0.0.3
 ### Serverless Hosted JS & EJS
 [March 23, 2024](2024-03-23-20-42-51.png)  
 ### Static Site 
