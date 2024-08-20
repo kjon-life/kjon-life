@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const quotesData = require('../public/quotes.json');
 const maximsData = require('../public/maxims.json');
 const articlesData = require('../public/articles.json'); 

@@ -1,0 +1,46 @@
+@base-color: hsl(200, 100%, 50%);
+
+.color-box {
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    background-color: $base-color;
+
+    &:hover {
+        background: lighten($base-color, 20%)
+    }
+}
+
+.lighten-color {
+    background: lighten($base-color, 20%);
+}
+
+.lighten-color {
+    background: lighten($base-color, 20%);
+}
+
+.lighten-color {
+    background: lighten($base-color, 20%);
+}
+
+.lighten-color {
+    background: lighten($base-color, 20%);
+}
+
+.lighten-color {
+    background: lighten($base-color, 20%);
+}
+
+.lighten-color {
+    background: lighten($base-color, 20%);
+}
+
+.lighten-color {
+    background: lighten($base-color, 20%);
+}
+
+.lighten-color {
+    background: lighten($base-color, 20%);
+}

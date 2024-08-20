@@ -1,7 +1,8 @@
 const path = require('path');
 
 module.exports = {
-  entryPoints: ['src/scss/index.scss'],
+  extends: '@parcel/config-default',
+  entryPoints: ['src/scss/main.scss'],
   transformers: {
     scss: ['@parcel/transformer-sass'],
   },

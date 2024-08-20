@@ -31,7 +31,7 @@ This is a project that feeds my developer portfoio. To connect:
 - I work in the intersections of programming, performance, and revenue.  
 - I am deeply curious about data analytics, the way we present and consume information, and natural language processing. 
 - I enjoy walking, buskers, cold plunging, '67-'73 Chevy trucks, and Chagaccino! 
-- Currently, I'm levelling up in open source by testing, coding,  authoring tutorials, writing articles, writing (as-yet-unpublished) books, and a bit of free-lance into AI. 
+- Currently, I'm levelling up in open source by testing, coding, authoring tutorials, writing articles, writing (as-yet-unpublished) books, and a bit of free-lance into AI. 
 
 ### Project Overview:
 * App code is a simple Go web server 
@@ -53,7 +53,10 @@ You can read about it [here](https://fly.io/docs/hands-on/).
 
 ### History: 
 ### Refactor with SCSS  
-[Aug 18, 2024](not_available)  Release 0.0.3
+[Aug 18, 2024](not_available)  branch d4, for Release 0.0.3
+#### Goals:
+* Use color adjustments, primarily the automation of color transformation, and the `dark mode`
+
 ### Serverless Hosted JS & EJS
 [March 23, 2024](2024-03-23-20-42-51.png)  
 ### Static Site 
