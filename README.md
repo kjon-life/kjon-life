@@ -41,7 +41,8 @@ This is a project that feeds my developer portfoio. To connect:
 * GitHub Actions deploys main to dev automatically
 
 ### Tech stack:
-* Express app, with Parcel for SCSS
+* Express - for routing
+* Parcel - for preprocessing SCSS
 * Go - for the app code
 * Docker - for containerization
 * flyctl - for manual deployment
@@ -53,16 +54,16 @@ You can read about it [here](https://fly.io/docs/hands-on/).
 
 ### History: 
 ### Refactor with SCSS  
-[Aug 18, 2024](not_available)  branch d4, for Release 0.0.3
-#### Goals:
+[Aug 18, 2024](not_available)  branch d4, for Release 0.0.4
+
 * Use color adjustments, primarily the automation of color transformation, and the `dark mode`
 
 ### Serverless Hosted JS & EJS
-[March 23, 2024](2024-03-23-20-42-51.png)  
+[March 23, 2024](notavailable)2024-03-23-20-42-51.png   
 ### Static Site 
-[November 5, 2023](2023-11-06-00-36-15.png)  
-[November 5, 2023](2023-11-05-23-08-50.png)  
-[November 5, 2023](2023-11-05-21-59-08.png)  
+[November 5, 2023](notavailable)2023-11-06-00-36-15.png    
+[November 5, 2023](notavailable)2023-11-05-23-08-50.png    
+[November 5, 2023](notavailable)2023-11-05-21-59-08.png    
 
 ### Acknowledgements:
 
