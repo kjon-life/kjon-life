@@ -1,8 +1,9 @@
-:root {
-    --text-color: #333333;
-    --primary-color: #150050; /* Navy Blue */
-    --secondary-color: #3f0071; /* Indigo */
-    --accent-color: #582707; /* Burnt Sienna */
-    --highlight-color: #c88304; /* Cadmium Orange */
-    --background-color: #f5f3f5; /* Alabaster aka whitesmoke */
-  }
+$text-color: #333333;
+$primary-color: #150050; /* Navy Blue */
+$secondary-color: #3f0071; /* Indigo */
+$accent-color: #582707; /* Burnt Sienna */
+$highlight-color: #c88304; /* Cadmium Orange */
+$background-color: #f5f3f5; /* Alabaster aka whitesmoke */
+
+$box-color: hsl(200, 50%, 50%);
+$base-color: #0072af;
