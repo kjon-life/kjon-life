@@ -1,0 +1,66 @@
+// Mixins
+
+// Mixin for Flexbox Centering
+@mixin flex-center($direction: row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+// Hero
+.hero {
+    @include flex-center(column);
+    background-color: $background-color;
+    color: $secondary-color;
+    padding: 50px;
+    text-align: center;
+    height: 49vh;
+}
+
+// Extend/Inherit ------------------------------
+
+// Button Base Style
+%button-base {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+// Specific Buttons
+.button-primary {
+    @extend %button-base;
+    background-color: $accent-color;
+    color: $text-dark;
+
+    &:hover {
+        background-color: darken($accent-color, 30%);
+    }
+}
+
+.button-secondary {
+    @extend %button-base;
+    background-color: $highlight-color;
+    color: $text-dark;
+    margin-top: 10px;
+
+    &:hover {
+        background-color: darken($text-light, 10%);
+    }
+}
+
+// Card Base
+%card-base {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden; 
+}
+
+.card {
+    @extend %card-base;
+    background-color: $highlight-color;
+    color: $text-dark;
+    padding: 20px;
+}

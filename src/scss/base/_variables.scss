@@ -1,9 +1,52 @@
-$text-color: #333333;
+// Color Palette
+$text-light: #eef1e6;
+$text-dark: #333333;
 $primary-color: #150050; /* Navy Blue */
 $secondary-color: #3f0071; /* Indigo */
 $accent-color: #582707; /* Burnt Sienna */
 $highlight-color: #c88304; /* Cadmium Orange */
 $background-color: #f5f3f5; /* Alabaster aka whitesmoke */
 
+
 $box-color: hsl(200, 50%, 50%);
 $base-color: #0072af;
+
+// Typography
+$font-stack: 'Roboto', sans-serif;
+
+// Breakpoints
+$breakpoint-mobile: 760px;
+
+body {
+    font-family: $font-stack;
+
+}
+// Nesting ------------------------------
+
+// Navigation Bar
+.navbar {
+    background-color: $primary-color;
+    color: $text-light;
+    padding: 1rem;
+
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            margin: 0 1rem;
+            
+            &:hover {
+                color: darken($text-light, 20%);
+                cursor: pointer;
+            }
+        }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        ul {
+            flex-direction: column;
+        }
+    }
+}
