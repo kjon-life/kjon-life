@@ -1,0 +1,87 @@
+[
+    {
+      "id": 1,
+      "title": "words",
+      "slug": "words",
+      "content": "(things i said)",
+      "author": "k jon",
+      "photographer": "Brett Jordan",
+      "frontImg": "images/unsplash/brett-jordan-POMpXtcVYHo-unsplash.jpg",
+      "photoCreditLink": "https://unsplash.com/@brett_jordan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "photoPageLink": "https://unsplash.com/photos/POMpXtcVYHo"
+    },
+    {
+      "id": 2,
+      "title": "quotes",
+      "slug": "quotes",
+      "content": "things other people said (that i love)",
+      "author": "as atrributed",
+      "photographer": "Zdeněk Macháček",
+      "frontImg": "images/unsplash/zdenek-machacek-yWSJtyCB2R4-unsplash.jpg",
+      "photoCreditLink": "https://unsplash.com/@zmachacek?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "photoPageLink": "https://unsplash.com/photos/yWSJtyCB2R4"
+    },
+    {
+      "id": 3,
+      "title": "a \"sparrow's tear\"",
+      "slug": "sparrows",
+      "content": [
+        "( 雀の涙 : suzume no namida )",
+        "my Buddha in Hell",
+        "birds have to fly away",
+        "live transparently in a good day",
+        "looking for and finding lost words for beautiful things",
+        "and to die alive"
+      ],
+      "author": "unknown",
+      "photographer": "Amariei Mihai",
+      "frontImg": "images/unsplash/amariei-mihai-IccZ_e4Tci0-unsplash.jpg",
+      "photoCreditLink": "https://unsplash.com/@mex_face_poze?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "photoPageLink": "https://unsplash.com/photos/IccZ_e4Tci0"
+    },
+    {
+      "id": 4,
+      "title": "the perfect day",
+      "slug": "day",
+      "content": [
+      "Today is the perfect day to die.",
+      "All living is in tune with me.",
+      "All voices sing in me.",
+      "All beauty has come to rest in my eyes.",
+      "Any bad thoughts left me.",
+      "Today is the perfect day to die.",
+      "My land is quietly surrounding me.",
+      "My field is no longer tilled.",
+      "My house is full of laughter.",
+      "The children have returned home.",
+      "Yes, today is a perfect day to die"
+      ],
+      "author": "from \"Many Winters\"",
+      "photographer": "Leonardo Sanches",
+      "frontImg": "images/unsplash/leonardo-sanches-1nCYl1wBhv4-unsplash.jpg",
+      "photoCreditLink": "https://unsplash.com/ja/@lesanches?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "photoPageLink": "https://unsplash.com/photos/1nCYl1wBhv4"
+    },
+    {
+      "id": 5,
+      "title": "the perfect ai",
+      "slug": "ai",
+      "content": [
+      "Today I was assisted by",
+      "Something, almost, AI.",
+      "A bit of context",
+      "Wrapped around my questions.",
+      "Any incoherancies",
+      "Derive from building bad context",
+      "With incomplete questions.",
+      "AI will never take my job",
+      "But it will reward the people.",
+      "asking better questions."
+      ],
+      "author": "from kjon.life",
+      "photographer": "Leonardo Sanches",
+      "frontImg": "images/unsplash/leonardo-sanches-1nCYl1wBhv4-unsplash.jpg",
+      "photoCreditLink": "https://unsplash.com/ja/@lesanches?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",
+      "photoPageLink": "https://unsplash.com/photos/1nCYl1wBhv4"
+    }
+  ]
