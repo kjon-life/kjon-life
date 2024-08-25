@@ -79,7 +79,7 @@ router.get('/', function(req, res, next) {
     updateArticleContent(article2, otherQuotes);
   }
 
-  res.render('index', { header: { articlesData }, articlesData, title: 'kjon · life', description });
+  res.render('v-0-0-3', { header: { articlesData }, articlesData, title: 'kjon · v0.0.3', description });
 });
 
 

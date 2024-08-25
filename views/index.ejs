@@ -4,7 +4,7 @@
 
   <body>
     <main>
-      <%- include('partials/header') %>
+      <%- include('partials/navigation') %>
     </main>
     
     <div class="wrapper">
@@ -16,9 +16,7 @@
       </murphy>
       <% articlesData.forEach(article => { %>
         <article id="<%= article.id %>">
-          <picture class="backdrop">
-            <img src="<%= article.backdropImg %>">
-          </picture>
+
     
           <div class="front">
             <div class="info-backdrop"></div>
@@ -28,7 +26,7 @@
               <h2><%= article.title %></h2>
               <div class="box">
                 <% if (article.id === 5) { %>
-                  <%- include('partials/bandcamp') %>
+                  <a href="https://bearrootsmusic.bandcamp.com/album/wild-bird">Wild Bird</a>
                 <% } else if (Array.isArray(article.content)) { %>
                   <% article.content.forEach(line => { %>
                     <p><%= line %></p>

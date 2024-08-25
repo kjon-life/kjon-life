@@ -1,0 +1,323 @@
+/* Release 0.0.3 was a really rough sandbox in which I had all sorts of
+random codepen.io experiements. I am preserving it here as an exercise in moving legacy cruft
+without breaking it, and spending no time on refactoring */
+.v-0-0-3-page {
+    /* existing css */
+
+    @font-face {
+        font-family: 'Indie Flower';
+        src: url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+    }
+
+    @font-face {
+        font-family: 'Raleway';
+        src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+    }
+
+    --v-0-0-3-text-color: #333333;
+    --v-0-0-3-primary-color: #150050; /* Navy Blue */
+    --v-0-0-3-secondary-color: #3f0071; /* Indigo */
+    --v-0-0-3-accent-color: #582707; /* Burnt Sienna */
+    --v-0-0-3-highlight-color: #c88304; /* Cadmium Orange */
+    --v-0-0-3-background-color: #f5f3f5; /* Alabaster aka whitesmoke */
+    /* box-shadow variables */
+    --v-0-0-3-box-shadow-color: rgba(21, 0, 80, 0.6); /* primary color with 60% opacity */
+    --v-0-0-3-box-shadow-second-color: rgba(63, 0, 113, 0.6); /* secondary color with 60% opacity */
+    --v-0-0-3-box-shadow-offset-x: 5px;
+    --v-0-0-3-box-shadow-blur-radius: 5px;
+    --v-0-0-3-box-shadow-ie-filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+
+    *, *::before, *::after {
+    box-sizing: border-box;
+    }
+
+    body {
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    overflow-x: hidden;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    margin: 0;
+    min-height: 100%;
+    }
+
+
+    .wrapper {
+    width: 100%; /* vs calc(100% - 0px); */
+    background-color: var(--v-0-0-3-primary-color);
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    .shadow1 {
+    margin: 40px;
+    background-color: var(--v-0-0-3-box-shadow-color); /* Needed for IEs */
+    -moz-box-shadow: var(--v-0-0-3-box-shadow-offset-x) var(--box-shadow-offset-y) var(--v-0-0-3-box-shadow-blur-radius) var(--v-0-0-3-box-shadow-color);
+    -webkit-box-shadow: var(--v-0-0-3-box-shadow-offset-x) var(--box-shadow-offset-y) var(--v-0-0-3-box-shadow-blur-radius) var(--v-0-0-3-box-shadow-color);
+    box-shadow: var(--v-0-0-3-box-shadow-offset-x) var(--box-shadow-offset-y) var(--v-0-0-3-box-shadow-blur-radius) var(--v-0-0-3-box-shadow-color);
+
+    filter: var(--v-0-0-3-box-shadow-ie-filter);
+    -ms-filter: var(--v-0-0-3-box-shadow-ie-filter);
+    zoom: 1;
+    }
+    
+    .shadow1 .box {
+    color: var(--v-0-0-3-primary-color);
+    position: relative; /* This protects the inner element from being blurred */
+    border: 1px solid var(--v-0-0-3-secondary-color);
+    background-color: var(--v-0-0-3-background-color);
+    padding: 0px 20px 0px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    height: auto;
+    }
+    
+    /* element selectors */
+    h1,
+    h2 {
+    font-family: "Indie Flower", cursive;
+    }
+
+    h2 {
+    font-size: 3rem;
+    line-height: 1;
+    margin: 1em 0;
+    }
+
+    a {
+    color: var(--v-0-0-3-highlight-color);
+    }
+
+    /* navigation */
+    /* older iOS won't render nested CSS*/
+    header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100vw - 17px); /* Adjust 17px if necessary */
+    padding: 20px 0px;
+    background-color: var(--v-0-0-3-background-color);
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Add a subtle shadow for depth */
+    z-index: 999; /* Ensure the header appears above other elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    header h1 {
+    font-size: x-large;
+    font-weight: 500;
+    font-style:oblique;
+    text-align: center;
+    }
+
+    header img {
+    max-width: 150px;
+    height: auto;
+    margin: 40px auto 0;
+    padding: 1em;
+    }
+
+    header ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    }
+
+    header ul li:not(:last-child) {
+    margin-right: 2em;
+    }
+
+    header ul li a {
+    text-decoration: none;
+    color: var(--v-0-0-3-highlight-color); /* link color */
+    }
+
+    header ul li:hover a {
+    color: var(--v-0-0-3-primary-color); /* link color on hover */
+    text-decoration: underline; /* underline on hover */
+    }
+
+    header ul li:visited a {
+    color: var(--v-0-0-3-secondary-color); /* visited link color */
+    }
+
+    header ul li:active a {
+    color: var(--v-0-0-3-accent-color);; /* active link color */
+    }
+
+    murphy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--v-0-0-3-background-color);
+
+    }
+
+    murphy img {
+    max-width: 100%;
+    height: auto;
+    padding: 10em;
+    margin: 10em 5em 5em;
+    border-radius: 50px;
+    box-shadow:  0px 4px 6px var(--v-0-0-3-box-shadow-color), 
+    20px 0px 6px var(--v-0-0-3-box-shadow-second-color);
+    }
+
+
+    article {
+    width: 100%;
+    position: relative;
+    margin-top: 9vh;
+    }
+
+    article:last-child {
+    margin-bottom: 88vh;
+    }
+
+    article picture.backdrop {
+    position: absolute;
+    width: 100%;
+    height: 99%;
+    left: 0;
+    top: 0;
+    }
+
+    article picture.backdrop img {
+    width: 100%;
+    height: 88%;
+    object-fit: cover;
+    object-position: bottom;
+    filter: blur(90px) brightness(95%) contrast(70%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scaleX(1.5) scaleY(1.14);
+    }
+
+    article .front {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    transform: translateY(70px);
+    box-sizing: border-box;
+    padding: 20px;
+    perspective: 100vh;
+    }
+
+    article .front::after {
+    position: absolute;
+    content: "";
+    width: 80%;
+    height: 8px;
+    bottom: 0;
+    transform: translateY(-26px);
+    left: 10%;
+    background-color: var(--v-0-0-3-background-color);
+    box-shadow: var(--v-0-0-3-box-shadow-color);
+    }
+
+    article .front img {
+    margin-top: 160px;
+    height: auto;
+    width: 100%;
+    box-shadow: 0px 4px 6px var(--v-0-0-3-box-shadow-color),
+        20px 0px 6px var(--v-0-0-3-box-shadow-second-color);
+    position: relative;
+    }
+
+
+    article  h2 {
+    animation-name: focus-in-contract;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    }
+
+    /* put the footer in it's own space */
+    footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: var(--v-0-0-3-primary-color);
+    color: (var(--v-0-0-3-highlight-color));
+    position: relative;
+    z-index: 333;
+    } 
+
+    /* alternative footer
+    footer {
+    position: absolute;
+    top: calc(100vh - 3em);
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    background-color: #150050;
+    color: #c88304;
+    z-index: 333;
+    }
+    */
+    .social-media-icons {
+    font-family: "Font Awesome 5 Free";
+    font-size: x-large;
+    position: relative;
+    top: 3em;
+    text-align: center;
+    }
+
+    .social-media-icons i {
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    }
+
+    .social-media-icons i:hover{
+    transform: scale(1.1);
+    }
+
+    @keyframes focus-in-contract {
+    0% {
+        letter-spacing: 1em;
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        letter-spacing: 0;
+        filter: blur(0);
+        opacity: 1;
+    }
+    }
+
+    /* media queries */
+    @media (max-width: 480px) { /* Adjust based on the breakpoint you need */
+    header {
+        width: 100vw; /* On smaller screens, scrollbar impact is minimal or nonexistent */
+        padding: 0px; /* Adjust padding if necessary */
+    }
+    }
+
+    /* Initial state: hide hamburger menu */
+    .hamburger {
+    display: none;
+    }
+
+    /* Hide navigation links on smaller screens */
+    @media screen and (max-width: 600px) {
+    .hamburger {
+        display: block; /* Show hamburger icon */
+        cursor: pointer;
+        /* Additional styling here */
+    }
+    
+    #navbar {
+        display: none; /* Hide navigation links initially */
+    }
+    
+    /* Style for when navigation is active */
+    .active #navbar {
+        display: block; /* Show navigation links */
+        /* Additional responsive styling here */
+    }
+    }
+}
