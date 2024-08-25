@@ -3,10 +3,16 @@
 @import 'base/variables';
 
 @import 'components/button';
+@import 'components/card';
 @import 'components/header';
 
-@import 'layout/grid';
+@import 'layout/card.scss';
 @import 'layout/container';
+@import 'layout/grid.scss';
+@import 'layout/intro.scss';
+@import 'layout/projects.scss';
+@import 'layout/prompt.scss';
+@import 'layout/purpose.scss';
 
 @import 'pages/v-0-0-3';
 @import 'pages/colorplay';
