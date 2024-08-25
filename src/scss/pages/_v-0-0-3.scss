@@ -1,18 +1,18 @@
 /* Release 0.0.3 was a really rough sandbox in which I had all sorts of
 random codepen.io experiements. I am preserving it here as an exercise in moving legacy cruft
 without breaking it, and spending no time on refactoring */
+@font-face {
+    font-family: 'Indie Flower';
+    src: url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+}
+
 .v-0-0-3-page {
     /* existing css */
-
-    @font-face {
-        font-family: 'Indie Flower';
-        src: url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-    }
-
-    @font-face {
-        font-family: 'Raleway';
-        src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
-    }
 
     --v-0-0-3-text-color: #333333;
     --v-0-0-3-primary-color: #150050; /* Navy Blue */
@@ -67,7 +67,8 @@ without breaking it, and spending no time on refactoring */
     position: relative; /* This protects the inner element from being blurred */
     border: 1px solid var(--v-0-0-3-secondary-color);
     background-color: var(--v-0-0-3-background-color);
-    padding: 0px 20px 0px;
+    padding: 20px 20px 20px;
+    margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
     height: auto;
@@ -153,7 +154,6 @@ without breaking it, and spending no time on refactoring */
     justify-content: center;
     align-items: center;
     background-color: var(--v-0-0-3-background-color);
-
     }
 
     murphy img {
@@ -161,7 +161,7 @@ without breaking it, and spending no time on refactoring */
     height: auto;
     padding: 10em;
     margin: 10em 5em 5em;
-    border-radius: 50px;
+    border-radius: 75px;
     box-shadow:  0px 4px 6px var(--v-0-0-3-box-shadow-color), 
     20px 0px 6px var(--v-0-0-3-box-shadow-second-color);
     }

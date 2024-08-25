@@ -1,63 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('partials/head') %>
-
-  <body>
-    <main>
-      <%- include('partials/navigation') %>
-    </main>
-    
-    <div class="wrapper">
-      <murphy>
-        <img 
-          class="shadow1"
-          src="images/curious-pug-enterprise/curious-pug-light.png" 
-          alt="one of the power elite, the pug rules by virtue of loyalty, charisma, and genuine self-esteem" /> 
-      </murphy>
-      <% articlesData.forEach(article => { %>
-        <article id="<%= article.id %>">
-
-    
-          <div class="front">
-            <div class="info-backdrop"></div>
-            <img src="<%= article.frontImg %>">
-            
-            <div class="info" id="<%= article.slug %>">
-              <h2><%= article.title %></h2>
-              <div class="box">
-                <% if (article.id === 5) { %>
-                  <a href="https://bearrootsmusic.bandcamp.com/album/wild-bird">Wild Bird</a>
-                <% } else if (Array.isArray(article.content)) { %>
-                  <% article.content.forEach(line => { %>
-                    <p><%= line %></p>
-                  <% }) %>
-                <% } else { %>
-                  <%- article.content %>
-                <% } %>
-              </div>
-              <p><cite><%- article.author %></cite></p>
-              
-              
-              <p>
-                Photo by 
-                <a href="<%= article.photoCreditLink %>">
-                  <%= article.photographer %>
-                </a> 
-                on 
-                <a href="<%= article.photoPageLink %>">
-                  Unsplash
-                </a>
-              </p>
-            </div>
-          </div>
-        </article>
-      <% }) %>
-    </div>
+  <head>
+    <%- include('partials/head') %>
+  </head>
   
-  <%- include('partials/footer') %>
-  <%- include('partials/social') %>
-
-  <script scr="/js/scripts.js" type="text/javascript"></script>
-
+  <body>
+    <%- include('partials/navigation') %>
+    <main>
+      <!-- Your main content goes here -->
+      <%- include('partials/hero') %>
+      <%- include('partials/introduction') %>
+      <%- include('partials/cards') %>
+    </main>
   </body>
   </html>
+  
