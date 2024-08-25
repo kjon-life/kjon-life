@@ -1,38 +1,42 @@
+
+$font-stack-errors: 'DejaVuSansM Nerd Font Mono', sans-serif;
+
 .error-container {
-    background-color: #f0f0f0;
+  font-family: $font-stack-errors;
+  background-color: $background-color;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: $shadow-color;
+
+  .error-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .error-output {
+    background-color: $secondary-color;
+    color: $complementary-secondary;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
-    .error-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 20px;
+
+    .error-message, .error-status, .error-stack {
+      font-family: monospace;
+      white-space: pre-wrap;
     }
-  
-    .error-output {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-  
-      .error-message, .error-status, .error-stack {
-        font-family: monospace;
-        white-space: pre-wrap;
-      }
-  
-      .error-message {
-        color: #66d9ef;
-      }
-  
-      .error-status {
-        color: #f92672;
-      }
-  
-      .error-stack {
-        color: #a6e22e;
-      }
+
+    .error-message {
+      color: #66d9ef;
+    }
+
+    .error-status {
+      color: #f92672;
+    }
+
+    .error-stack {
+      color: #a6e22e;
     }
   }
+}
