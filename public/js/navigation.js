@@ -1,6 +1,8 @@
-const navbar = document.getElementById('navbar');
-const menuIcon = document.querySelector('menu-icon');
-
+  // Navigation ----------------------------------------
+  const nav = document.getElementById('nav');
+  const menuIcon = document.querySelector('.menu-icon');
+  const listItems = document.querySelectorAll('nav ul li a');
+  
 function toggleMenu() {
   if (navbar.style.display === "block") {
     navbar.style.display = "none";
@@ -9,12 +11,18 @@ function toggleMenu() {
   }
 }
 
-function toggleMenuTwo() {
-  navbar.classList.toggle("active");
-  menuIcon.classList.toggle("active");
+function toggleMenu() {
+  nav.classList.toggle('active');
+  menuIcon.classList.toggle('active');
+  listItems.forEach((listItem) => {
+    listItem.classList.toggle('active');
+  });
 }
 
 function hideMenu() {
   navbar.classList.remove("active");
   menuIcon.classList.remove("active");
+  listItems.forEach((listItem) => {
+    listItem.classList.remove('active');
+  });
 }
