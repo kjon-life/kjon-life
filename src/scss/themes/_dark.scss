@@ -1,0 +1,49 @@
+// Dark mode color palette
+.dark-mode {
+    $text-primary: #f5f3f5; /* dark text */
+    $text-secondary: #333333; /* light text */
+    $background-color: #0d0b0e; /* very dark gray */
+    $primary-color: #1a1516; /* dark gray */
+    $secondary-color: #2b2627; /* dark gray */
+    $accent-color: #3d2f3a; /* dark purple */
+    $highlight-color: #5a4d52; /* dark brown */
+  
+    // Complementary colors
+    $complementary-primary: #ffd700; // Gold
+    $complementary-secondary: #ffcccb; // Light Coral
+    $complementary-accent: #0072af; // Cerulean
+  
+    // Hover, border colors
+    $border-color: scale-color($background-color, $lightness: -10%);
+    /* A neutral or slightly darker shade for borders */
+    $hover-color: darken($primary-color, 10%);
+    /* A lighter or darker version of the primary color for hover effects */
+    $shadow-color: grayscale($primary-color);
+    $shadow-color: darken($shadow-color, 20%);
+    /* A subtle shade for shadows 
+        grayscale the primary, then darken */
+  
+    $box-color: hsl(200, 50%, 50%);
+    $base-color: #0072af;
+  
+    // Additional colors for dark theme
+    $dark-text: #666666; /* lighter gray for text */
+    $dark-highlight: #8a8a8a; /* lighter gray for highlights */
+  
+    // Apply colors to HTML elements
+    body {
+      background-color: $background-color;
+      color: $text-primary;
+    }
+  
+    a {
+      color: $primary-color;
+    }
+  
+    button {
+      background-color: $primary-color;
+      color: $text-primary;
+    }
+  
+    // ... and so on ...
+  }

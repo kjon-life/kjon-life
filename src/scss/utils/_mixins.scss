@@ -34,7 +34,7 @@
 .button-primary {
     @extend %button-base;
     background-color: $accent-color;
-    color: $text-dark;
+    color: $text-primary;
 
     &:hover {
         background-color: darken($accent-color, 30%);
@@ -44,11 +44,11 @@
 .button-secondary {
     @extend %button-base;
     background-color: $highlight-color;
-    color: $text-dark;
+    color: $text-primary;
     margin-top: 10px;
 
     &:hover {
-        background-color: darken($text-light, 10%);
+        background-color: $hover-color;
     }
 }
 
@@ -61,6 +61,6 @@
 .card {
     @extend %card-base;
     background-color: $highlight-color;
-    color: $text-dark;
+    color: $text-primary;
     padding: 20px;
 }

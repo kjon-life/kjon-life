@@ -1,12 +1,24 @@
-// Color Palette
-$text-dark: #333333;
+// Color palette
+$text-primary: #f5f3f5; /* dark text */
+$text-secondary: #333333; /* light text */
+$background-color: #f5f3f5; /* Alabaster - whitesmoke */
 $primary-color: #150050; /* Navy Blue */
 $secondary-color: #3f0071; /* Indigo */
 $accent-color: #582707; /* Burnt Sienna */
 $highlight-color: #c88304; /* Cadmium Orange */
-$background-color: #f5f3f5; /* Alabaster aka whitesmoke */
-
-$text-light: #f5f3f5;
+// Complementary colors
+$complementary-primary: #ffd700; // Gold
+$complementary-secondary: #ffcccb; // Light Coral
+$complementary-accent: #0072af; // Cerulean
+// Hover, border colors
+$border-color: scale-color($background-color, $lightness: -10%);
+/* A neutral or slightly darker shade for borders */
+$hover-color: darken($primary-color, 10%);
+/* A lighter or darker version of the primary color for hover effects */
+$shadow-color: grayscale($primary-color);
+$shadow-color: darken($shadow-color, 20%);
+/* A subtle shade for shadows 
+    grayscale the primary, then darken */
 
 $box-color: hsl(200, 50%, 50%);
 $base-color: #0072af;
@@ -17,16 +29,23 @@ $font-stack: 'Roboto', sans-serif;
 // Breakpoints
 $breakpoint-mobile: 760px;
 
-body {
-    font-family: $font-stack;
-
+html {
+    box-sizing: border-box;
 }
+  
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: $font-stack;
+}
+
+  
 // Nesting ------------------------------
 
 // Navigation Bar
 .navbar {
-    background-color: $primary-color;
-    color: $text-light;
+    background-color: $background-color;
+    color: $text-secondary;
     padding: 1rem;
 
     ul {
@@ -38,7 +57,7 @@ body {
             margin: 0 1rem;
             
             &:hover {
-                color: darken($text-light, 20%);
+                color: darken($text-primary, 20%);
                 cursor: pointer;
             }
         }
