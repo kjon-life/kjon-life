@@ -1,0 +1,52 @@
+/*  Intro section */
+.video-container {
+    // video needs to be relative
+    position: relative;
+    z-index: -1;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+
+    // fix the video element in the container
+    video {
+        @extend %full-screen-fixed;
+        // whatever the scale
+        object-fit: cover;
+    }
+}
+
+.overlay {
+    @extend %full-screen-fixed;
+    position: relative;
+    background-color: rgba(0,0,0,0.5);
+    display: grid;
+    place-items: center;
+    height: 100vh;
+
+    h1 {
+        position: relative;
+        color: $complementary-primary;
+        font-size: clamp(3.5rem, 5vw, 6rem);
+        font-weight: 800;
+        z-index: 3;
+        animation: colorChange 1s ease-in-out infinite alternate;
+
+        @keyframes colorChange {
+            from {
+                color: darken($complementary-primary, 20%);
+            }
+            to {
+                color: $highlight-color;
+            }
+        }
+    }
+    
+    p {
+        color: $highlight-color;
+        position: relative;
+        text-align: center;
+        font-size: clamp(1rem, 5vw, 1.5rem);
+        font-weight: 200;
+    }
+
+} 

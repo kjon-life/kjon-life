@@ -10,13 +10,14 @@
 
 // Hero
 .hero {
-    @include flex-center(column);
+    @include flex-center(row);
     background-color: $background-color;
     color: $secondary-color;
     padding: 50px;
     text-align: center;
     height: 49vh;
 }
+
 
 // Extend/Inherit ------------------------------
 
@@ -33,11 +34,11 @@
 // Specific Buttons
 .button-primary {
     @extend %button-base;
-    background-color: $accent-color;
+    background-color: $highlight-color;
     color: $text-primary;
 
     &:hover {
-        background-color: darken($accent-color, 30%);
+        background-color: darken($highlight-color, 30%);
     }
 }
 
@@ -52,7 +53,7 @@
     }
 }
 
-// Card Base
+// Card base and extends
 %card-base {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     overflow: hidden; 
@@ -64,3 +65,60 @@
     color: $text-primary;
     padding: 20px;
 }
+
+// Extend common styles
+%section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background: $background-color;
+    color: $text-primary;
+}
+
+%full-screen-fixed {
+    //takes the element out
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+// Media Queries
+@mixin tablet-horizontal-large {
+    @media (max-width: 1367px) {
+        @content;
+    }
+}
+
+@mixin tablet-horizontal {
+    @media (orientation: landscape) and (max-width: 1181px) {
+        @content;
+    }
+}
+
+@mixin tablet-vertical {
+    @media (orientation: portrait) and (max-width: 1025px) {
+        @content;
+    }
+}
+
+@mixin smartphone-horizontal {
+    @media (orientation: landscape) and (max-height: 410px) {
+        @content;
+    }
+}
+
+@mixin smartphone-vertical {
+    @media (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin smartphone-small {
+    @media (orientation: portrait) and (max-height: 700px) {
+        @content;
+    }
+}
+  
+  

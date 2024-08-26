@@ -3,7 +3,6 @@
 @import 'base/variables';
 
 @import 'components/button';
-@import 'components/card';
 @import 'components/header';
 
 @import 'layout/card.scss';
@@ -15,6 +14,7 @@
 @import 'layout/purpose.scss';
 
 @import 'pages/v-0-0-3';
+@import 'pages/error';
 @import 'pages/colorplay';
 
 @import 'themes/dark';

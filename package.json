@@ -1,7 +1,11 @@
 {
   "name": "kjon-life",
-  "version": "0.0.0",
+  "version": "0.0.0.4",
   "private": true,
+  "description": "full stack developer portfolio",
+  "author": {kjon-life},
+  "license": "ISC",
+  "main": "app.js",
   "scripts": {
     "start:debug": "parcel watch src/scss/main.scss --dist-dir public/css & node --trace-deprecation ./bin/www",
     "start:local": "parcel watch src/scss/main.scss --dist-dir public/css & node ./bin/www",

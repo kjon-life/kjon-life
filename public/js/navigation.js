@@ -1,8 +1,8 @@
-  // Navigation ----------------------------------------
-  const nav = document.getElementById('nav');
-  const menuIcon = document.querySelector('.menu-icon');
-  const listItems = document.querySelectorAll('nav ul li a');
-  
+// Navigation ----------------------------------------
+const nav = document.getElementById('nav');
+const menuIcon = document.querySelector('.menu-icon');
+const listItems = document.querySelectorAll('nav ul li a');
+
 function toggleMenu() {
   if (navbar.style.display === "block") {
     navbar.style.display = "none";
@@ -11,6 +11,7 @@ function toggleMenu() {
   }
 }
 
+// #TODO comment 
 function toggleMenu() {
   nav.classList.toggle('active');
   menuIcon.classList.toggle('active');

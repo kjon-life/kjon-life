@@ -44,10 +44,12 @@ This is a project that feeds my developer portfoio. To connect:
 * Express - for routing
 * Parcel - for preprocessing SCSS
 * Go - for the app code
-* Docker - for containerization
+* Docker - for unit of deployment
 * flyctl - for manual deployment
 * GitHub Actions - for CI/CD
 * Fly.io - for the serverless hosting platform
+* Replicate - for AI with an API
+* Perplexity - for knowledge augmentation
 
 ```flyctl``` is a CLI tool from [Fly.io](http://fly.io)
 You can read about it [here](https://fly.io/docs/hands-on/).
@@ -58,8 +60,16 @@ You can read about it [here](https://fly.io/docs/hands-on/).
 
 * Use color adjustments, primarily the automation of color transformation, and the `dark mode`
 
+### Roadmap: Effortless login, and the developer experience
+[Q4](not available) Candidates:  
+* Dynamic - suite for log in, wallet creation, and user management    
+* SpruceID - a future where users control their identity & data    
+* fission - identity, data, and compute solutions for the future of the Internet  
+* Backstage - open source framework for developer experience
+
 ### Serverless Hosted JS & EJS
-[March 23, 2024](notavailable)2024-03-23-20-42-51.png   
+[March 23, 2024](notavailable)2024-03-23-20-42-51.png  
+
 ### Static Site 
 [November 5, 2023](notavailable)2023-11-06-00-36-15.png    
 [November 5, 2023](notavailable)2023-11-05-23-08-50.png    
@@ -67,7 +77,21 @@ You can read about it [here](https://fly.io/docs/hands-on/).
 
 ### Acknowledgements:
 
-This project [depends](https://github.com/kjon-life/kjon-life/network/dependencies) on the copious contributions of others and is possible because of the following services:
+This project [depends](https://github.com/kjon-life/kjon-life/network/dependencies) on the copious contributions of others including:
+
+- [JacintoDesign](https://jacinto.design/)
+- [Perplexity](https://www.perplexity.ai/) 
+    - and the [pplx-api](https://docs.perplexity.ai/docs/getting-started) 
+- [Amazon Q](https://github.com/aws/aws-toolkit-vscode) in VS Code
+- [Visual Studio Code](https://code.visualstudio.com/docs/setup/mac) on Darwin
+
+This project is possible because of these and other services:
 
 - [Porkbun](https://porkbun.com/) - Domain registration and DNS management
 - [Fly.io](https://fly.io/) - Application hosting platform
+
+This project is possible because of these and other people:
+
+- [Jacinto Wong](https://github.com/JacintoDesign/typographix-final/) - for code and ideas
+- [The CSS Bootcamp: Zero to Mastery](https://zerotomastery.io/courses/css-bootcamp/) - for 42 hours of skill building
+- [Zero To Mastery Courses](https://zerotomastery.io/courses/) - for 330+ days of work done in  Python, Rust, Django, SCSS, prompt engineering, full stack, automation, AWS certification, business analytics, statistics, AWS Bedrock, OpenAI API, LangChain, Streamlit, Pinecone 
