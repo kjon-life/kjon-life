@@ -84,7 +84,7 @@
     width: 100%;
 }
 
-// Media Queries
+// Media queries
 @mixin tablet-horizontal-large {
     @media (max-width: 1367px) {
         @content;
@@ -121,4 +121,18 @@
     }
 }
   
+// Shared animations
+.fadeInUp {
+    animation: fadeInUp 1s ease forwards;
+  }
   
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }  
