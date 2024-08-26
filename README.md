@@ -57,7 +57,6 @@ You can read about it [here](https://fly.io/docs/hands-on/).
 ### History: 
 ### Refactor with SCSS  
 [Aug 18, 2024](not_available)  branch d4, for Release 0.0.4
-
 * Use color adjustments, primarily the automation of color transformation, and the `dark mode`
 
 ### Roadmap: Effortless login, and the developer experience
