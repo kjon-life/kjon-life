@@ -3,7 +3,7 @@
   "version": "0.0.0.4",
   "private": true,
   "description": "full stack developer portfolio",
-  "author": {kjon-life},
+  "author": "{kjon-life}",
   "license": "ISC",
   "main": "app.js",
   "scripts": {
