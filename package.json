@@ -7,8 +7,8 @@
   "license": "ISC",
   "main": "app.js",
   "scripts": {
-    "start:debug": "parcel watch src/scss/main.scss --dist-dir public/css & node --trace-deprecation ./bin/www",
-    "start:local": "parcel watch src/scss/main.scss --dist-dir public/css & node ./bin/www",
+    "start:debug": "concurrently \"parcel watch src/scss/main.scss --dist-dir public/css\" \"node --trace-deprecation ./bin/www\"",
+    "start:local": "concurrently \"parcel watch src/scss/main.scss --dist-dir public/css\" \"nodemon ./bin/www\"",
     "start": "node ./bin/www",
     "start:build": "npm run build && npm run start --trace-warnings",
     "build": "parcel build src/scss/main.scss --dist-dir public/css"
@@ -28,8 +28,10 @@
     "assert": "^2.1.0",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
+    "concurrently": "^8.2.2",
     "crypto-browserify": "^3.12.0",
     "events": "^3.3.0",
+    "nodemon": "^3.1.4",
     "parcel": "^2.12.0",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
