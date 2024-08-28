@@ -1,6 +1,6 @@
 /*  Purpose section */
 #purpose {
-    @extend section;
+    @extend %section;
     height: 100vh;
 
     @include smartphone-horizontal {
@@ -47,9 +47,9 @@
             transition-property: color;
             transition-timing-function: ease;
 
-            @for $i from 1 through 5 {
-                @nth-child(#{$i}) {
-                    transition-delay: $i * 0.1s;
+            @for $i from 1 through 4 {
+                :nth-child(#{$i}) {
+                    transition-delay: $i * 2.1s;
                 }
             }
 

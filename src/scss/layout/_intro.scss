@@ -3,9 +3,10 @@
     // video needs to be relative
     position: relative;
     z-index: -1;
-    height: 100vh;
+    height: $intro-section-height;
     display: grid;
     place-items: center;
+    align-items: center;
 
     // fix the video element in the container
     video {
@@ -17,18 +18,17 @@
 
 .overlay {
     @extend %full-screen-fixed;
-    position: relative;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.3);
     display: grid;
-    place-items: center;
-    height: 100vh;
+    align-items: center;
+    height: $intro-section-height;
 
     h1 {
         position: relative;
         color: $complementary-primary;
         font-size: clamp(3.5rem, 5vw, 6rem);
         font-weight: 800;
-        z-index: 3;
+        z-index: 1000;
         animation: colorChange 1s ease-in-out infinite alternate;
 
         @keyframes colorChange {
@@ -45,8 +45,10 @@
         color: $highlight-color;
         position: relative;
         text-align: center;
-        font-size: clamp(1rem, 5vw, 1.5rem);
-        font-weight: 200;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 300;
+        z-index: 2;
+
     }
 
 } 

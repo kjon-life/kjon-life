@@ -9,62 +9,49 @@ $scrollbar-thumb-hover-color: gray;
 $scrollbar-thumb-border-radius: 5px;
 $scrollbar-thumb-min-height: 40px;
 
-// Scrollbar styles
-::-webkit-scrollbar {
-  width: $scrollbar-width;
+// Hide scrollbar by default
+body {
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE and Edge
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, and Opera
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: $scrollbar-track-color;
+// Show scrollbar on hover
+body:hover {
+  scrollbar-width: thin; // Firefox
+  -ms-overflow-style: auto; // IE and Edge
+
+  &::-webkit-scrollbar {
+    display: block;
+    width: $scrollbar-width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-thumb-color;
+    border-radius: $scrollbar-thumb-border-radius;
+    min-height: $scrollbar-thumb-min-height;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $scrollbar-thumb-hover-color;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: $scrollbar-thumb-color;
-  border-radius: $scrollbar-thumb-border-radius;
-  min-height: $scrollbar-thumb-min-height;
-  transition: background-color 0.2s ease-in-out;
+// Firefox scrollbar styles (only visible on hover)
+body:hover {
+  scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: $scrollbar-thumb-hover-color;
-}
-
-// Add support for Firefox
-::-moz-scrollbar {
-  width: $scrollbar-width;
-}
-
-::-moz-scrollbar-track {
-  background: $scrollbar-track-color;
-}
-
-::-moz-scrollbar-thumb {
-  background-color: $scrollbar-thumb-color;
-  border-radius: $scrollbar-thumb-border-radius;
-  min-height: $scrollbar-thumb-min-height;
-  transition: background-color 0.2s ease-in-out;
-}
-
-::-moz-scrollbar-thumb:hover {
-  background-color: $scrollbar-thumb-hover-color;
-}
-
-// Add support for Microsoft Edge
-::-ms-scrollbar {
-  width: $scrollbar-width;
-}
-
-::-ms-scrollbar-track {
-  background: $scrollbar-track-color;
-}
-
-::-ms-scrollbar-thumb {
-  background-color: $scrollbar-thumb-color;
-  border-radius: $scrollbar-thumb-border-radius;
-  min-height: $scrollbar-thumb-min-height;
-  transition: background-color 0.2s ease-in-out;
-}
-
-::-ms-scrollbar-thumb:hover {
-  background-color: $scrollbar-thumb-hover-color;
+// Microsoft Edge scrollbar styles (only visible on hover)
+@supports (-ms-overflow-style: none) {
+  body:hover {
+    -ms-overflow-style: auto;
+  }
 }

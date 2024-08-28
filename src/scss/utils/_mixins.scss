@@ -120,6 +120,22 @@
         @content;
     }
 }
+
+@mixin mobile-gallery-container($padding-bottom) {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: $padding-bottom;
+    top: 100px;
+}
+  
+@mixin mobile-gallery-box($width) {
+    width: $width;
+    margin-right: unset;
+    margin: auto;
+    margin-bottom: 10px;
+    opacity: 1;
+    transform: scale(1);
+}
   
 // Shared animations
 .fadeInUp {

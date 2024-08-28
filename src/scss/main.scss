@@ -1,28 +1,47 @@
+// 1. Vendors (third-party libraries)
+@import 'vendors/bootstrap';
+@import 'vendors/font-awesome';
+
+// 2. Base (variables, fonts, scrollbar)
+@import 'base/variables';
 @import 'base/fonts';
 @import 'base/scrollbar';
-@import 'base/variables';
 
-@import 'components/button';
-@import 'components/header';
+// 3. Utils (mixins, functions, resets)
+@import 'utils/mixins';
+@import 'utils/reset';
+@import 'utils/functions';
 
-@import 'layout/card.scss';
-@import 'layout/container';
+// 4. Layout (grid, container, card, etc.)
 @import 'layout/grid.scss';
+@import 'layout/container';
+@import 'layout/card.scss';
 @import 'layout/intro.scss';
 @import 'layout/projects.scss';
 @import 'layout/prompt.scss';
 @import 'layout/purpose.scss';
 
+// 5. Components (button, header, etc.)
+@import 'components/button';
+@import 'components/header';
+
+// 6. Pages (specific page styles)
 @import 'pages/v-0-0-3';
 @import 'pages/error';
 @import 'pages/colorplay';
 
+// 7. Themes (dark, light, etc.)
 @import 'themes/dark';
 @import 'themes/light';
+/*
+ * Vendors (third-party libraries)
+ * Base (variables, fonts, scrollbar) 
+ * Utils (mixins, functions, resets) 
+ * Layout (grid, container, card, etc.)
+ * Components (button, header, etc.)
+ * Pages (specific page styles)
+ * Themes (dark, light, etc.)
+ */
 
-@import 'utils/mixins';
-@import 'utils/reset';
-@import 'utils/functions';
-
-@import 'vendors/bootstrap';
-@import 'vendors/font-awesome';
+ // Resources:
+ // https://css-tricks.com/snippets/css/complete-guide-grid/
