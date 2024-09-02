@@ -54,7 +54,10 @@ This is a project that feeds my developer portfoio. To connect:
 ```flyctl``` is a CLI tool from [Fly.io](http://fly.io)
 You can read about it [here](https://fly.io/docs/hands-on/).
 
-### History: 
+### History:  
+### Release 0.0.4  
+[Sep 2, 2024](not_available)  Pull request for branch d4
+
 ### Refactor with SCSS  
 [Aug 18, 2024](not_available)  branch d4, for Release 0.0.4
 * Use color adjustments, primarily the automation of color transformation, and the `dark mode`
