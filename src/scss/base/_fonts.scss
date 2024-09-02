@@ -1,3 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway:wght@300&family=Roboto:wght@300;400;500;600;700,800,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DejaVuSansM+Nerd+Font+Mono:wght@200,300;400;500;600;700,800,900&display=swap");
 /* Avoid using @import for font files; instead, use @font-face or <link> tags for better performance */
+
+// Font imports
+// It's better to include these in your HTML file for better performance
+// <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway:wght@300&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+// <link href="https://fonts.googleapis.com/css2?family=DejaVu+Sans+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">

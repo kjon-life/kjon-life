@@ -7,8 +7,9 @@
   "license": "ISC",
   "main": "app.js",
   "scripts": {
-    "start:debug": "concurrently \"parcel watch src/scss/main.scss --dist-dir public/css\" \"node --trace-deprecation ./bin/www\"",
-    "start:local": "concurrently \"parcel watch src/scss/main.scss --dist-dir public/css\" \"nodemon ./bin/www\"",
+    "start:local-trace": "parcel watch src/scss/main.scss --dist-dir public/css & node --trace-deprecation  --trace-warnings ./bin/www",
+    "start:local": "parcel watch src/scss/main.scss --dist-dir public/css & node ./bin/www",
+    "start:debug": "concurrently \"parcel watch src/scss/main.scss --dist-dir public/css\" \"NODE_DEBUG=http,net,stream,ejs,path,morgan DEBUG=express:* nodemon --inspect ./bin/www\"",
     "start": "node ./bin/www",
     "start:build": "npm run build && npm run start --trace-warnings",
     "build": "parcel build src/scss/main.scss --dist-dir public/css"
