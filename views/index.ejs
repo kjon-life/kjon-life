@@ -5,23 +5,22 @@
   </head>
   
   <body>
-  <header>
-    <!-- the header section goes here -->
-    <%# include('partials/navigation') %>
-  </header>
+    <header>
+      <%# include('partials/navigation') %>
+    </header>
     <main>
       <!-- the intro section goes here -->
       <%- include('partials/intro') %>
-      <!-- the introduction section continues here -->
+      <!-- the purpose section goes here -->
       <%- include('partials/purpose') %>
-      <!-- the cards section continues here -->
-      <%- include('partials/cards') %>
-      <!-- the memories section continues here -->
-      <%- include('partials/memories') %>
+      <!-- the cards section goes here -->
+      <%# include('partials/cards') %>
+      <!-- the memories section goes here -->
+      <%# include('partials/memories') %>
     </main>
     <footer>
       <!-- the socials go here -->
-      <%# include('partials/social') %>
+      <%- include('partials/social') %>
       <!-- the footer goes here -->
       <%# include('partials/footer') %>
       <!-- any scripts go here -->
