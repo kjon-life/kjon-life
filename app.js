@@ -1,4 +1,4 @@
-// In ES modules, the require function is not available.
+// for CommonJS we are requiring following Node.js core modules, rather than importing modules
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
