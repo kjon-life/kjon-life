@@ -110,3 +110,8 @@ celerybeat-schedule
 
 # node stuff
 node_modules
+
+# Parcel stuff
+dist
+.parcel-cache
+.parcel-cache/

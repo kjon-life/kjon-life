@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/v-0-0-3/head') %>
+
+  <body class="v-0-0-3-page">
+    <div>
+      <main>
+        <%- include('partials/v-0-0-3/header') %>
+      </main>
+
+      <div class="wrapper">
+        <murphy>
+          <img class="shadow1" src="images/curious-pug-enterprise/curious-pug-light.png"
+            alt="one of the power elite, the pug rules by virtue of loyalty, charisma, and genuine self-esteem" />
+        </murphy>
+        <% articlesData.forEach(article=> { %>
+          <article id="<%= article.id %>">
+            <picture class="backdrop">
+              <img src="<%= article.backdropImg %>">
+            </picture>
+
+            <div class="front">
+              <div class="info-backdrop"></div>
+              <img src="<%= article.frontImg %>">
+
+              <div class="info" id="<%= article.slug %>">
+                <h2>
+                  <%= article.title %>
+                </h2>
+                <div class="box">
+                  <% if (article.id===5) { %>
+                    <%- include('partials/v-0-0-3/bandcamp') %>
+                      <% } else if (Array.isArray(article.content)) { %>
+                        <% article.content.forEach(line=> { %>
+                          <p>
+                            <%= line %>
+                          </p>
+                          <% }) %>
+                            <% } else { %>
+                              <%- article.content %>
+                                <% } %>
+                </div>
+                <p><cite><%- article.author %></cite></p>
+
+
+                <p>
+                  Photo by
+                  <a href="<%= article.photoCreditLink %>">
+                    <%= article.photographer %>
+                  </a>
+                  on
+                  <a href="<%= article.photoPageLink %>">
+                    Unsplash
+                  </a>
+                </p>
+              </div>
+            </div>
+          </article>
+          <% }) %>
+      </div>
+
+      <%- include('partials/v-0-0-3/footer') %>
+      <%- include('partials/v-0-0-3/social') %>
+
+      <script scr="/js/scripts.js" type="text/javascript"></script>
+    </div>
+  </body>
+
+</html>

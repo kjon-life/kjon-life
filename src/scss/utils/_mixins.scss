@@ -1,0 +1,154 @@
+// Mixins
+
+// Mixin for Flexbox Centering
+@mixin flex-center($direction: row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+// Hero
+.hero {
+    @include flex-center(row);
+    background-color: $background-color;
+    color: $secondary-color;
+    padding: 50px;
+    text-align: center;
+    height: 49vh;
+}
+
+
+// Extend/Inherit ------------------------------
+
+// Button Base Style
+%button-base {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+// Specific Buttons
+.button-primary {
+    @extend %button-base;
+    background-color: $highlight-color;
+    color: $text-primary;
+
+    &:hover {
+        background-color: darken($highlight-color, 30%);
+    }
+}
+
+.button-secondary {
+    @extend %button-base;
+    background-color: $highlight-color;
+    color: $text-primary;
+    margin-top: 10px;
+
+    &:hover {
+        background-color: $hover-color;
+    }
+}
+
+// Card base and extends
+%card-base {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden; 
+}
+
+.card {
+    @extend %card-base;
+    background-color: $highlight-color;
+    color: $text-primary;
+    padding: 20px;
+}
+
+// Extend common styles
+%section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background: $background-color;
+    color: $text-primary;
+}
+
+%full-screen-fixed {
+    //takes the element out
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+// Media queries
+@mixin tablet-horizontal-large {
+    @media (max-width: 1367px) {
+        @content;
+    }
+}
+
+@mixin tablet-horizontal {
+    @media (orientation: landscape) and (max-width: 1181px) {
+        @content;
+    }
+}
+
+@mixin tablet-vertical {
+    @media (orientation: portrait) and (max-width: 1025px) {
+        @content;
+    }
+}
+
+@mixin smartphone-horizontal {
+    @media (orientation: landscape) and (max-height: 410px) {
+        @content;
+    }
+}
+
+@mixin smartphone-vertical {
+    @media (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin smartphone-small {
+    @media (orientation: portrait) and (max-height: 700px) {
+        @content;
+    }
+}
+
+@mixin mobile-gallery-container($padding-bottom) {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: $padding-bottom;
+    top: 100px;
+}
+  
+@mixin mobile-gallery-box($width) {
+    width: $width;
+    margin-right: unset;
+    margin: auto;
+    margin-bottom: 10px;
+    opacity: 1;
+    transform: scale(1);
+}
+  
+// Shared animations
+.fadeInUp {
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }  

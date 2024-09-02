@@ -1,65 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('partials/head') %>
-
-  <body>
-    <main>
-      <%- include('partials/header') %>
-    </main>
-    
-    <div class="wrapper">
-      <murphy>
-        <img 
-          class="shadow1"
-          src="images/curious-pug-enterprise/curious-pug-light.png" 
-          alt="one of the power elite, the pug rules by virtue of loyalty, charisma, and genuine self-esteem" /> 
-      </murphy>
-      <% articlesData.forEach(article => { %>
-        <article id="<%= article.id %>">
-          <picture class="backdrop">
-            <img src="<%= article.backdropImg %>">
-          </picture>
-    
-          <div class="front">
-            <div class="info-backdrop"></div>
-            <img src="<%= article.frontImg %>">
-            
-            <div class="info" id="<%= article.slug %>">
-              <h2><%= article.title %></h2>
-              <div class="box">
-                <% if (article.id === 5) { %>
-                  <%- include('partials/bandcamp') %>
-                <% } else if (Array.isArray(article.content)) { %>
-                  <% article.content.forEach(line => { %>
-                    <p><%= line %></p>
-                  <% }) %>
-                <% } else { %>
-                  <%- article.content %>
-                <% } %>
-              </div>
-              <p><cite><%- article.author %></cite></p>
-              
-              
-              <p>
-                Photo by 
-                <a href="<%= article.photoCreditLink %>">
-                  <%= article.photographer %>
-                </a> 
-                on 
-                <a href="<%= article.photoPageLink %>">
-                  Unsplash
-                </a>
-              </p>
-            </div>
-          </div>
-        </article>
-      <% }) %>
-    </div>
+  <head>
+    <%- include('partials/head') %>
+  </head>
   
-  <%- include('partials/footer') %>
-  <%- include('partials/social') %>
-
-  <script scr="/js/scripts.js" type="text/javascript"></script>
-
+  <body>
+    <header>
+      <%# include('partials/navigation') %>
+    </header>
+    <main>
+      <!-- the intro section goes here -->
+      <%- include('partials/intro') %>
+      <!-- the purpose section goes here -->
+      <%- include('partials/purpose') %>
+      <!-- the cards section goes here -->
+      <%# include('partials/cards') %>
+      <!-- the memories section goes here -->
+      <%# include('partials/memories') %>
+    </main>
+    <footer>
+      <!-- the socials go here -->
+      <%- include('partials/social') %>
+      <!-- the footer goes here -->
+      <%# include('partials/footer') %>
+      <!-- any scripts go here -->
+      <%- include('partials/scripts') %>
+    </footer>
   </body>
   </html>
+  
+  

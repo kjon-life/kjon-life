@@ -1,0 +1,55 @@
+
+.color-box {
+    padding: 20px;
+    margin: 10px;
+    color: $box-color;
+    text-align: center;
+    border-radius: 8px;
+    background: $base-color;
+}
+
+.lighten-color {
+    background: lighten($box-color, 20%);
+}
+
+.darken-color {
+    background: darken($box-color, 20%);
+}
+
+.adjust-color {
+    background: adjust-color($box-color, $red: 200);
+}
+
+.scale-color {
+    background: adjust-color($box-color, $lightness: 50%, $saturation: -30%);
+}
+
+.change-color {
+    background: change-color($box-color, $red: 99);
+}
+
+.mix-color {
+    background: mix($box-color, green, 11%);
+}
+
+.complement-color {
+    background: complement($box-color);
+}
+
+.grayscale-color {
+    background: grayscale($box-color);
+}
+
+.opacify-color {
+    background: opacify($box-color, .5);
+}
+
+.invert-color {
+    background: invert($box-color, 30%);
+}
+
+.adjust-hue {
+    background: adjust-hue($box-color, 88deg);
+}
+  
+

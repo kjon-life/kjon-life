@@ -1,11 +1,17 @@
-<h1 class="article">Oh no! </h1>
+<div class="error-container">
+  <h1 class="error">Oh no... </h1>
   <h2 class="">Our pug monster is taking a break.</h2>
-<form>
-  <label for="search">Snuffle for something tasty?</label>
-  <input type="search" id="search" name="search" aria-label="Search">
-  <button type="submit">Search</button>
-</form>
+  <img src="images/curious-pug-enterprise/curious-pug-dark.png" alt="Pug Monster" class="error-image">
+  <form>
+    <label for="search">Snuffle for something tasty?</label>
+    <input type="search" id="search" name="search" aria-label="Search">
+    <button type="submit">Search</button>
+  </form>
 
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+  <div class="error-output">
+    <h2>Debug:</h2>
+    <pre class="error-message"><%= message %></pre>
+    <pre class="error-status">Status: <%= error.status %></pre>
+    <pre class="error-stack"><%= error.stack %></pre>
+  </div>
+</div>

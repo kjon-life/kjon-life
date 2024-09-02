@@ -1,4 +1,4 @@
-FROM node:16.19.0-slim
+FROM node:22.6.0-slim
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -17,3 +17,4 @@ COPY . .
 
 EXPOSE 8080
 CMD [ "npm", "start" ]
+# CMD [ "parcel", "start" ]
