@@ -1,54 +1,54 @@
-/*  Intro section */
-.video-container {
-    // video needs to be relative
-    position: relative;
-    z-index: -1;
-    height: $intro-section-height;
-    display: grid;
-    place-items: center;
-    align-items: center;
 
-    // fix the video element in the container
-    video {
-        @extend %full-screen-fixed;
-        // whatever the scale
-        object-fit: cover;
-    }
-}
-
-.overlay {
-    @extend %full-screen-fixed;
-    background-color: rgba(0,0,0,0.3);
-    display: grid;
-    align-items: center;
-    height: $intro-section-height;
-
-    h1 {
+    .video-container {
+        // video needs to be relative
         position: relative;
-        color: $complementary-primary;
-        font-size: clamp(3.5rem, 5vw, 6rem);
-        font-weight: 800;
-        z-index: 1000;
-        animation: colorChange 1s ease-in-out infinite alternate;
+        z-index: -1;
+        height: $intro-section-height;
+        display: grid;
+        place-items: center;
+        align-items: center;
 
-        @keyframes colorChange {
-            from {
-                color: darken($complementary-primary, 20%);
-            }
-            to {
-                color: $highlight-color;
-            }
+        // fix the video element in the container
+        video {
+            @extend %full-screen-fixed;
+            // whatever the scale
+            object-fit: cover;
         }
     }
-    
-    p {
-        color: $highlight-color;
-        position: relative;
-        text-align: center;
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 300;
-        z-index: 2;
 
-    }
+    .overlay {
+        @extend %full-screen-fixed;
+        background-color: rgba(0,0,0,0.3);
+        display: grid;
+        align-items: center;
+        height: $intro-section-height;
 
-} 
+        h1 {
+            position: relative;
+            color: $complementary-primary;
+            font-size: clamp(3.5rem, 5vw, 6rem);
+            font-weight: 800;
+            z-index: 1000;
+            animation: colorChange 1s ease-in-out infinite alternate;
+
+            @keyframes colorChange {
+                from {
+                    color: darken($complementary-primary, 20%);
+                }
+                to {
+                    color: $highlight-color;
+                }
+            }
+        }
+        
+        p {
+            color: $highlight-color;
+            position: relative;
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 300;
+            z-index: 2;
+
+        }
+
+    } 

@@ -1,6 +1,13 @@
 /* Gallery Section -------------------- */
 #gallery {
     @extend %section;
+    height: 100vh;
+
+    @include smartphone-horizontal {
+        padding-top: 10vh;
+        padding-bottom: 50vh;
+    }
+
 
     .gallery-container {
         @include flex-center(column);

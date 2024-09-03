@@ -42,17 +42,17 @@
             }
         }
 
-        .phrase {
-            color: darken($text-primary, 20%);
-            transition-property: color;
-            transition-timing-function: ease;
 
+        .phrase {
+            color: darken($text-primary, 40%);
+            transition: color 3.3s ease;
+        
             @for $i from 1 through 4 {
-                :nth-child(#{$i}) {
-                    transition-delay: $i * 2.1s;
+                &:nth-child(#{$i}) {
+                    transition-delay: $i * 2.0s;
                 }
             }
-
+        
             &.active {
                 color: lighten($text-primary, 20%);
             }
