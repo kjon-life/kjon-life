@@ -45,11 +45,11 @@
 
         .phrase {
             color: darken($text-primary, 40%);
-            transition: color 3.3s ease;
+            transition: color 1.0s ease;
         
             @for $i from 1 through 4 {
                 &:nth-child(#{$i}) {
-                    transition-delay: $i * 2.0s;
+                    transition-delay: $i * 0.8s;
                 }
             }
         
