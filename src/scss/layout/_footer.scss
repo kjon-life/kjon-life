@@ -1,0 +1,34 @@
+/* put the footer in it's own space */
+footer {
+    @include flex-center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    color: $highlight-color;
+    z-index: 333;
+
+    small {
+        // margin-top: 10px;
+        color: $text-secondary;
+    }
+
+    #socials {
+        .social-media-icons {
+            font-family: "Font Awesome 5 Free";
+            font-size: large;
+            position: relative;
+            top: 3em;
+            align-items: center;
+            justify-content: center;
+        
+            i {
+                transition: transform 0.5s ease;
+                cursor: pointer;
+            
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}  
