@@ -89,8 +89,9 @@ This project [depends](https://github.com/kjon-life/kjon-life/network/dependenci
 
 This project is possible because of these and other services:
 
-- [Porkbun](https://porkbun.com/) - Domain registration and DNS management
-- [Fly.io](https://fly.io/) - Application hosting platform
+- [Porkbun](https://porkbun.com/) - Domain registration and DNS management  
+- [Fly.io](https://fly.io/) - Application hosting platform  
+- [ExpressVPN](https://www.expressvpn.com/) - Use [REFERRAL link for 30 days FREE](https://www.expressrefer.com?referee_bonus_days=30&referral_campaign_id=krn%3A%3Apayments%3A%3Axvpn%3Areferral-campaign%3A2c4bb66f-a34f-4d30-943c-5341800cf2e5&referrer_id=97218893&utm_campaign=referrals&utm_medium=copy_link&utm_source=referral_dashboard)  
 
 This project is possible because of these and other people:
 
