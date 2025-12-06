@@ -6,13 +6,20 @@
   "author": "{kjon-life}",
   "license": "ISC",
   "main": "app.js",
+  "targets": {
+    "main": false,
+    "css": {
+      "distDir": "public/css",
+      "publicUrl": "/css"
+    }
+  },
   "scripts": {
-    "start:local-trace": "parcel watch src/scss/main.scss --dist-dir public/css & node --trace-deprecation  --trace-warnings ./bin/www",
-    "start:local": "parcel watch src/scss/main.scss --dist-dir public/css & node ./bin/www",
-    "start:debug": "concurrently \"parcel watch src/scss/main.scss --dist-dir public/css\" \"NODE_DEBUG=http,net,stream,ejs,path,morgan DEBUG=express:* nodemon --inspect ./bin/www\"",
+    "start:local-trace": "parcel watch src/scss/main.scss --target css --dist-dir public/css & node --trace-deprecation  --trace-warnings ./bin/www",
+    "start:local": "parcel watch src/scss/main.scss --target css --dist-dir public/css & node ./bin/www",
+    "start:debug": "concurrently \"parcel watch src/scss/main.scss --target css --dist-dir public/css\" \"NODE_DEBUG=http,net,stream,ejs,path,morgan DEBUG=express:* nodemon --inspect ./bin/www\"",
     "start": "node ./bin/www",
-    "start:build": "npm run build && npm run start --trace-warnings",
-    "build": "parcel build src/scss/main.scss --dist-dir public/css"
+    "start:build": "pnpm run build && pnpm run start --trace-warnings",
+    "build": "parcel build src/scss/main.scss --target css --dist-dir public/css"
   },
   "dependencies": {
     "body-parser": "^1.20.2",

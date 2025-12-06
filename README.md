@@ -51,6 +51,11 @@ This is a project that feeds my developer portfoio. To connect:
 * Replicate - for AI with an API
 * Perplexity - for knowledge augmentation
 
+### Running locally
+1. Install the dependencies with `pnpm install`. pnpm locks versions in `pnpm-lock.yaml` and deduplicates modules for you.
+2. Run `pnpm run start:local` to let Parcel watch `src/scss/main.scss`, write the compiled CSS into `public/css`, and then start the Express server (`./bin/www`) in one step—no manual SCSS compilation required.
+3. When you only need to build assets, use `pnpm run build`. For production-like starts that build before starting the server, use `pnpm run start:build`. `pnpm run start` assumes the CSS is already built, while `pnpm run start:debug` or `pnpm run start:local-trace` layer on debugging and tracing helpers.
+
 ```flyctl``` is a CLI tool from [Fly.io](http://fly.io)
 You can read about it [here](https://fly.io/docs/hands-on/).
 
