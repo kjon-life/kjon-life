@@ -47,6 +47,24 @@ $spacing-scale: (
     }
 }
 
+@mixin responsive-container($max-width: 1200px, $padding: md) {
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: map-get($spacing-scale, $padding);
+    padding-right: map-get($spacing-scale, $padding);
+
+    width: 100%;
+}
+
+@mixin brand-border($color-key: primary, $width: 1px, $style: solid) {
+    border: $width $style brand-color($color-key);
+}
+
+@mixin brand-transition($properties: all, $duration: 0.3s, $timing: ease) {
+    transition: $properties $duration $timing;
+}
+
 // Brand helpers
 @mixin brand-gradient($from-key, $to-key, $angle: 135deg) {
     background-image: linear-gradient($angle, brand-color($from-key), brand-color($to-key));
@@ -241,5 +259,17 @@ $spacing-scale: (
 
     .u-shadow-brand {
         @include brand-shadow(primary, 0.35, 12px, 30px);
+    }
+
+    .u-responsive-container {
+        @include responsive-container();
+    }
+
+    .u-border-brand {
+        @include brand-border();
+    }
+
+    .u-transition-smooth {
+        @include brand-transition();
     }
 }
