@@ -56,6 +56,11 @@ This is a project that feeds my developer portfoio. To connect:
 2. Run `pnpm run start:local` to let Parcel watch `src/scss/main.scss`, write the compiled CSS into `public/css`, and then start the Express server (`./bin/www`) in one step—no manual SCSS compilation required.
 3. When you only need to build assets, use `pnpm run build`. For production-like starts that build before starting the server, use `pnpm run start:build`. `pnpm run start` assumes the CSS is already built, while `pnpm run start:debug` or `pnpm run start:local-trace` layer on debugging and tracing helpers.
 
+### Release readiness
+1. Run `pnpm run validate:brand` (alias `pnpm test`) to exercise `scripts/validate-brand-colors.js` so every raw hex stays inside `$brand-colors`.
+2. Build the CSS with `pnpm run build` and double-check the Parcel output in `public/css/main.css`.
+3. Merge into `main`, let GitHub Actions publish, then deploy the updated image to Fly.io using the existing `fly.toml` configuration if you are ready for the new palette + guardrails.
+
 ```flyctl``` is a CLI tool from [Fly.io](http://fly.io)
 You can read about it [here](https://fly.io/docs/hands-on/).
 
