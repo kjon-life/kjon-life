@@ -17,6 +17,7 @@ Sections:
 3. Theme Modules & `@use` Discipline
    - Convert `_variables.scss`, `_themes/_dark.scss`, `_mixins.scss`, and `_functions.scss` into `@use`-able modules (`@use 'base/variables' as vars;`).
    - Theme files should only redefine semantic slots and complementary helpers; they must not re-implement component logic.
+    - Prefer `@use` for all local SCSS modules and reserve `@import` only for remote resources (fonts/CDNs) so the compiler stays compatible with Dart Sass 3.0+.
    - Document the module graph (see `design/scss_ontology_scaffolding.md`) so future contributors know which module exports what.
 
 4. Utility Functions

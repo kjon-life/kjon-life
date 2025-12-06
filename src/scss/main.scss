@@ -1,76 +1,38 @@
-//import 'utils/reset';
-
 // 1. Vendors (third-party libraries)
-@import 'vendors/bootstrap';
-@import 'vendors/font-awesome';
+@use 'vendors/bootstrap';
+@use 'vendors/font-awesome';
 
 // 2. Base (variables, fonts, scrollbar)
-@import 'base/variables';
-@import 'base/fonts';
-@import 'base/scrollbar';
+@use 'base/fonts';
+@use 'base/scrollbar';
+@use 'base/variables' as *;
 
 // 3. Utils (mixins, functions, resets)
-@import 'utils/mixins';
-@import 'utils/functions';
+@use 'utils/mixins' as *;
+@use 'utils/functions' as *;
 
 // 4. Layout (grid, container, card, etc.)
-@import 'layout/grid.scss';
-@import 'layout/container';
-@import 'layout/card.scss';
-@import 'layout/intro.scss';
-@import 'layout/projects.scss';
-@import 'layout/prompt.scss';
-@import 'layout/purpose.scss';
+@use 'layout/grid';
+@use 'layout/container';
+@use 'layout/card';
+@use 'layout/intro';
+@use 'layout/projects';
+@use 'layout/prompt';
+@use 'layout/purpose';
+@use 'layout/footer';
 
 // 5. Components (button, header, etc.)
-@import 'components/button';
-@import 'components/header';
+@use 'components/button';
+@use 'components/header';
 
 // 6. Pages (specific page styles)
-@import 'pages/v-0-0-3';
-@import 'pages/error';
-@import 'pages/colorplay';
+@use 'pages/v-0-0-3';
+@use 'pages/error';
+@use 'pages/colorplay';
 
 // 7. Themes (dark, light, etc.)
-// Ensure all imports are properly resolved
-@import 'themes/dark';
+@use 'themes/dark';
+@use 'themes/light';
 
-// Force import of all other styles
-@import 'vendors/bootstrap';
-@import 'vendors/font-awesome';
-@import 'base/variables';
-@import 'base/fonts';
-@import 'base/scrollbar';
-@import 'utils/mixins';
-@import 'utils/functions';
-@import 'layout/grid';
-@import 'layout/container';
-@import 'layout/card';
-@import 'layout/intro';
-@import 'layout/projects';
-@import 'layout/prompt';
-@import 'layout/purpose';
-@import 'components/button';
-@import 'components/header';
-@import 'pages/v-0-0-3';
-@import 'pages/error';
-@import 'pages/colorplay';
-
-// Ensure all styles are included in the final CSS output
-* {
-    // This rule ensures that all styles are processed
-    content: '';
-}
-@import 'themes/light';
-/*
- * Vendors (third-party libraries)
- * Base (variables, fonts, scrollbar) 
- * Utils (mixins, functions, resets) 
- * Layout (grid, container, card, etc.)
- * Components (button, header, etc.)
- * Pages (specific page styles)
- * Themes (dark, light, etc.)
- */
-
- // Resources:
- // https://css-tricks.com/snippets/css/complete-guide-grid/
+// Resources:
+// https://css-tricks.com/snippets/css/complete-guide-grid/

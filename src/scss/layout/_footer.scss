@@ -1,3 +1,6 @@
+@use '../utils/mixins' as *;
+@use '../base/variables' as *;
+
 /* put the footer in it's own space */
 footer {
     @include flex-center;

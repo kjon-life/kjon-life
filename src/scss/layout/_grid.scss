@@ -1,3 +1,6 @@
+@use '../utils/mixins' as *;
+@use '../base/variables' as *;
+
 /* Gallery Section -------------------- */
 #gallery {
     @extend %section;

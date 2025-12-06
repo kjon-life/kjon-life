@@ -49,6 +49,7 @@ Purpose: adopt `@use` modules so dependencies are explicit and overrides stay co
 | B1 | 15k | Split `_variables.scss`, `_mixins.scss`, `_functions.scss`, and theme files into proper `@use` modules (e.g., `@use "base/variables" as vars;`). |
 | B2 | 10k | Update components/pages to `@use` the minimal subset they need, preventing accidental variable redefinitions. |
 | B3 | 5k | Document the module graph in `design/scss_ontology_scaffolding.md` so future updates follow the same import discipline. |
+| B Status | — | B is in progress: `main.scss` now calls each shared file via `@use`, and every layout/page/theme pulls the base/mixin leftovers through `@use` so the old `@import` workflow is replaced with explicit modules. Documenting the module graph is the next step. |
 | B Status | — | Planned: reorganize `_variables.scss`, `_mixins.scss`, `_functions.scss`, and theme files into explicit modules (`@use`) and update globals to consume only the exports they need. |
 
 ### Scaffold C: Utility/Mixin Layer Expansion
