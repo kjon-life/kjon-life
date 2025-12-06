@@ -1,5 +1,6 @@
 @use '../base/variables' as *;
 @use 'sass:color' as color;
+@use 'sass:map' as map;
 
 // Mixins
 
@@ -21,7 +22,7 @@ $spacing-scale: (
 );
 
 @mixin spacing($property, $size) {
-    $value: map-get($spacing-scale, $size);
+    $value: map.get($spacing-scale, $size);
 
     @if $value {
         #{$property}: $value;
@@ -31,7 +32,7 @@ $spacing-scale: (
 }
 
 @mixin stack-spacing($axis: y, $size: md) {
-    $value: map-get($spacing-scale, $size);
+    $value: map.get($spacing-scale, $size);
 
     @if $value {
         @if $axis == x {
@@ -73,7 +74,8 @@ $spacing-scale: (
 
 @mixin brand-shadow($color-key: primary, $opacity: 0.25, $y: 10px, $blur: 20px, $spread: 0) {
     $color: brand-color($color-key);
-    box-shadow: 0 $y $blur $spread rgba(red($color), green($color), blue($color), $opacity);
+    $shadow-color: color.adjust($color, $alpha: $opacity);
+    box-shadow: 0 $y $blur $spread $shadow-color;
 }
 
 @mixin brand-text($color-key: text-primary) {
