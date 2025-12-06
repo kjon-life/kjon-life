@@ -115,3 +115,14 @@ node_modules
 dist
 .parcel-cache
 .parcel-cache/
+
+# Compiled assets
+public/css/main.css
+public/css/main.css.map
+public/css/main.css.map.gz
+public/css/main.css.map.br
+public/css/main.css.map.br.gz
+public/css/main.css.map.br.gz.br
+public/css/main.css.map.br.gz.br.gz
+public/css/main.css.map.br.gz.br.gz.br
+public/css/main.css.map.br.gz.br.gz.br.gz
