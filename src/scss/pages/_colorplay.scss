@@ -19,15 +19,15 @@
 }
 
 .adjust-color {
-    background: adjust-color($box-color, $red: 200);
+    background: color.adjust($box-color, $red: 200);
 }
 
 .scale-color {
-    background: adjust-color($box-color, $lightness: 50%, $saturation: -30%);
+    background: color.adjust($box-color, $lightness: 50%, $saturation: -30%);
 }
 
 .change-color {
-    background: change-color($box-color, $red: 99);
+    background: color.change($box-color, $red: 99);
 }
 
 .mix-color {
@@ -43,15 +43,15 @@
 }
 
 .opacify-color {
-    background: opacify($box-color, .5);
+    background: color.adjust($box-color, $alpha: 0.5);
 }
 
 .invert-color {
-    background: invert($box-color, 30%);
+    background: color.invert($box-color);
 }
 
 .adjust-hue {
-    background: adjust-hue($box-color, 88deg);
+    background: color.adjust($box-color, $hue: 88deg);
 }
   
 

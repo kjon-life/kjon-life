@@ -53,8 +53,8 @@ $spacing-scale: (
     max-width: $max-width;
     margin-left: auto;
     margin-right: auto;
-    padding-left: map-get($spacing-scale, $padding);
-    padding-right: map-get($spacing-scale, $padding);
+    padding-left: map.get($spacing-scale, $padding);
+    padding-right: map.get($spacing-scale, $padding);
 
     width: 100%;
 }
