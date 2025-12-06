@@ -1,19 +1,19 @@
 // Core semantic palette (Scaffold A)
 $brand-colors: (
-    text-primary: #f5f3f5,
-    text-secondary: #333333,
-    background: #f5f3f5,
-    primary: #150050,
-    secondary: #3f0071,
-    accent: #582707,
-    highlight: #c88304,
-    complementary-primary: #ffd700,
-    complementary-secondary: #ffcccb,
-    complementary-accent: #0072af
+    text-primary: #f5f3f5, /* light text */
+    text-secondary: #333333, /* dark text */
+    background: #f5f3f5, /* Alabaster - whitesmoke */
+    primary: #150050, /* Navy Blue */
+    secondary: #3f0071, /* Indigo */
+    accent: #582707, /* Burnt Sienna */
+    highlight: #c88304, /* Cadmium Orange */
+    complementary-primary: #ffd700, /* Gold */
+    complementary-secondary: #ffcccb, /* Light Coral */
+    complementary-accent: #0072af /* Cerulean */
 );
 
-@function brand-color($key, $fallback: null) {
-  $value: map-get($brand-colors, $key);
+@function brand-color($key, $colors: $brand-colors, $fallback: null) {
+  $value: map-get($colors, $key);
 
   @if $value != null {
     @return $value;
@@ -23,7 +23,7 @@ $brand-colors: (
     @return $fallback;
   }
 
-  @error "brand-color: `#{$key}` is not defined. Add it to $brand-colors.";
+  @error "brand-color: `#{$key}` is not defined. Add it to the provided map.";
 }
 
 @mixin export-brand-vars($colors) {

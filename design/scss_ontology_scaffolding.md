@@ -41,7 +41,7 @@ Purpose: turn semantic colors into a reusable map and expose CSS custom properti
 | A1 | 25k | Define `$brand-colors: (saffron: #c88304, dusk: #150050, mist: #f5f3f5, ...);` and helper `@function brand-color($key)` so new tokens are added in one place. |
 | A2 | 20k | Generate CSS custom properties from the map in `:root` and theme wrappers (dark/light). This lets components consume `var(--brand-saffron)` alongside Sass tokens. |
 | A3 | 15k | Refactor key mixins/components (buttons, cards, sections) to reference the new helper so the palette can be extended without touching each file. |
-| A Status | — | A1/A2/A3 scaffold is now in progress: the brand map, helper, and `:root` CSS var generator are live, and buttons/cards already consume `brand-color()`. Next is wiring the theme overrides to this map. |
+| A Status | — | A1/A2/A3 scaffold is now in progress: the brand map, helper, `:root` CSS var generator, and theme wrappers are live. Dark/light themes now export their own map (via `export-brand-vars`) so the helper pipeline is fully theme-aware, and buttons/cards already consume `brand-color()`. |
 
 ### Scaffold B: Theme Module & Use Layering
 Purpose: adopt `@use` modules so dependencies are explicit and overrides stay contained.
