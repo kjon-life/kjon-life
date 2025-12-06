@@ -20,6 +20,10 @@ Sections:
     - Prefer `@use` for all local SCSS modules and reserve `@import` only for remote resources (fonts/CDNs) so the compiler stays compatible with Dart Sass 3.0+.
    - Document the module graph (see `design/scss_ontology_scaffolding.md`) so future contributors know which module exports what.
 
+4. Guardrail Automation
+   - `pnpm run validate:brand` executes `scripts/validate-brand-colors.js`, which enforces that only the colors declared in `$brand-colors` appear as raw hex values outside the approved skip list.
+   - Add the script to your watch/test pipeline (`pnpm test` already runs it) so the brand-color contract is enforced before shipping new SCSS changes.
+
 4. Utility Functions
    - `_functions.scss` remains the home for contrast/luminance helpers; any new ratio-based logic belongs there before being used elsewhere.
    - If a new helper (e.g., `brand-contrast()`) is needed to support the token map, add it here so contrast decisions stay consistent.

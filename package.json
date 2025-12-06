@@ -19,7 +19,9 @@
     "start:debug": "concurrently \"parcel watch src/scss/main.scss --target css --dist-dir public/css\" \"NODE_DEBUG=http,net,stream,ejs,path,morgan DEBUG=express:* nodemon --inspect ./bin/www\"",
     "start": "node ./bin/www",
     "start:build": "pnpm run build && pnpm run start --trace-warnings",
-    "build": "parcel build src/scss/main.scss --target css --dist-dir public/css"
+    "build": "parcel build src/scss/main.scss --target css --dist-dir public/css",
+    "validate:brand": "node scripts/validate-brand-colors.js",
+    "test": "pnpm run validate:brand"
   },
   "dependencies": {
     "body-parser": "^1.20.2",

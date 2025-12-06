@@ -73,8 +73,8 @@ Purpose: ensure new tokens/styles respect the curated system.
 | Segment | Tokens | Deliverable |
 | D1 | 5k | Expand `.cursor/rules/scss-patterns.mdc` with the new token map, theme module policy, and mixin references. |
 | D2 | 5k | Draft a checklist for agents (e.g., “always extend `%button-base`”, “only add colors via `brand-color()` map”) and capture it in the doc. |
-| D3 | 5k | Prototype a lightweight validation script or Stylelint config placeholder that warns about raw hex colors outside the token map. |
-| D Status | — | D1 is done (the rule file now references the map, theme modules, and mixin helpers), D2 checklist expansion is complete, and D3 is next once the rule set settles. |
+| D3 | 5k | Ship `scripts/validate-brand-colors.js` that checks every partial for raw hex values outside the brand map and run it via `pnpm run validate:brand`. |
+| D Status | — | D1 and D2 are done, and D3 is complete: the validation script runs through `pnpm run validate:brand` (also aliased as `pnpm test`) so any new hex value is flagged unless it is part of the official palette. |
 
 ## Next Steps
 
