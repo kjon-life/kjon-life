@@ -24,7 +24,7 @@ Sections:
    - If a new helper (e.g., `brand-contrast()`) is needed to support the token map, add it here so contrast decisions stay consistent.
 
 5. Mixins & Shared Layouts
-   - `_mixins.scss` continues to define `%button-base`, `%card-base`, `@include flex-center`, media mixins, animations, plus the upcoming mixins for brand gradients/shadows/spacing utilities.
+   - `_mixins.scss` continues to define `%button-base`, `%card-base`, `@include flex-center`, media mixins, animations, and now includes spacing scale mixins plus brand gradient/shadow/text helpers that call `brand-color()`.
    - New UI pieces should extend these shared mixins instead of recreating repeatable flex/spacing logic.
    - Keep spacing derived from the core breakpoints/section height tokens so layouts stay aligned with the brand rhythm.
 

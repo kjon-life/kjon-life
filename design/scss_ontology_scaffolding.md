@@ -56,6 +56,7 @@ Purpose: expand and document helper mixins so everyone reaches for the same buil
 | C1 | 10k | Add mixins for gradients, brand shadows, spacing utilities, and responsive containers that reference the token map. |
 | C2 | 5k | Document usage patterns inside the design doc (e.g., “use `@include brand-gradient($from, $to)` for hero backgrounds”) and reinforce them in `scss-patterns.mdc`. |
 | C3 | 5k | Introduce layer-based utilities (spacing, text, display) guarded by `@layer base`/`@layer components` for future CSS layering. |
+| C Status | — | C1 is underway: spacing helpers, brand gradient/shadow/text mixins, and hero updates now rely on `brand-color()`. Next steps are documenting usage (C2) and building the layer-based utility bundle (C3). |
 
 ### Scaffold D: Guardrails & Validation
 Purpose: ensure new tokens/styles respect the curated system.

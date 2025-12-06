@@ -8,10 +8,61 @@
     flex-direction: $direction;
 }
 
+// Spacing utilities
+$spacing-scale: (
+    xs: 0.25rem,
+    sm: 0.5rem,
+    md: 1rem,
+    lg: 2rem,
+    xl: 3rem
+);
+
+@mixin spacing($property, $size) {
+    $value: map-get($spacing-scale, $size);
+
+    @if $value {
+        #{$property}: $value;
+    } @else {
+        @error "spacing: `#{$size}` is not defined in $spacing-scale.";
+    }
+}
+
+@mixin stack-spacing($axis: y, $size: md) {
+    $value: map-get($spacing-scale, $size);
+
+    @if $value {
+        @if $axis == x {
+            margin-left: $value;
+            margin-right: $value;
+        } @else if $axis == y {
+            margin-top: $value;
+            margin-bottom: $value;
+        } @else {
+            margin: $value;
+        }
+    } @else {
+        @error "stack-spacing: `#{$size}` is not defined in $spacing-scale.";
+    }
+}
+
+// Brand helpers
+@mixin brand-gradient($from-key, $to-key, $angle: 135deg) {
+    background-image: linear-gradient($angle, brand-color($from-key), brand-color($to-key));
+}
+
+@mixin brand-shadow($color-key: primary, $opacity: 0.25, $y: 10px, $blur: 20px, $spread: 0) {
+    $color: brand-color($color-key);
+    box-shadow: 0 $y $blur $spread rgba(red($color), green($color), blue($color), $opacity);
+}
+
+@mixin brand-text($color-key: text-primary) {
+    color: brand-color($color-key);
+}
+
 // Hero
 .hero {
     @include flex-center(row);
-    background-color: brand-color(background);
+    @include brand-gradient(background, highlight);
     color: brand-color(secondary);
     padding: 50px;
     text-align: center;
