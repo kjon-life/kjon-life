@@ -40,6 +40,7 @@ Sections:
        * Do theme files only redefine semantic values (never component selectors)?
        * Are shared mixins/resets respected (no rogue margin/padding or new global selectors)?
        * Are contrast decisions backed by `_functions.scss` helpers?
+       * Are brand gradients/shadows/text helpers used when applying highlight or accent values, and do new utilities live under the `@layer utilities` block so the map remains the single source of truth?
        * Do comments/naming explain whether the token is part of the main saffron story or a channel-specific accent?
    - Update this file whenever a new scaffold (A–D) adds tokens, mixins, or automation so it stays the single source of truth.
 

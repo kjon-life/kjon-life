@@ -41,7 +41,7 @@ Purpose: turn semantic colors into a reusable map and expose CSS custom properti
 | A1 | 25k | Define `$brand-colors: (saffron: #c88304, dusk: #150050, mist: #f5f3f5, ...);` and helper `@function brand-color($key)` so new tokens are added in one place. |
 | A2 | 20k | Generate CSS custom properties from the map in `:root` and theme wrappers (dark/light). This lets components consume `var(--brand-saffron)` alongside Sass tokens. |
 | A3 | 15k | Refactor key mixins/components (buttons, cards, sections) to reference the new helper so the palette can be extended without touching each file. |
-| A Status | — | A1/A2/A3 scaffold is now in progress: the brand map, helper, `:root` CSS var generator, and theme wrappers are live. Dark/light themes now export their own map (via `export-brand-vars`) so the helper pipeline is fully theme-aware, and buttons/cards already consume `brand-color()`. |
+| A Status | — | A1–A3 complete: the brand map, helper, `:root` CSS var generator, and theme wrappers are live; dark/light overlays export their own maps via `export-brand-vars`, and buttons/cards already consume `brand-color()`. |
 
 ### Scaffold B: Theme Module & Use Layering
 Purpose: adopt `@use` modules so dependencies are explicit and overrides stay contained.
@@ -49,6 +49,7 @@ Purpose: adopt `@use` modules so dependencies are explicit and overrides stay co
 | B1 | 15k | Split `_variables.scss`, `_mixins.scss`, `_functions.scss`, and theme files into proper `@use` modules (e.g., `@use "base/variables" as vars;`). |
 | B2 | 10k | Update components/pages to `@use` the minimal subset they need, preventing accidental variable redefinitions. |
 | B3 | 5k | Document the module graph in `design/scss_ontology_scaffolding.md` so future updates follow the same import discipline. |
+| B Status | — | Planned: reorganize `_variables.scss`, `_mixins.scss`, `_functions.scss`, and theme files into explicit modules (`@use`) and update globals to consume only the exports they need. |
 
 ### Scaffold C: Utility/Mixin Layer Expansion
 Purpose: expand and document helper mixins so everyone reaches for the same building blocks.
@@ -56,8 +57,7 @@ Purpose: expand and document helper mixins so everyone reaches for the same buil
 | C1 | 10k | Add mixins for gradients, brand shadows, spacing utilities, and responsive containers that reference the token map. |
 | C2 | 5k | Document usage patterns inside the design doc (e.g., “use `@include brand-gradient($from, $to)` for hero backgrounds”) and reinforce them in `scss-patterns.mdc`. |
 | C3 | 5k | Introduce layer-based utilities (spacing, text, display) guarded by `@layer base`/`@layer components` for future CSS layering. |
-| C Status | — | C1 is done; C2 and C3 are implemented: mixin usage is documented (brand-gradient, brand-shadow/text, spacing stack helpers) and the new `@layer utilities` block exposes spacing, text, background, gradient, and shadow utility classes that all rely on `brand-color()` so agents can reuse them consistently. |
-| C Status | — | C1 is underway: spacing helpers, brand gradient/shadow/text mixins, and hero updates now rely on `brand-color()`. Next steps are documenting usage (C2) and building the layer-based utility bundle (C3). |
+| C Status | — | C1–C3 are complete: mixin usage is documented (brand-gradient, brand-shadow/text, spacing stack helpers) and the new `@layer utilities` block exposes spacing, text, background, gradient, and shadow utility classes that all rely on `brand-color()` so agents can reuse them consistently. |
 
 ### Scaffold D: Guardrails & Validation
 Purpose: ensure new tokens/styles respect the curated system.
@@ -65,12 +65,13 @@ Purpose: ensure new tokens/styles respect the curated system.
 | D1 | 5k | Expand `.cursor/rules/scss-patterns.mdc` with the new token map, theme module policy, and mixin references. |
 | D2 | 5k | Draft a checklist for agents (e.g., “always extend `%button-base`”, “only add colors via `brand-color()` map”) and capture it in the doc. |
 | D3 | 5k | Prototype a lightweight validation script or Stylelint config placeholder that warns about raw hex colors outside the token map. |
+| D Status | — | D1 is done (the rule file now references the map, theme modules, and mixin helpers), D2 checklist expansion is complete, and D3 is next once the rule set settles. |
 
 ## Next Steps
 
-1. Tackle Scaffold A1 first so the token map becomes the canonical palette.
-2. Layer in CSS vars and `@use` discipline before expanding mixins (Scaffolds B and C).
-3. Finally, harden the guardrails (Scaffold D) so future contributors stay within the curated strategy.
+1. Turn Scaffold B into action: split the shared Sass files into `@use` modules and document the module graph.
+2. Once B’s module discipline is stable, keep expanding component mixins through the documented utilities (already on Scaffold C).
+3. Harden the guardrails by finishing the validation script mentioned in Scaffold D to prevent stray hexes.
 
 Use this document and the upcoming `.mdc` updates as the roadmap whenever you spend tokens on SCSS enhancements.
 
