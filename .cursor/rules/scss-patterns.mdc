@@ -25,6 +25,7 @@ Sections:
 
 5. Mixins & Shared Layouts
    - `_mixins.scss` continues to define `%button-base`, `%card-base`, `@include flex-center`, media mixins, animations, and now includes spacing scale mixins plus brand gradient/shadow/text helpers that call `brand-color()`.
+   - We also surface an `@layer utilities` block with spacing, text, background, gradient, and shadow classes so agents can reuse consistent helpers instead of inventing new utility selectors.
    - New UI pieces should extend these shared mixins instead of recreating repeatable flex/spacing logic.
    - Keep spacing derived from the core breakpoints/section height tokens so layouts stay aligned with the brand rhythm.
 

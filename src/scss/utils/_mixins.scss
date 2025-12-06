@@ -203,3 +203,41 @@ $spacing-scale: (
       transform: translateY(0);
     }
   }  
+
+@layer utilities {
+    .u-flex-center {
+        @include flex-center(row);
+    }
+
+    .u-stack-md {
+        @include stack-spacing(y, md);
+    }
+
+    .u-stack-lg {
+        @include stack-spacing(y, lg);
+    }
+
+    .u-padding-sm {
+        @include spacing(padding, sm);
+    }
+
+    .u-bg-highlight {
+        background-color: brand-color(highlight);
+    }
+
+    .u-text-primary {
+        @include brand-text(text-primary);
+    }
+
+    .u-text-highlight {
+        @include brand-text(highlight);
+    }
+
+    .u-gradient-hero {
+        @include brand-gradient(background, highlight);
+    }
+
+    .u-shadow-brand {
+        @include brand-shadow(primary, 0.35, 12px, 30px);
+    }
+}
