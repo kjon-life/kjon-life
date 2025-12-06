@@ -1,4 +1,5 @@
 @use '../base/variables' as *;
+@use 'sass:color' as color;
 
 // Light mode color palette
 .light-mode {
@@ -20,7 +21,7 @@
     $text-primary: brand-color(text-primary, $light-brand-colors);
     $text-secondary: brand-color(text-secondary, $light-brand-colors);
     $background-color: brand-color(background, $light-brand-colors);
-    $background-color-alt: darken($background-color, 5%);
+    $background-color-alt: color.scale($background-color, $lightness: -5%);
     $primary-color: brand-color(primary, $light-brand-colors);
     $secondary-color: brand-color(secondary, $light-brand-colors);
     $accent-color: brand-color(accent, $light-brand-colors);
@@ -28,9 +29,9 @@
 
     $nav-font-color: $text-secondary;
 
-    $border-color: scale-color($background-color, $lightness: -10%);
-    $hover-color: darken($primary-color, 10%);
-    $shadow-color: darken(grayscale($primary-color), 20%);
+    $border-color: color.scale($background-color, $lightness: -10%);
+    $hover-color: color.scale($primary-color, $lightness: -10%);
+    $shadow-color: color.scale(color.grayscale($primary-color), $lightness: -20%);
 
     body {
         background-color: $background-color;

@@ -1,5 +1,6 @@
 @use '../utils/mixins' as *;
 @use '../base/variables' as *;
+@use 'sass:color' as color;
 
     .video-container {
         // video needs to be relative
@@ -35,7 +36,7 @@
 
             @keyframes colorChange {
                 from {
-                    color: darken($complementary-primary, 20%);
+                    color: color.scale($complementary-primary, $lightness: -20%);
                 }
                 to {
                     color: $highlight-color;

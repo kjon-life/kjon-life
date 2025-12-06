@@ -1,5 +1,6 @@
 @use '../utils/mixins' as *;
 @use '../base/variables' as *;
+@use 'sass:color' as color;
 
 /*  Purpose section */
 #purpose {
@@ -47,7 +48,7 @@
 
 
         .phrase {
-            color: darken($text-primary, 40%);
+            color: color.scale($text-primary, $lightness: -40%);
             transition: color 1.0s ease;
         
             @for $i from 1 through 4 {
@@ -57,7 +58,7 @@
             }
         
             &.active {
-                color: lighten($text-primary, 5%);
+                color: color.scale($text-primary, $lightness: 5%);
             }
         }
     }

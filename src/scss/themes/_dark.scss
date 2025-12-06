@@ -1,4 +1,5 @@
 @use '../base/variables' as *;
+@use 'sass:color' as color;
 
 // Dark mode color palette
 .dark-mode {
@@ -20,7 +21,7 @@
     $text-primary: brand-color(text-primary, $dark-brand-colors);
     $text-secondary: brand-color(text-secondary, $dark-brand-colors);
     $background-color: brand-color(background, $dark-brand-colors);
-    $background-color-alt: scale-color($background-color, $lightness: -10%);
+    $background-color-alt: color.scale($background-color, $lightness: -10%);
     $primary-color: brand-color(primary, $dark-brand-colors);
     $secondary-color: brand-color(secondary, $dark-brand-colors);
     $accent-color: brand-color(accent, $dark-brand-colors);
@@ -29,9 +30,9 @@
     $nav-font-color: rgb(230, 230, 230);
 
     // Hover, border colors
-    $border-color: scale-color($background-color, $lightness: -10%);
-    $hover-color: darken($primary-color, 10%);
-    $shadow-color: darken(grayscale($primary-color), 20%);
+    $border-color: color.scale($background-color, $lightness: -10%);
+    $hover-color: color.scale($primary-color, $lightness: -10%);
+    $shadow-color: color.scale(color.grayscale($primary-color), $lightness: -20%);
 
     body {
         background-color: $background-color;

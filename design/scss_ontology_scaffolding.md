@@ -53,7 +53,7 @@ Purpose: adopt `@use` modules so dependencies are explicit and overrides stay co
 | Module Graph | — | Captured below so future contributors know who `@use`s what. |
 
 #### Module Graph Details
-1. `base/variables` – exports `$brand-colors`, `brand-color()`, `export-brand-vars`, typography/breakpoint anchors, and derived helpers; every partial should `@use` this module for semantic tokens.
+1. `base/variables` – exports `$brand-colors`, `brand-color()`, `export-brand-vars`, typography/breakpoint anchors, and all derived helpers; it also `@use`s `sass:color` to ensure `scale`, `grayscale`, and any future adjustments stay namespaced and compatible with Dart Sass 3.0+.
 2. `utils/mixins` – pulls in `base/variables` and forwards `%button-base`, `%card-base`, flex helpers, spacing scale mixins, and the `@layer utilities` classes; export only what is needed to keep modules lean.
 3. `utils/functions` – provides `contrast()`/`luminance()` and any future ratio helpers; `@use` this module when you need accessibility-aware color logic.
 4. Layout modules (`layout/grid`, `layout/intro`, `layout/purpose`, `layout/footer`, etc.) – `@use` `utils/mixins` and `base/variables` so they stay aligned with the documented helpers and can expose their own placeholders as needed.

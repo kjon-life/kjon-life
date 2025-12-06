@@ -1,4 +1,5 @@
 @use '../base/variables' as *;
+@use 'sass:color' as color;
 
 .color-box {
     padding: 20px;
@@ -10,11 +11,11 @@
 }
 
 .lighten-color {
-    background: lighten($box-color, 20%);
+    background: color.scale($box-color, $lightness: 20%);
 }
 
 .darken-color {
-    background: darken($box-color, 20%);
+    background: color.scale($box-color, $lightness: -20%);
 }
 
 .adjust-color {
@@ -38,7 +39,7 @@
 }
 
 .grayscale-color {
-    background: grayscale($box-color);
+    background: color.grayscale($box-color);
 }
 
 .opacify-color {

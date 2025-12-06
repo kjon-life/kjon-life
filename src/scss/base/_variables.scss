@@ -1,3 +1,5 @@
+@use 'sass:color' as color;
+
 // Core semantic palette (Scaffold A)
 $brand-colors: (
     text-primary: #f5f3f5, /* light text */
@@ -39,7 +41,7 @@ $brand-colors: (
 $text-primary: brand-color(text-primary);
 $text-secondary: brand-color(text-secondary);
 $background-color: brand-color(background);
-$background-color-alt: darken($background-color, 5%);
+$background-color-alt: color.scale($background-color, $lightness: -5%);
 $primary-color: brand-color(primary);
 $secondary-color: brand-color(secondary);
 $accent-color: brand-color(accent);
@@ -48,12 +50,11 @@ $complementary-primary: brand-color(complementary-primary);
 $complementary-secondary: brand-color(complementary-secondary);
 $complementary-accent: brand-color(complementary-accent);
 // Hover, border colors
-$border-color: scale-color($background-color, $lightness: -10%);
+$border-color: color.scale($background-color, $lightness: -10%);
 /* A neutral or slightly darker shade for borders */
-$hover-color: darken($primary-color, 10%);
+$hover-color: color.scale($primary-color, $lightness: -10%);
 /* A lighter or darker version of the primary color for hover effects */
-$shadow-color: grayscale($primary-color);
-$shadow-color: darken($shadow-color, 20%);
+$shadow-color: color.scale(color.grayscale($primary-color), $lightness: -20%);
 /* A subtle shade for shadows 
     grayscale the primary, then darken */
 
@@ -97,7 +98,7 @@ body {
             margin: 0 1rem;
             
             &:hover {
-                color: darken($text-primary, 20%);
+                color: color.scale($text-primary, $lightness: -20%);
                 cursor: pointer;
             }
         }
