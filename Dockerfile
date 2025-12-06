@@ -15,6 +15,6 @@ COPY . .
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
+EXPOSE 8081
 CMD [ "pnpm", "start" ]
 # CMD [ "parcel", "start" ]
