@@ -1,0 +1,45 @@
+Title: SCSS Ontology & Guardrails
+
+Purpose: document the current semantic stack, describe the future scaffolds from `design/scss_ontology_scaffolding.md`, and give agents clear rules for extending the palette cleanly.
+
+Sections:
+
+1. Semantic Token Map
+   - All colors originate from `src/scss/base/_variables.scss`, which will become a map (`$brand-colors`) so every semantic slot (primary, highlight, support, background, etc.) is defined once.
+   - Add new entries to the map, expose them via `@function brand-color($key)` and, eventually, through CSS variables (`--brand-<key>`). Never sprinkle raw hex values outside of `_variables.scss`.
+   - `$highlight-color` / `brand-color('saffron')` (#c88304) stays the main page hero tone; new accents should harmonize with that direction and the complementary trio (gold/coral/cerulean).
+
+2. CSS Custom Property Layer
+   - Build a generator that emits `:root` custom properties from the token map (and writes theme-specific overrides inside `.dark-mode`, `.light-mode`).
+   - Components can then use `var(--brand-highlight)` interchangeably with Sass helpers, which makes runtime theming and HeyGen exports easier.
+   - Keep the map → CSS var pipeline in `_variables.scss` so the token hub remains the single source of truth.
+
+3. Theme Modules & `@use` Discipline
+   - Convert `_variables.scss`, `_themes/_dark.scss`, `_mixins.scss`, and `_functions.scss` into `@use`-able modules (`@use 'base/variables' as vars;`).
+   - Theme files should only redefine semantic slots and complementary helpers; they must not re-implement component logic.
+   - Document the module graph (see `design/scss_ontology_scaffolding.md`) so future contributors know which module exports what.
+
+4. Utility Functions
+   - `_functions.scss` remains the home for contrast/luminance helpers; any new ratio-based logic belongs there before being used elsewhere.
+   - If a new helper (e.g., `brand-contrast()`) is needed to support the token map, add it here so contrast decisions stay consistent.
+
+5. Mixins & Shared Layouts
+   - `_mixins.scss` continues to define `%button-base`, `%card-base`, `@include flex-center`, media mixins, animations, plus the upcoming mixins for brand gradients/shadows/spacing utilities.
+   - New UI pieces should extend these shared mixins instead of recreating repeatable flex/spacing logic.
+   - Keep spacing derived from the core breakpoints/section height tokens so layouts stay aligned with the brand rhythm.
+
+6. Reset & Base Styles
+   - `_reset.scss` still enforces box-sizing, `body` defaults, and the base background/font from the token hub.
+   - Never override these resets at the component level; let theme wrappers adjust them via the semantic map.
+
+7. Guardrails & Review Checklist
+   - Before adding a pattern, read `design/scss_ontology_scaffolding.md` to identify which scaffold the work belongs to and which tokens/mixins to reuse.
+   - Checklist for new SCSS:
+       * Are colors pulled from `$brand-colors` / `brand-color()` rather than hardcoded?
+       * Do theme files only redefine semantic values (never component selectors)?
+       * Are shared mixins/resets respected (no rogue margin/padding or new global selectors)?
+       * Are contrast decisions backed by `_functions.scss` helpers?
+       * Do comments/naming explain whether the token is part of the main saffron story or a channel-specific accent?
+   - Update this file whenever a new scaffold (A–D) adds tokens, mixins, or automation so it stays the single source of truth.
+
+Use this rule file alongside `design/scss_ontology_scaffolding.md` to keep all future changes aligned with the curated palette and mixin layers.
