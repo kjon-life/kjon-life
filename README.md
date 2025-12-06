@@ -9,7 +9,7 @@ It's a subtle, distinct difference: Individuals buy products, enterprise buys so
 
 Everything we build has far-reaching effects. That nifty new feature might require re-training hundreds of employees. That data-flow optimization? Might force 600 people to change their spreadsheets. My life requires a blend of pragmatic thinking, big-picture realism, and disciplined attention to detail.
 
-But in this project I've gone back to the basics, revisiting the fun stuff, the front end, the building something from scratch because it interests me.
+This project grew out of simple HTML/CSS, front end to backend, sporadically typed with ten fingers and help from [codepen](https://codepen.io/kjon-life), [Stack Overflow](https://stackoverflow.com/users/19777134/kjon?tab=reputation), and **intellisense**. Building something from scratch because it interested me, and because there are puzzles which are poetry in code.
 
 <img align="right" width="300" src="https://user-images.githubusercontent.com/76539355/214731371-78cb7bcb-996d-4108-9872-7af758ed5647.png" alt="A Maia">
 
@@ -28,10 +28,10 @@ This is a project that feeds my developer portfoio. To connect:
 - [LinkedIn](https://www.linkedin.com/in/jonhwilliams) for professional connections.
 
 ### About:  
-- I work in the intersections of programming, performance, and revenue.  
-- I am deeply curious about data analytics, the way we present and consume information, and natural language processing. 
+- I work in the intersections of orchestration, intelligence, and revenue.  
+- I am deeply curious about data analytics, the way we articulate and contextualize information, and natural language processing. 
+- The future is arriving faster than we know, and it's lit. Especially for those learning to use these powerful "AI" technologies to serve "our neighbors, as ourselves."
 - I enjoy walking, buskers, cold plunging, '67-'73 Chevy trucks, and Chagaccino! 
-- Currently, I'm levelling up in open source by testing, coding, authoring tutorials, writing articles, writing (as-yet-unpublished) books, and a bit of free-lance into AI. 
 
 ### Project Overview:
 * App code is a simple Go web server 
@@ -48,8 +48,7 @@ This is a project that feeds my developer portfoio. To connect:
 * flyctl - for manual deployment
 * GitHub Actions - for CI/CD
 * Fly.io - for the serverless hosting platform
-* Replicate - for AI with an API
-* Perplexity - for knowledge augmentation
+
 
 ### Running locally
 1. Install the dependencies with `pnpm install`. pnpm locks versions in `pnpm-lock.yaml` and deduplicates modules for you.
@@ -63,47 +62,15 @@ This is a project that feeds my developer portfoio. To connect:
 
 ```flyctl``` is a CLI tool from [Fly.io](http://fly.io)
 You can read about it [here](https://fly.io/docs/hands-on/).
+  
 
-### History:  
-### Release 0.0.4  
-[Sep 2, 2024](not_available)  Pull request for branch d4
+### Acknowledgements, Errors, Omissions & Legal
 
-### Refactor with SCSS  
-[Aug 18, 2024](not_available)  branch d4, for Release 0.0.4
-* Use color adjustments, primarily the automation of color transformation, and the `dark mode`
+This project [depends](https://github.com/kjon-life/kjon-life/network/dependencies) on the copious contributions of others. If I have failed to properly cite or give credit, please [open an issue](https://github.com/kjon-life/kjon-life/issues) to help me correct errors and omissions.
 
-### Roadmap: Effortless login, and the developer experience
-[Q4](not available) Candidates:  
-* Dynamic - suite for log in, wallet creation, and user management    
-* SpruceID - a future where users control their identity & data    
-* fission - identity, data, and compute solutions for the future of the Internet  
-* Backstage - open source framework for developer experience
-
-### Serverless Hosted JS & EJS
-[March 23, 2024](notavailable)2024-03-23-20-42-51.png  
-
-### Static Site 
-[November 5, 2023](notavailable)2023-11-06-00-36-15.png    
-[November 5, 2023](notavailable)2023-11-05-23-08-50.png    
-[November 5, 2023](notavailable)2023-11-05-21-59-08.png    
-
-### Acknowledgements:
-
-This project [depends](https://github.com/kjon-life/kjon-life/network/dependencies) on the copious contributions of others including:
-
-- [JacintoDesign](https://jacinto.design/)
-- [Perplexity](https://www.perplexity.ai/) 
-    - and the [pplx-api](https://docs.perplexity.ai/docs/getting-started) 
-- [Amazon Q](https://github.com/aws/aws-toolkit-vscode) in VS Code
-- [Visual Studio Code](https://code.visualstudio.com/docs/setup/mac) on Darwin
+For legal inquiries, please [open an issue](https://github.com/kjon-life/kjon-life/issues).
 
 This project is possible because of these and other services:
 
 - [Porkbun](https://porkbun.com/) - Domain registration and DNS management
 - [Fly.io](https://fly.io/) - Application hosting platform
-
-This project is possible because of these and other people:
-
-- [Jacinto Wong](https://github.com/JacintoDesign/typographix-final/) - for code and ideas
-- [The CSS Bootcamp: Zero to Mastery](https://zerotomastery.io/courses/css-bootcamp/) - for 42 hours of skill building
-- [Zero To Mastery Courses](https://zerotomastery.io/courses/) - for 330+ days of work done in  Python, Rust, Django, SCSS, prompt engineering, full stack, automation, AWS certification, business analytics, statistics, AWS Bedrock, OpenAI API, LangChain, Streamlit, Pinecone 

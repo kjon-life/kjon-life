@@ -1,0 +1,249 @@
+---
+description: Cross-language development standards - REQUIRED for all projects
+globs: **/*
+alwaysApply: true
+---
+
+# Development Standards - MANDATORY
+
+## DOCUMENTATION - STRICT REQUIREMENTS
+- EVERY public function MUST have docstrings explaining "why" not "what"
+- EVERY parameter MUST include units in name or documentation
+- ALWAYS include usage examples for public APIs
+- NEVER leave undocumented public interfaces
+
+### REQUIRED Documentation Patterns
+```python
+def calculate_timeout(duration_seconds: float, retry_count: int) -> float:
+    """Calculate exponential backoff timeout for retries.
+
+    Why: Prevents overwhelming services during outages while ensuring
+    reasonable user experience for transient failures.
+
+    Args:
+        duration_seconds: Base timeout duration in seconds
+        retry_count: Number of previous retry attempts (0-based)
+
+    Returns:
+        Timeout duration in seconds (max 60 seconds)
+
+    Example:
+        >>> calculate_timeout(1.0, 0)  # First attempt
+        1.0
+        >>> calculate_timeout(1.0, 3)  # Fourth attempt
+        8.0
+    """
+```
+
+## ERROR HANDLING - NO EXCEPTIONS
+- EVERY error message MUST include: what failed, why it failed, how to fix it
+- NEVER use generic error messages like "Invalid input" or "Something went wrong"
+- ALWAYS use specific exception types for different failure categories
+- EVERY exception MUST be actionable for the developer
+- `src/apisec_ng_toolkit/error_handling.py` is good example
+- `src/apisec_ng_toolkit/exceptions.py` is exemplary and the proper way
+- all custom exceptions should inherit from the base APISecError class defined in exceptions.py
+
+### MANDATORY Error Patterns
+```python
+class ValidationError(ValueError):
+    """Raised when input validation fails with specific field information."""
+
+    def __init__(self, field: str, value: Any, expected: str, suggestion: str):
+        self.field = field
+        self.value = value
+        self.expected = expected
+        message = (
+            f"Validation failed for field '{field}': "
+            f"received {type(value).__name__}({value!r}), "
+            f"expected {expected}. "
+            f"Suggestion: {suggestion}"
+        )
+        super().__init__(message)
+
+# Usage example
+if not isinstance(user_id, int) or user_id <= 0:
+    raise ValidationError(
+        field="user_id",
+        value=user_id,
+        expected="positive integer",
+        suggestion="Ensure user_id is retrieved from valid user record"
+    )
+```
+
+## LOGGING - MANDATORY PATTERNS
+- ALWAYS use structured logging with consistent field names
+- EVERY log entry MUST include correlation_id for request tracing
+- NEVER log sensitive data (passwords, tokens, PII)
+- ALWAYS log at appropriate levels: ERROR for failures, INFO for business events, DEBUG for troubleshooting
+
+### REQUIRED Logging Patterns
+```python
+import structlog
+
+logger = structlog.get_logger(__name__)
+
+# Required fields for all log entries
+def process_user_request(user_id: int, request_id: str):
+    log = logger.bind(
+        user_id=user_id,
+        request_id=request_id,
+        operation="process_user_request"
+    )
+
+    try:
+        log.info("Processing user request started")
+        result = perform_operation(user_id)
+        log.info("Processing user request completed", result_count=len(result))
+        return result
+    except Exception as e:
+        log.error(
+            "Processing user request failed",
+            error_type=type(e).__name__,
+            error_message=str(e)
+        )
+        raise
+```
+
+## TESTING - STRICT REQUIREMENTS
+- EVERY test MUST be small and test exactly one behavior - Unit: many, fast, precise, assert heavily.
+- EVERY test name MUST describe what behavior is being tested
+- ALWAYS organize tests: `tests/unit/`, `tests/integration/`, `tests/e2e/`
+- NEVER put complex logic in test functions
+### TESTING rules of thumb
+- Integration: fewer, realistic boundaries, assert meaningful cross-module effects.
+- E2E: very few, user-visible outcomes, minimal asserts.
+- Regression: add at the lowest level that reproduces the bug reliably.
+
+
+### MANDATORY Test Patterns
+```python
+# ✅ Good: Small, focused, descriptive name
+def test_calculate_timeout_returns_exponential_backoff_with_max_limit():
+    """Test that timeout calculation uses exponential backoff up to 60 second limit."""
+    # Arrange
+    base_duration = 1.0
+    high_retry_count = 10
+
+    # Act
+    result = calculate_timeout(base_duration, high_retry_count)
+
+    # Assert
+    assert result == 60.0  # Max timeout limit
+
+def test_calculate_timeout_raises_validation_error_for_negative_duration():
+    """Test that negative duration raises specific validation error."""
+    with pytest.raises(ValidationError) as exc_info:
+        calculate_timeout(-1.0, 0)
+
+    assert "duration_seconds" in str(exc_info.value)
+    assert "positive number" in str(exc_info.value)
+```
+
+## BRANCH & COMMIT - MANDATORY FORMATS
+- EVERY branch MUST follow format: `feature/YYYY-MM-DD-brief-description`
+- EVERY commit MUST use conventional commit format
+- EVERY commit MUST be atomic (single logical change)
+- NEVER commit broken code or failing tests
+
+### REQUIRED Commit Patterns
+```bash
+# Branch naming examples
+feature/2025-01-15-user-authentication
+fix/2025-01-15-timeout-calculation-bug
+refactor/2025-01-15-extract-validation-utils
+
+# Commit message imperative examples
+feat(auth): add JWT token validation with expiry check
+fix(api): correct timeout calculation for retry attempts
+refactor(utils): extract validation logic to separate module
+docs(readme): add setup instructions for local development
+```
+
+## SECURITY - NO EXCEPTIONS
+- NEVER hardcode secrets, API keys, or credentials in code
+- ALWAYS sanitize all user inputs before processing
+- EVERY external API call MUST include timeout and retry limits
+- ALWAYS use environment variables for configuration
+
+### MANDATORY Security Patterns
+```python
+import os
+from typing import Optional
+
+class Config:
+    """Application configuration from environment variables."""
+
+    @classmethod
+    def get_required_env(cls, key: str) -> str:
+        """Get required environment variable or raise clear error."""
+        value = os.getenv(key)
+        if value is None:
+            raise EnvironmentError(
+                f"Required environment variable '{key}' not set. "
+                f"Add {key}=<value> to your environment or .env file."
+            )
+        return value
+
+    @classmethod
+    def get_optional_env(cls, key: str, default: str) -> str:
+        """Get optional environment variable with default."""
+        return os.getenv(key, default)
+
+# Usage
+DATABASE_URL = Config.get_required_env("DATABASE_URL")
+LOG_LEVEL = Config.get_optional_env("LOG_LEVEL", "INFO")
+```
+
+## RESOURCE MANAGEMENT - MANDATORY
+- ALWAYS use context managers for file/database/network resources
+- EVERY async operation MUST have explicit timeout
+- NEVER ignore resource cleanup in finally blocks
+- ALWAYS implement proper connection pooling for databases
+
+### REQUIRED Resource Patterns
+```python
+import asyncio
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def database_transaction():
+    """Context manager for database transactions with proper cleanup."""
+    connection = None
+    try:
+        connection = await get_database_connection()
+        transaction = await connection.begin()
+        yield connection
+        await transaction.commit()
+    except Exception:
+        if connection:
+            await transaction.rollback()
+        raise
+    finally:
+        if connection:
+            await connection.close()
+
+# Usage
+async def update_user(user_id: int, data: dict):
+    async with database_transaction() as conn:
+        await conn.execute("UPDATE users SET ...", data)
+```
+
+## FORBIDDEN PATTERNS
+- NO generic error messages without specific context
+- NO hardcoded configuration values
+- NO resource leaks (always use context managers)
+- NO untested public functions
+- NO commits with TODO or FIXME comments
+- NO complex logic in test functions
+- NO logging of sensitive data
+- NO synchronous I/O in async contexts
+
+## PRE-COMMIT REQUIREMENTS
+ALL of these MUST pass before any PR:
+- Code formatting check passes
+- Linting with no warnings passes
+- Type checking passes
+- All tests pass
+- Security scan passes
+- Documentation is updated for public interface changes

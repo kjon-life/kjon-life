@@ -1,0 +1,229 @@
+---
+description: Interface design standards - REQUIRED for all API and function design
+globs: **/*.py,**/*.ts,**/*.tsx,**/*.rs,**/*.js,**/*.jsx
+alwaysApply: false
+---
+
+# Interface Design Standards - MANDATORY
+
+## FUNCTION DESIGN - STRICT REQUIREMENTS
+- EVERY function MUST do exactly one thing (single responsibility)
+- EVERY function MUST have descriptive names that explain what it does
+- NEVER create functions with more than 5 parameters (use objects/structs)
+- ALWAYS return the same type - NEVER mix return types based on conditions
+
+### REQUIRED Function Patterns
+```typescript
+// ✅ Good: Single responsibility, clear naming
+function calculateTotalPrice(items: CartItem[], discountRate: number): Price {
+  return items.reduce((total, item) => total + item.price, 0) * (1 - discountRate)
+}
+
+// ❌ Bad: Multiple responsibilities
+function processOrder(order: Order): string | Error | void {
+  // Don't mix return types like this
+}
+
+// ✅ Good: Consistent return type
+function processOrder(order: Order): ProcessOrderResult {
+  // Always return the same result type
+}
+```
+
+## ERROR HANDLING - MANDATORY PATTERNS
+- EVERY error MUST include: what failed, why it failed, how to fix it
+- NEVER return generic errors like "Something went wrong"
+- ALWAYS use specific error types for different failure modes
+- EVERY error MUST be actionable for the caller
+
+### REQUIRED Error Patterns
+```typescript
+// ✅ Good: Specific, actionable errors
+class ValidationError extends Error {
+  constructor(
+    public field: string,
+    public value: unknown,
+    public expectedFormat: string
+  ) {
+    super(`Validation failed for field "${field}": received "${value}", expected ${expectedFormat}`)
+    this.name = 'ValidationError'
+  }
+}
+
+// ✅ Good: Result pattern for clear error handling
+type Result<T, E = Error> =
+  | { success: true; data: T }
+  | { success: false; error: E }
+
+function parseUserInput(input: string): Result<User, ValidationError> {
+  // Implementation returns clear success/failure
+}
+```
+
+## IMMUTABILITY - STRICT REQUIREMENTS
+- ALWAYS prefer immutable data structures
+- NEVER mutate input parameters
+- ALWAYS return new objects instead of modifying existing ones
+- EVERY function that appears to modify data MUST return the new state
+
+### REQUIRED Immutability Patterns
+```typescript
+// ✅ Good: Returns new object, doesn't mutate input
+function addItem(cart: Cart, item: Item): Cart {
+  return {
+    ...cart,
+    items: [...cart.items, item],
+    total: cart.total + item.price
+  }
+}
+
+// ❌ Bad: Mutates input parameter
+function addItem(cart: Cart, item: Item): void {
+  cart.items.push(item) // Don't mutate inputs
+  cart.total += item.price
+}
+```
+
+## PARAMETER DESIGN - MANDATORY RULES
+- ALWAYS use objects for functions with more than 3 parameters
+- ALWAYS provide default values for optional parameters
+- NEVER use boolean flags - use enums or specific methods instead
+- EVERY parameter MUST have a clear, unambiguous purpose
+
+### REQUIRED Parameter Patterns
+```typescript
+// ✅ Good: Object parameter for multiple values
+interface CreateUserOptions {
+  name: string
+  email: string
+  role?: UserRole
+  isActive?: boolean
+  notifications?: NotificationSettings
+}
+
+function createUser(options: CreateUserOptions): User {
+  // Implementation
+}
+
+// ✅ Good: Enum instead of boolean flags
+enum SortDirection {
+  Ascending = 'asc',
+  Descending = 'desc'
+}
+
+function sortUsers(users: User[], direction: SortDirection): User[] {
+  // Clear what the direction parameter does
+}
+
+// ❌ Bad: Boolean flag - unclear what true/false means
+function sortUsers(users: User[], reverse: boolean): User[] {
+  // Unclear what reverse=true means
+}
+```
+
+## API DESIGN - NO EXCEPTIONS
+- EVERY API endpoint MUST return consistent response format
+- NEVER expose internal implementation details in API responses
+- ALWAYS use proper HTTP status codes
+- EVERY API MUST handle all edge cases explicitly
+
+### REQUIRED API Patterns
+```typescript
+// ✅ Good: Consistent response wrapper
+interface ApiResponse<T> {
+  success: boolean
+  data?: T
+  error?: {
+    code: string
+    message: string
+    details?: Record<string, unknown>
+  }
+  meta?: {
+    timestamp: string
+    requestId: string
+  }
+}
+
+// ✅ Good: Specific endpoint interfaces
+interface GetUsersResponse extends ApiResponse<User[]> {
+  data: User[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    hasNext: boolean
+  }
+}
+```
+
+## DEFENSIVE PROGRAMMING - MANDATORY
+- ALWAYS validate all inputs at function boundaries
+- NEVER assume inputs are valid without checking
+- ALWAYS provide meaningful default behaviors
+- EVERY public function MUST handle invalid inputs gracefully
+
+### REQUIRED Validation Patterns
+```typescript
+// ✅ Good: Input validation with clear errors
+function calculateDiscount(price: number, discountPercent: number): number {
+  if (price < 0) {
+    throw new ValidationError('price', price, 'positive number')
+  }
+  if (discountPercent < 0 || discountPercent > 100) {
+    throw new ValidationError('discountPercent', discountPercent, 'number between 0 and 100')
+  }
+
+  return price * (discountPercent / 100)
+}
+```
+
+## DOCUMENTATION - STRICT REQUIREMENTS
+- EVERY public function MUST have documentation explaining its purpose
+- EVERY parameter MUST be documented with its expected type and purpose
+- EVERY return value MUST be documented
+- ALWAYS include usage examples for complex functions
+
+### REQUIRED Documentation Pattern
+```typescript
+/**
+ * Calculates the total price for a cart including taxes and discounts.
+ *
+ * @param items - Array of items in the cart
+ * @param taxRate - Tax rate as decimal (0.1 for 10% tax)
+ * @param discountCode - Optional discount code to apply
+ * @returns The final price including all adjustments
+ *
+ * @example
+ * ```typescript
+ * const total = calculateCartTotal(
+ *   [{ name: 'Book', price: 20 }],
+ *   0.1,
+ *   'SAVE10'
+ * )
+ * console.log(total) // 18 (20 + 10% tax - 10% discount)
+ * ```
+ */
+function calculateCartTotal(
+  items: CartItem[],
+  taxRate: number,
+  discountCode?: string
+): number {
+  // Implementation
+}
+```
+
+## FORBIDDEN PATTERNS
+- NO functions that sometimes return different types
+- NO mutable parameters that are modified in place
+- NO boolean parameters (use enums or separate methods)
+- NO generic error messages without context
+- NO functions with side effects unless clearly named (like `saveUser()`)
+- NO exposing internal data structures in public APIs
+- NO functions with more than 5 parameters
+- NO undocumented public functions
+
+## TESTING INTERFACES
+- EVERY public function MUST be testable in isolation
+- EVERY interface MUST have examples of correct usage
+- EVERY error condition MUST be testable
+- ALWAYS design interfaces with testing in mind
