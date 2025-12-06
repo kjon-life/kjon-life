@@ -31,11 +31,11 @@
 }
 
 .mix-color {
-    background: mix($box-color, green, 11%);
+    background: color.mix($box-color, green, 11%);
 }
 
 .complement-color {
-    background: complement($box-color);
+    background: color.complement($box-color);
 }
 
 .grayscale-color {
