@@ -49,8 +49,16 @@ Purpose: adopt `@use` modules so dependencies are explicit and overrides stay co
 | B1 | 15k | Split `_variables.scss`, `_mixins.scss`, `_functions.scss`, and theme files into proper `@use` modules (e.g., `@use "base/variables" as vars;`). |
 | B2 | 10k | Update components/pages to `@use` the minimal subset they need, preventing accidental variable redefinitions. |
 | B3 | 5k | Document the module graph in `design/scss_ontology_scaffolding.md` so future updates follow the same import discipline. |
-| B Status | — | B is in progress: `main.scss` now calls each shared file via `@use`, and every layout/page/theme pulls the base/mixin leftovers through `@use` so the old `@import` workflow is replaced with explicit modules. Documenting the module graph is the next step. |
-| B Status | — | Planned: reorganize `_variables.scss`, `_mixins.scss`, `_functions.scss`, and theme files into explicit modules (`@use`) and update globals to consume only the exports they need. |
+| B Status | — | B is in progress: `main.scss` now calls each shared file via `@use`, every layout/page/theme pulls the base/mixin leftovers through `@use`, and documenting the module graph is the next step. |
+| Module Graph | — | Captured below so future contributors know who `@use`s what. |
+
+#### Module Graph Details
+1. `base/variables` – exports `$brand-colors`, `brand-color()`, `export-brand-vars`, typography/breakpoint anchors, and derived helpers; every partial should `@use` this module for semantic tokens.
+2. `utils/mixins` – pulls in `base/variables` and forwards `%button-base`, `%card-base`, flex helpers, spacing scale mixins, and the `@layer utilities` classes; export only what is needed to keep modules lean.
+3. `utils/functions` – provides `contrast()`/`luminance()` and any future ratio helpers; `@use` this module when you need accessibility-aware color logic.
+4. Layout modules (`layout/grid`, `layout/intro`, `layout/purpose`, `layout/footer`, etc.) – `@use` `utils/mixins` and `base/variables` so they stay aligned with the documented helpers and can expose their own placeholders as needed.
+5. Component/page/theme modules – `@use` the minimal mixins/rules they require; `main.scss` orchestrates the load order so each partial sees only what it needs without re-exporting globals.
+6. Theme wrappers (`themes/dark`, `themes/light`) continue to `@use` `base/variables` for overrides and `export-brand-vars` so CSS custom properties remain tied to the semantic map.
 
 ### Scaffold C: Utility/Mixin Layer Expansion
 Purpose: expand and document helper mixins so everyone reaches for the same building blocks.
