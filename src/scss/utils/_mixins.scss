@@ -11,8 +11,8 @@
 // Hero
 .hero {
     @include flex-center(row);
-    background-color: $background-color;
-    color: $secondary-color;
+    background-color: brand-color(background);
+    color: brand-color(secondary);
     padding: 50px;
     text-align: center;
     height: 49vh;
@@ -34,8 +34,8 @@
 // Specific Buttons
 .button-primary {
     @extend %button-base;
-    background-color: $highlight-color;
-    color: $text-primary;
+    background-color: brand-color(highlight);
+    color: brand-color(text-primary);
 
     &:hover {
         background-color: darken($highlight-color, 30%);
@@ -44,8 +44,8 @@
 
 .button-secondary {
     @extend %button-base;
-    background-color: $highlight-color;
-    color: $text-primary;
+    background-color: brand-color(highlight);
+    color: brand-color(text-primary);
     margin-top: 10px;
 
     &:hover {
@@ -61,8 +61,8 @@
 
 .card {
     @extend %card-base;
-    background-color: $highlight-color;
-    color: $text-primary;
+    background-color: brand-color(highlight);
+    color: brand-color(text-primary);
     padding: 20px;
 }
 

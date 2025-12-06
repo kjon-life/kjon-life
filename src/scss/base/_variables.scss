@@ -1,17 +1,52 @@
-// Color palette
-$text-primary: #f5f3f5; /* light text */
-$text-secondary: #333333; /* dark text */
-$background-color: #f5f3f5; /* Alabaster - whitesmoke */
-$background-color-alt: darken($background-color, 5%);// create an analogous color
-// $background-color-alt: hsl(hue($primary-color), 50%, 70%);
-$primary-color: #150050; /* Navy Blue */
-$secondary-color: #3f0071; /* Indigo */
-$accent-color: #582707; /* Burnt Sienna */
-$highlight-color: #c88304; /* Cadmium Orange */
-// Complementary colors
-$complementary-primary: #ffd700; // Gold
-$complementary-secondary: #ffcccb; // Light Coral
-$complementary-accent: #0072af; // Cerulean
+// Core semantic palette (Scaffold A)
+$brand-colors: (
+    text-primary: #f5f3f5,
+    text-secondary: #333333,
+    background: #f5f3f5,
+    primary: #150050,
+    secondary: #3f0071,
+    accent: #582707,
+    highlight: #c88304,
+    complementary-primary: #ffd700,
+    complementary-secondary: #ffcccb,
+    complementary-accent: #0072af
+);
+
+@function brand-color($key, $fallback: null) {
+  $value: map-get($brand-colors, $key);
+
+  @if $value != null {
+    @return $value;
+  }
+
+  @if $fallback != null {
+    @return $fallback;
+  }
+
+  @error "brand-color: `#{$key}` is not defined. Add it to $brand-colors.";
+}
+
+@mixin export-brand-vars($colors) {
+  @each $name, $value in $colors {
+    --brand-#{$name}: #{$value};
+  }
+}
+
+:root {
+  @include export-brand-vars($brand-colors);
+}
+
+$text-primary: brand-color(text-primary);
+$text-secondary: brand-color(text-secondary);
+$background-color: brand-color(background);
+$background-color-alt: darken($background-color, 5%);
+$primary-color: brand-color(primary);
+$secondary-color: brand-color(secondary);
+$accent-color: brand-color(accent);
+$highlight-color: brand-color(highlight);
+$complementary-primary: brand-color(complementary-primary);
+$complementary-secondary: brand-color(complementary-secondary);
+$complementary-accent: brand-color(complementary-accent);
 // Hover, border colors
 $border-color: scale-color($background-color, $lightness: -10%);
 /* A neutral or slightly darker shade for borders */
