@@ -7,7 +7,7 @@
 pnpm start
 
 # Navigate to the brand palette
-open http://localhost:3000/brand
+open http://localhost:8081/brand
 ```
 
 ## Visual Verification Checklist
@@ -110,7 +110,7 @@ Use browser DevTools or [WebAIM Contrast Checker](https://webaim.org/resources/c
 
 Compare EJS and JSX versions side-by-side:
 
-1. **EJS Version:** `http://localhost:3000/brand`
+1. **EJS Version:** `http://localhost:8081/brand`
 2. **JSX Version:** Open `public/brand/kjon-brand-palette.jsx` in React app
 
 Verify:
@@ -125,7 +125,7 @@ Verify:
 ### Load Time
 ```bash
 # Lighthouse audit
-pnpm dlx lighthouse http://localhost:3000/brand --view
+pnpm dlx lighthouse http://localhost:8081/brand --view
 ```
 
 Expected metrics:
@@ -158,7 +158,7 @@ Test with:
 ### Automated Tools
 ```bash
 # Run accessibility audit
-pnpm dlx lighthouse http://localhost:3000/brand --only-categories=accessibility --view
+pnpm dlx lighthouse http://localhost:8081/brand --only-categories=accessibility --view
 ```
 
 Target: 100 accessibility score
