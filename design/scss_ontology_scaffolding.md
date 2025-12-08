@@ -2,6 +2,8 @@ Title: SCSS Ontology Scaffolding Plan
 
 Purpose: define the tree of SCSS concerns, describe the “living palette” guardrails, and break each enhancement scaffold into token-budgeted segments so you can implement them sequentially.
 
+TL;DR: Traditional SCSS architecture (7-1 pattern) with Bootstrap as a foundation, compiled by Parcel. This favors separation of concerns and semantic naming.
+
 ## Ontology Tree
 
 1. **Token Hub (base variables)**

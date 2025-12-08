@@ -1,9 +1,0 @@
-Pulled in origin/d4 and compared it to main so you can see what’s usable and what still needs work.
-Layout & styling tweaks – src/scss/layout/_grid.scss, _intro.scss, and _purpose.scss now tweak container height, animation timing, and hero styling; the compiled public/css/main.css carries the resulting CSS. These changes look coherent, but _footer.scss was added without being imported anywhere, so its styles never build—if you want to keep the new footer layout, add @import 'layout/footer'; (then run `pnpm run build` or `pnpm run start:local` so the rules actually make it into public/css/main.css).
-New footer markup – views/partials/footer.ejs wraps the existing images in a .footer-container and adds a .footer-text block. That pairs naturally with the intended SCSS, assuming the new styles are wired up.
-Script fixes and smaller cleanup – The src attribute typos (scr) in views/partials/scripts.ejs are corrected, the intro <source> tag is properly closed, and the social block gains a “find us” heading plus the standard fa-twitter icon. These are safe, usable improvements you could cherry-pick immediately; nothing else in the branch relies on them.
-README trimming – Promotional items were trimmed (ExpressVPN and duplicate bullet), so that diff is purely cosmetic.
-Next steps: decide how to build and test locally:
-If you want the footer styles, import the new SCSS file (and rerun the Parcel build so public/css/main.css updates) before considering the layout changes usable.
-The script fixes and social text/icon changes are ready; you could merge them now without extra work.
-To re-evaluate the whole branch, check it out (git fetch origin d4 then git switch --detach FETCH_HEAD or create a local branch) and run `pnpm run build` to verify there are no compilation regressions.
