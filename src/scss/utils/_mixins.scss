@@ -150,38 +150,8 @@ $spacing-scale: (
 
 // Extend/Inherit ------------------------------
 
-// Button Base Style
-%button-base {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-// Specific Buttons
-.button-primary {
-    @extend %button-base;
-    background-color: brand-color(highlight);
-    color: brand-color(text-primary);
-
-    &:hover {
-        background-color: color.scale($highlight-color, $lightness: -30%);
-        transform: translateY(-2px);
-    }
-}
-
-.button-secondary {
-    @extend %button-base;
-    background-color: brand-color(highlight);
-    color: brand-color(text-primary);
-
-    &:hover {
-        background-color: color.scale($highlight-color, $lightness: -30%);
-        transform: translateY(-2px);
-    }
-}
+// NOTE: Button classes (.button-primary, .button-secondary) 
+// are now in components/_button.scss using the mixins above
 
 // Card base and extends
 %card-base {

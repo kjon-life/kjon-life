@@ -49,17 +49,37 @@
 
         .phrase {
             color: color.scale($text-primary, $lightness: -40%);
+            animation: phrase-spotlight 12s ease-in-out infinite;
             transition: color 1.0s ease;
-        
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+
             @for $i from 1 through 4 {
                 &:nth-child(#{$i}) {
                     transition-delay: $i * 0.9s;
+                    animation-delay: $i * 2s;
                 }
             }
-        
+
             &.active {
                 color: color.scale($text-primary, $lightness: 5%);
             }
         }
+
+        .button-group {
+            margin-top: 1.5rem;
+            // Layout defined in components/_button.scss
+        }
+    }
+}
+
+@keyframes phrase-spotlight {
+    0%, 100% {
+        color: color.scale($text-primary, $lightness: -20%);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    50% {
+        color: color.scale($text-primary, $lightness: 8%);
+        text-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
     }
 }

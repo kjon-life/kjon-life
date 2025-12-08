@@ -1,37 +1,50 @@
 
 <section id="error">
   <div class="error-container">
+    <!-- Hero Section with Pug -->
     <div class="error-hero">
+      <div class="pug-card">
+        <img src="images/curious-pug-enterprise/curious-pug-dark.png" alt="Curious Pug" class="pug-image">
+        <div class="pug-badge">curious pug</div>
+        <div class="pug-subtitle">for enterprise</div>
+      </div>
       <h1>Oh no...</h1>
-      <h2>Our pug monster is taking a break.</h2>
-      <img src="images/curious-pug-enterprise/curious-pug-dark.png" alt="Pug Monster" class="error-image">
+      <p class="error-message">...our pug monster is taking a break.</p>
     </div>
 
+    <!-- Search Section -->
     <div class="error-search">
-      <form>
-        <label for="search">Snuffle for something tasty?</label>
-        <input type="search" id="search" name="search" aria-label="Search">
-        <button type="submit">Search</button>
+      <p class="search-prompt">Snuffle for something tasty?</p>
+      <form class="search-form">
+        <input type="search" id="search" name="search" placeholder="Search..." aria-label="Search">
+        <button type="submit" class="button-primary">Search</button>
       </form>
-    </div>
-
-    <div class="error-debug">
-      <h3>Debug Info:</h3>
-      <div class="debug-output">
-        <div class="debug-item">
-          <span class="debug-label">Message:</span>
-          <pre class="debug-message"><%= message %></pre>
-        </div>
-        <div class="debug-item">
-          <span class="debug-label">Status:</span>
-          <pre class="debug-status"><%= error.status %></pre>
-        </div>
-        <div class="debug-item">
-          <span class="debug-label">Stack:</span>
-          <pre class="debug-stack"><%= error.stack %></pre>
-        </div>
+      <div class="quick-links">
+        <a href="/" class="quick-link">Home</a>
+        <a href="/brand" class="quick-link">Brand Palette</a>
       </div>
     </div>
+
+    <!-- Debug Section (Collapsible feel) -->
+    <details class="error-debug">
+      <summary>Debug Info</summary>
+      <div class="debug-output">
+        <div class="debug-item debug-message-item">
+          <span class="debug-label">Message</span>
+          <div class="debug-content"><%= message %></div>
+        </div>
+        <div class="debug-item debug-status-item">
+          <span class="debug-label">Status</span>
+          <div class="debug-content"><%= error.status %></div>
+        </div>
+        <% if (error.stack) { %>
+        <div class="debug-item debug-stack-item">
+          <span class="debug-label">Stack Trace</span>
+          <pre class="debug-content"><%= error.stack %></pre>
+        </div>
+        <% } %>
+      </div>
+    </details>
   </div>
 </section>
 

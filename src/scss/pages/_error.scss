@@ -8,183 +8,311 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
+  background-color: $background-color;
 }
 
 .error-container {
-  max-width: 50rem;
+  max-width: 45rem;
   margin: 0 auto;
+  width: 100%;
 }
 
-// Hero Section
+// Hero Section with Pug Card
 .error-hero {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 
   h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 800;
     color: $highlight-color;
-    margin-bottom: 0.5rem;
+    margin: 1.5rem 0 0.5rem 0;
+    line-height: 1.1;
   }
 
-  h2 {
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
+  .error-message {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
     font-weight: 400;
-    color: $text-secondary;
-    margin-bottom: 1.5rem;
-  }
-
-  .error-image {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 0.5rem;
-    margin: 0 auto;
-    display: block;
+    color: $text-primary;
+    margin: 0 0 2rem 0;
   }
 }
 
-// Search Form
-.error-search {
-  margin: 2rem 0;
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 30rem;
-    margin: 0 auto;
+// Pug Card - The Star of the Show
+.pug-card {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 
+    0 10px 30px rgba($primary-color, 0.3),
+    0 1px 8px rgba($primary-color, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 15px 40px rgba($primary-color, 0.4),
+      0 2px 12px rgba($primary-color, 0.3);
   }
 
-  label {
-    font-size: 1rem;
-    color: $text-primary;
+  .pug-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    display: block;
+  }
+
+  .pug-badge {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    color: $primary-color;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .pug-subtitle {
+    text-align: center;
+    color: $highlight-color;
+    font-size: 0.875rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+    opacity: 0.9;
+  }
+}
+
+// Search Section
+.error-search {
+  max-width: 32rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+
+  .search-prompt {
+    font-size: 1.125rem;
+    color: $text-primary;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .search-form {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+
+    @include smartphone-vertical {
+      flex-direction: column;
+    }
   }
 
   input[type="search"] {
-    padding: 0.75rem 1rem;
+    flex: 1;
+    padding: 0.875rem 1.25rem;
     border: 2px solid $primary-color;
-    border-radius: 0.375rem;
+    background-color: $background-color;
+    border-radius: 0.5rem;
     font-size: 1rem;
     font-family: $font-stack;
-    background-color: $background-color;
     color: $text-primary;
+    transition: all 0.2s ease;
+
+    &::placeholder {
+      color: $text-secondary;
+      opacity: 0.7;
+    }
 
     &:focus {
       outline: none;
       border-color: $highlight-color;
-      box-shadow: 0 0 0 3px rgba(200, 131, 4, 0.1);
+      box-shadow: 0 0 0 4px rgba($highlight-color, 0.15);
     }
   }
 
-  button {
-    padding: 0.75rem 1.5rem;
-    background-color: $primary-color;
-    color: $text-primary;
-    border: none;
-    border-radius: 0.375rem;
-    font-size: 1rem;
+  // Search button uses global .button-primary from components/_button.scss
+
+  // Quick Links
+  .quick-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .quick-link {
+    @include link-default;
     font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    font-size: 0.9375rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
 
     &:hover {
-      background-color: $secondary-color;
+      background-color: rgba($highlight-color, 0.1);
     }
   }
 }
 
-// Debug Output
+// Debug Section (Collapsible)
 .error-debug {
   margin-top: 3rem;
-  padding: 1.5rem;
-  background-color: rgba($secondary-color, 0.1);
-  border-radius: 0.5rem;
-  border: 1px solid $secondary-color;
+  border-radius: 0.75rem;
+  border: 2px solid rgba($secondary-color, 0.2);
+  background-color: rgba($primary-color, 0.02);
+  overflow: hidden;
 
-  h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
+  summary {
+    padding: 1.25rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
     color: $highlight-color;
-    margin-bottom: 1rem;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba($secondary-color, 0.05);
+    transition: all 0.2s ease;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::before {
+      content: '▸';
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 0.875rem;
+    }
+
+    &:hover {
+      background-color: rgba($secondary-color, 0.08);
+      color: $complementary-accent-cool;
+    }
+  }
+
+  &[open] summary {
+    border-bottom: 2px solid rgba($secondary-color, 0.2);
+
+    &::before {
+      transform: rotate(90deg);
+    }
   }
 }
 
 .debug-output {
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .debug-item {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.625rem;
 }
 
 .debug-label {
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 700;
   color: $text-secondary;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.075em;
+  opacity: 0.8;
 }
 
-.debug-message,
-.debug-status,
-.debug-stack {
+.debug-content {
   font-family: 'Courier New', monospace;
   font-size: 0.875rem;
-  white-space: pre-wrap;
-  padding: 1rem;
-  border-radius: 0.375rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
   overflow-x: auto;
-  margin: 0;
+  line-height: 1.6;
 }
 
-// Use semantic tokens for debug output
-.debug-message {
-  background-color: rgba($complementary-accent-cool, 0.1);
+// Semantic token styling for different debug types
+.debug-message-item .debug-content {
+  background-color: rgba($complementary-accent-cool, 0.08);
   color: var(--semantic-info);
   border-left: 4px solid var(--semantic-info);
 }
 
-.debug-status {
-  background-color: rgba($complementary-accent-warm, 0.1);
+.debug-status-item .debug-content {
+  background-color: rgba($complementary-accent-warm, 0.08);
   color: var(--semantic-error);
   border-left: 4px solid var(--semantic-error);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1.5rem;
 }
 
-.debug-stack {
-  background-color: rgba($highlight-color, 0.05);
+.debug-stack-item .debug-content {
+  background-color: rgba($text-secondary, 0.05);
   color: $text-secondary;
   border-left: 4px solid $text-secondary;
   max-height: 300px;
   overflow-y: auto;
+  font-size: 0.8125rem;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 // Responsive
 @include smartphone-vertical {
   #error {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .pug-card {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
   }
 
   .error-hero {
     h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
+      margin-top: 1rem;
     }
 
-    h2 {
-      font-size: 1.25rem;
+    .error-message {
+      font-size: 1.125rem;
     }
   }
 
-  .debug-message,
-  .debug-status,
-  .debug-stack {
-    font-size: 0.75rem;
-    padding: 0.75rem;
+  .error-search {
+    .search-prompt {
+      font-size: 1rem;
+    }
+  }
+
+  .error-debug summary {
+    padding: 1rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  .debug-output {
+    padding: 1.25rem;
+  }
+
+  .debug-content {
+    font-size: 0.8125rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .debug-status-item .debug-content {
+    font-size: 1.25rem;
+    padding: 1.25rem;
   }
 }
