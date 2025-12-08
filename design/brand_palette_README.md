@@ -242,7 +242,7 @@ CSS custom properties cascade automatically.
 ### Prerequisites
 ```bash
 node >= 14
-npm >= 6
+pnpm >= 8
 express >= 4
 ejs >= 3
 bootstrap >= 5
@@ -251,10 +251,10 @@ bootstrap >= 5
 ### Setup
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start dev server
-npm start
+pnpm start
 
 # View brand palette
 open http://localhost:3000/brand
@@ -264,10 +264,10 @@ open http://localhost:3000/brand
 
 ```bash
 # Compile SCSS
-npm run build:css
+pnpm run build
 
-# Watch for changes
-npm run watch:css
+# Watch for changes (with live reload)
+pnpm start:local
 ```
 
 Parcel processes SCSS with these plugins:
@@ -282,7 +282,7 @@ See [Testing Brand Palette](./testing_brand_palette.md) for complete testing pro
 ### Quick Test
 ```bash
 # Start server
-npm start
+pnpm start
 
 # Check these URLs
 - http://localhost:3000/brand         # Brand palette page
@@ -292,14 +292,11 @@ npm start
 
 ### Automated Tests
 ```bash
-# Run linters
-npm run lint
-
-# Run type checking (if configured)
-npm run type-check
+# Run brand color validation
+pnpm test
 
 # Lighthouse audit
-npx lighthouse http://localhost:3000/brand --view
+pnpm dlx lighthouse http://localhost:3000/brand --view
 ```
 
 ## Troubleshooting

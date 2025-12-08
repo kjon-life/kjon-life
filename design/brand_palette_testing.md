@@ -4,7 +4,7 @@
 
 ```bash
 # Start the development server
-npm start
+pnpm start
 
 # Navigate to the brand palette
 open http://localhost:3000/brand
@@ -125,7 +125,7 @@ Verify:
 ### Load Time
 ```bash
 # Lighthouse audit
-npx lighthouse http://localhost:3000/brand --view
+pnpm dlx lighthouse http://localhost:3000/brand --view
 ```
 
 Expected metrics:
@@ -158,7 +158,7 @@ Test with:
 ### Automated Tools
 ```bash
 # Run accessibility audit
-npx lighthouse http://localhost:3000/brand --only-categories=accessibility --view
+pnpm dlx lighthouse http://localhost:3000/brand --only-categories=accessibility --view
 ```
 
 Target: 100 accessibility score
