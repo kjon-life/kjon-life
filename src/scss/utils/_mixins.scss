@@ -72,6 +72,30 @@ $spacing-scale: (
     background-image: linear-gradient($angle, brand-color($from-key), brand-color($to-key));
 }
 
+@mixin mist-panel($border-color: color.scale($background-color, $lightness: -10%)) {
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    border: 1px solid $border-color;
+    border-radius: 15px;
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.2),
+        inset 0 0 30px rgba(255,255,255,0.05);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(45deg, rgba(248, 180, 0, 0.25), rgba(200, 73, 7, 0.25));
+        opacity: 0.6;
+        mix-blend-mode: screen;
+        pointer-events: none;
+        transform: scale(1.1);
+    }
+}
+
 @mixin brand-shadow($color-key: primary, $opacity: 0.25, $y: 10px, $blur: 20px, $spread: 0) {
     $color: brand-color($color-key);
     $shadow-color: color.adjust($color, $alpha: $opacity);
@@ -133,7 +157,7 @@ $spacing-scale: (
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 // Specific Buttons
@@ -144,6 +168,7 @@ $spacing-scale: (
 
     &:hover {
         background-color: color.scale($highlight-color, $lightness: -30%);
+        transform: translateY(-2px);
     }
 }
 
@@ -151,10 +176,10 @@ $spacing-scale: (
     @extend %button-base;
     background-color: brand-color(highlight);
     color: brand-color(text-primary);
-    margin-top: 10px;
 
     &:hover {
-        background-color: $hover-color;
+        background-color: color.scale($highlight-color, $lightness: -30%);
+        transform: translateY(-2px);
     }
 }
 
@@ -187,6 +212,152 @@ $spacing-scale: (
     left: 0;
     height: 100%;
     width: 100%;
+}
+
+// ══════════════════════════════════════════════════════════════
+// GLOBAL INTERACTION PATTERNS
+// ══════════════════════════════════════════════════════════════
+// Consistent hover, active, focus, and visited states site-wide
+
+// Base interactive element
+@mixin interactive-base {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+// Button Primary: Orange background, white text
+@mixin button-primary {
+    @include interactive-base;
+    background-color: $highlight-color;
+    color: $background-color;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba($highlight-color, 0.4);
+    }
+
+    &:active {
+        transform: scale(1.05) translateY(2px);
+        box-shadow: 0 2px 8px rgba($highlight-color, 0.3);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $highlight-color;
+        outline-offset: 2px;
+    }
+}
+
+// Button Secondary: Navy background, white text
+@mixin button-secondary {
+    @include interactive-base;
+    background-color: $primary-color;
+    color: $background-color;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba($primary-color, 0.4);
+    }
+
+    &:active {
+        transform: scale(1.05) translateY(2px);
+        box-shadow: 0 2px 8px rgba($primary-color, 0.3);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $primary-color;
+        outline-offset: 2px;
+    }
+}
+
+// Link: Orange default, navy hover, underline on focus
+@mixin link-default {
+    @include interactive-base;
+    color: $highlight-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $primary-color;
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        color: $secondary-color;
+    }
+
+    &:visited {
+        color: $secondary-color;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $highlight-color;
+        outline-offset: 2px;
+        text-decoration: underline;
+    }
+}
+
+// Social Icon: Orange default, white hover, blue flash on active
+@mixin social-icon {
+    @include interactive-base;
+    color: $complementary-accent-warm;
+    font-size: 1.5rem;
+
+    &:hover {
+        color: $background-color;
+        transform: scale(1.1);
+    }
+
+    &:active {
+        color: $complementary-accent-cool;
+        transform: scale(0.95);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $highlight-color;
+        outline-offset: 4px;
+        border-radius: 0.25rem;
+    }
+}
+
+// Card: Clickable container with subtle interaction
+@mixin card-interactive {
+    @include interactive-base;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba($primary-color, 0.15);
+    }
+
+    &:active {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($primary-color, 0.2);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $highlight-color;
+        outline-offset: 4px;
+    }
+}
+
+// Input focus state
+@mixin input-focus {
+    &:focus {
+        outline: none;
+        border-color: $highlight-color;
+        box-shadow: 0 0 0 4px rgba($highlight-color, 0.15);
+    }
 }
 
 // Media queries
