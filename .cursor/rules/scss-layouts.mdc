@@ -1,0 +1,29 @@
+Title: SCSS Layout Ontology
+
+Purpose: document how the layout partials map to our SCSS modules so the “purpose + empirical cards + CTA + any other layout” pattern stays consistent and responsive.
+
+Sections:
+
+1. Structure
+   - Each major page segment (`intro`, `purpose`, `empiricals`, `memories`, `footer`) gets a `views/partials/` template plus a layout SCSS file under `src/scss/layout/`.
+   - Layout SCSS files import `@use '../utils/mixins' as *` and `@use '../base/variables' as *` so they rely on the shared mixins/variables rather than duplicating color logic.
+   - The entry point (`views/index.ejs`) includes the partials in source order but the purpose section may include the cards partial (the “empirical learnings” strip) if the content feels tightly coupled to that narrative.
+
+2. Empirical layout
+   - `views/partials/cards.ejs` renders the “Pull look : empirical learnings” carousel. Its SCSS lives in `src/scss/layout/_empirical.scss`, which defines `#cards`, `featured-card`, and `smaller-cards`.
+   - All card panels use the `@include mist-panel()` mixin and `@include motion-link()` for links/headings so the “gray mist” depth effect stays uniform.
+   - Cards are responsive: the grid uses `repeat(auto-fit, minmax(240px,1fr))`, and the featured card spans two columns only above the tablet breakpoint (`@include tablet-horizontal-large`).
+
+3. Purpose section
+   - `#purpose` extends `%section`, keeps a `min-height` tied to the viewport minus `--footer-height`, and hosts the animated `.phrase` loop plus `.button-group`.
+   - The `.button-group` stays flexible/wrapped but both buttons extend `%button-base`, so their width/height remains identical across breakpoints.
+   - Animate only the `color`/`text-shadow` of the phrases so none of the text fades out and the “hero idea” stays prominent.
+
+4. Footer + cards relationship
+   - The footer uses `@include brand-gradient()` for the background overlay and holds `#socials`; it must stay visually separate from the above cards block, so the cards partial includes its own spacing.
+   - Layout rules require the cards section to live between `#purpose` and the footer (either via the purpose partial include or via `index.ejs`), ensuring the “empirical learnings” cards sit right below the CTA.
+
+5. Utility reminder
+   - When new layout utility classes (grid, card, responsive panel) are added, document them here and ensure their selectors appear in the matching layout SCSS file, not inside `_mixins.scss`. The mixins remain helpers; the layout files hold the semantic structure.
+
+Use this file plus `scss-patterns.mdc` as the source of truth for future layout additions.

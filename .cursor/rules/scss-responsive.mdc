@@ -1,0 +1,244 @@
+---
+alwaysApply: true
+---
+
+Title: SCSS Responsive Design & Media Query Standards
+
+Purpose: Define clear rules for media queries, breakpoint usage, and responsive patterns to ensure consistent, maintainable responsive behavior across all components and layouts.
+
+Sections:
+
+1. Breakpoint Philosophy
+   - Use the semantic media query mixins defined in `src/scss/utils/_mixins.scss` (lines 218-252). NEVER write inline `@media` queries outside of mixin definitions.
+   - Current breakpoint strategy is hybrid: orientation-aware for tablets, max-width for general responsiveness.
+   - Breakpoints (from largest to smallest):
+       * `tablet-horizontal-large`: max-width 1367px (desktop → large tablet)
+       * `tablet-horizontal`: landscape + max-width 1181px (landscape tablet)
+       * `tablet-vertical`: portrait + max-width 1025px (portrait tablet)
+       * `smartphone-horizontal`: landscape + max-height 410px (landscape phone)
+       * `smartphone-vertical`: max-width 600px (portrait phone)
+       * `smartphone-small`: portrait + max-height 700px (small phone)
+   - Rationale: Orientation-based queries ensure layouts adapt to device usage patterns, not just screen width.
+
+2. Mixin Usage Rules
+   - ALWAYS use semantic mixin names, NEVER raw media queries in component/layout files.
+   - Apply mixins at the appropriate selector nesting level to minimize specificity conflicts.
+   - Order responsive overrides from largest to smallest breakpoint for clarity.
+
+   Good example from `_purpose.scss`:
+   ```scss
+   h2 {
+       font-size: clamp(2rem, 5vw, 3rem);
+
+       @include tablet-horizontal {
+           margin-left: 5%;
+       }
+
+       @include tablet-vertical {
+           margin-left: 5%;
+       }
+   }
+   ```
+
+   Bad example (inline media query):
+   ```scss
+   .navbar {
+       @media (max-width: 760px) {  // ❌ Use mixin instead
+           ul { flex-direction: column; }
+       }
+   }
+   ```
+
+3. DRY Responsive Patterns
+   - When multiple breakpoints require identical adjustments, create a shared mixin for that adjustment or consolidate into a single breakpoint.
+   - Avoid duplicating the same property changes across multiple breakpoints.
+
+   Before (duplicated logic):
+   ```scss
+   p {
+       width: 75ch;
+
+       @include tablet-horizontal {
+           width: 90%;
+           margin-left: 5%;
+       }
+
+       @include tablet-vertical {
+           width: 90%;
+           margin-left: 5%;
+       }
+   }
+   ```
+
+   After (consolidated):
+   ```scss
+   @mixin tablet-adjustments {
+       width: 90%;
+       margin-left: 5%;
+   }
+
+   p {
+       width: 75ch;
+
+       @include tablet-horizontal {
+           @include tablet-adjustments;
+       }
+
+       @include tablet-vertical {
+           @include tablet-adjustments;
+       }
+   }
+   ```
+
+   Or if the adjustment is truly identical for all tablet sizes, consider creating a new `@mixin tablet-all` in `_mixins.scss`:
+   ```scss
+   @mixin tablet-all {
+       @media (max-width: 1367px) {
+           @content;
+       }
+   }
+   ```
+
+4. Fluid Typography & Spacing
+   - Prefer `clamp()` for font sizes: `font-size: clamp(min, preferred, max)` to reduce media query count.
+   - Use viewport units (vw, vh) within `clamp()` for the middle value to create smooth scaling.
+   - Example: `font-size: clamp(1rem, 2vw + 0.5rem, 2rem)` scales from 1rem to 2rem based on viewport.
+   - Use the `$spacing-scale` map from `_mixins.scss` for consistent spacing at all breakpoints.
+
+   Good pattern:
+   ```scss
+   h1 {
+       font-size: clamp(2rem, 5vw, 4rem);
+       @include spacing(padding, lg);  // Consistent spacing token
+   }
+   ```
+
+5. Layout Adaptation Strategy
+   - Desktop → Tablet: Reduce margins/padding, adjust grid columns, maintain visual hierarchy.
+   - Tablet → Mobile: Switch from multi-column to single-column, stack flex items, increase tap target sizes.
+   - Always test orientation changes; horizontal mobile has unique constraints (max-height).
+
+   Responsive grid example:
+   ```scss
+   .cards-grid {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+       gap: 2rem;
+
+       @include tablet-vertical {
+           grid-template-columns: 1fr;  // Single column on portrait tablet
+           gap: 1rem;
+       }
+
+       @include smartphone-vertical {
+           padding: 0 1rem;  // Add horizontal padding on mobile
+       }
+   }
+   ```
+
+6. Component-Level Responsive Rules
+   - Components should be responsive by default using fluid units (%, rem, ch, vw) before adding breakpoints.
+   - Only add media query mixins when fluid approaches can't solve the layout need.
+   - Test components in isolation at all breakpoints before integrating into layouts.
+
+   Prefer fluid:
+   ```scss
+   .button {
+       padding: 0.75rem 2rem;
+       font-size: clamp(0.875rem, 2vw, 1rem);
+       // No media queries needed
+   }
+   ```
+
+   Add breakpoint when necessary:
+   ```scss
+   .button-group {
+       display: flex;
+       gap: 1rem;
+
+       @include smartphone-vertical {
+           flex-direction: column;  // Stack vertically on small screens
+       }
+   }
+   ```
+
+7. Refactoring Inline Media Queries
+   - Any `@media` found outside `_mixins.scss` is a refactoring candidate.
+   - Convert inline queries to semantic mixins or consolidate into existing mixins.
+
+   Found in `_variables.scss` (lines 109-113):
+   ```scss
+   .navbar {
+       @media (max-width: $breakpoint-mobile) {
+           ul { flex-direction: column; }
+       }
+   }
+   ```
+
+   Refactor to:
+   ```scss
+   .navbar {
+       @include smartphone-vertical {
+           ul { flex-direction: column; }
+       }
+   }
+   ```
+
+8. Testing Responsive Behavior
+   - Test at all defined breakpoints plus intermediate sizes.
+   - Critical test points: 1367px, 1181px, 1025px, 600px, and orientation changes at each.
+   - Use browser DevTools device emulation for realistic testing (iPhone SE, iPad, desktop).
+   - Verify `clamp()` scales smoothly by resizing viewport gradually.
+
+9. Performance & CSS Output
+   - Media query mixins group repeated breakpoints in compiled CSS when using `@use`, reducing file size.
+   - Avoid nesting media queries beyond 2 levels to prevent specificity bloat.
+   - Prefer `@content` in mixins over parameterized overrides for flexibility.
+
+   Efficient pattern:
+   ```scss
+   .component {
+       property: value;
+
+       @include tablet-horizontal {
+           property: adjusted-value;  // Clean, single-level nesting
+       }
+   }
+   ```
+
+   Avoid:
+   ```scss
+   .component {
+       @include tablet-horizontal {
+           .child {
+               @include smartphone-vertical {  // ❌ Too deeply nested
+                   property: value;
+               }
+           }
+       }
+   }
+   ```
+
+10. Adding New Breakpoints
+    - Before adding a new breakpoint mixin, verify no existing mixin covers the use case.
+    - New mixins must go in `src/scss/utils/_mixins.scss` with clear semantic names.
+    - Document the breakpoint in this file and in `_mixins.scss` comments.
+    - Update all relevant layout files to use the new mixin consistently.
+
+    Template for new breakpoint:
+    ```scss
+    @mixin desktop-large {
+        @media (min-width: 1920px) {
+            @content;
+        }
+    }
+    ```
+
+11. Common Responsive Patterns (Reference)
+    - Hide/show elements: Use `display: none` inside breakpoint mixins, not separate classes.
+    - Navigation toggle: Switch from horizontal to hamburger menu at `@include tablet-vertical`.
+    - Card grids: Use `repeat(auto-fit, minmax(X, 1fr))` with breakpoint-specific `minmax` values.
+    - Hero sections: Maintain min-height at all breakpoints, adjust padding/font-size.
+    - Footer: Keep fixed height via `--footer-height` CSS var, adjust only padding/gap.
+
+Use this file alongside `scss-patterns.mdc` and `scss-layouts.mdc` to maintain consistent responsive behavior.
