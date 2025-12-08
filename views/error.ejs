@@ -1,17 +1,17 @@
-<div class="error-container">
-  <h1 class="error">Oh no... </h1>
-  <h2 class="">Our pug monster is taking a break.</h2>
-  <img src="images/curious-pug-enterprise/curious-pug-dark.png" alt="Pug Monster" class="error-image">
-  <form>
-    <label for="search">Snuffle for something tasty?</label>
-    <input type="search" id="search" name="search" aria-label="Search">
-    <button type="submit">Search</button>
-  </form>
-
-  <div class="error-output">
-    <h2>Debug:</h2>
-    <pre class="error-message"><%= message %></pre>
-    <pre class="error-status">Status: <%= error.status %></pre>
-    <pre class="error-stack"><%= error.stack %></pre>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  
+  <body>
+    <main>
+      <%- include('partials/error_content') %>
+    </main>
+    
+    <footer>
+      <%- include('partials/social') %>
+      <%- include('partials/scripts') %>
+    </footer>
+  </body>
+</html>

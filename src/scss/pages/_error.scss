@@ -1,43 +1,190 @@
 @use '../base/variables' as *;
+@use '../utils/mixins' as *;
 
-$font-stack-errors: 'DejaVuSansM Nerd Font Mono', sans-serif;
+// Error Page Styles
+#error {
+  font-family: $font-stack;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
 
 .error-container {
-  font-family: $font-stack-errors;
-  background-color: $background-color;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: $shadow-color;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+// Hero Section
+.error-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: $highlight-color;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 400;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+  }
 
   .error-image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    max-width: 400px;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+// Search Form
+.error-search {
+  margin: 2rem 0;
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 30rem;
+    margin: 0 auto;
   }
 
-  .error-output {
-    background-color: $secondary-color;
-    color: $complementary-accent-warm;
-    padding: 20px;
-    border-radius: 10px;
+  label {
+    font-size: 1rem;
+    color: $text-primary;
+    font-weight: 600;
+  }
 
-    .error-message, .error-status, .error-stack {
-      font-family: monospace;
-      white-space: pre-wrap;
+  input[type="search"] {
+    padding: 0.75rem 1rem;
+    border: 2px solid $primary-color;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-family: $font-stack;
+    background-color: $background-color;
+    color: $text-primary;
+
+    &:focus {
+      outline: none;
+      border-color: $highlight-color;
+      box-shadow: 0 0 0 3px rgba(200, 131, 4, 0.1);
+    }
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    background-color: $primary-color;
+    color: $text-primary;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+// Debug Output
+.error-debug {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: rgba($secondary-color, 0.1);
+  border-radius: 0.5rem;
+  border: 1px solid $secondary-color;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $highlight-color;
+    margin-bottom: 1rem;
+  }
+}
+
+.debug-output {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.debug-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.debug-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.debug-message,
+.debug-status,
+.debug-stack {
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  white-space: pre-wrap;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin: 0;
+}
+
+// Use semantic tokens for debug output
+.debug-message {
+  background-color: rgba($complementary-accent-cool, 0.1);
+  color: var(--semantic-info);
+  border-left: 4px solid var(--semantic-info);
+}
+
+.debug-status {
+  background-color: rgba($complementary-accent-warm, 0.1);
+  color: var(--semantic-error);
+  border-left: 4px solid var(--semantic-error);
+}
+
+.debug-stack {
+  background-color: rgba($highlight-color, 0.05);
+  color: $text-secondary;
+  border-left: 4px solid $text-secondary;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+// Responsive
+@include smartphone-vertical {
+  #error {
+    padding: 1rem;
+  }
+
+  .error-hero {
+    h1 {
+      font-size: 2rem;
     }
 
-    .error-message {
-      color: #66d9ef;
+    h2 {
+      font-size: 1.25rem;
     }
+  }
 
-    .error-status {
-      color: #f92672;
-    }
-
-    .error-stack {
-      color: #a6e22e;
-    }
+  .debug-message,
+  .debug-status,
+  .debug-stack {
+    font-size: 0.75rem;
+    padding: 0.75rem;
   }
 }

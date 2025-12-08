@@ -1,0 +1,37 @@
+
+<section id="error">
+  <div class="error-container">
+    <div class="error-hero">
+      <h1>Oh no...</h1>
+      <h2>Our pug monster is taking a break.</h2>
+      <img src="images/curious-pug-enterprise/curious-pug-dark.png" alt="Pug Monster" class="error-image">
+    </div>
+
+    <div class="error-search">
+      <form>
+        <label for="search">Snuffle for something tasty?</label>
+        <input type="search" id="search" name="search" aria-label="Search">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <div class="error-debug">
+      <h3>Debug Info:</h3>
+      <div class="debug-output">
+        <div class="debug-item">
+          <span class="debug-label">Message:</span>
+          <pre class="debug-message"><%= message %></pre>
+        </div>
+        <div class="debug-item">
+          <span class="debug-label">Status:</span>
+          <pre class="debug-status"><%= error.status %></pre>
+        </div>
+        <div class="debug-item">
+          <span class="debug-label">Stack:</span>
+          <pre class="debug-stack"><%= error.stack %></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
