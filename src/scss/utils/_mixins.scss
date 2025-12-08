@@ -82,6 +82,37 @@ $spacing-scale: (
     color: brand-color($color-key);
 }
 
+@keyframes motion-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+@mixin motion-link($accent: highlight, $gradient-from: background, $gradient-to: highlight, $hover-color: highlight) {
+    background-image: linear-gradient(
+        135deg,
+        brand-color($gradient-from),
+        brand-color($gradient-to),
+        color.adjust(brand-color($gradient-to), $lightness: 20%)
+    );
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: brand-color($accent);
+    animation: motion-gradient 10s linear infinite;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+        color: var(--motion-hover-color, brand-color($hover-color));
+        transform: translateY(-2px);
+    }
+}
+
 // Hero
 .hero {
     @include flex-center(row);

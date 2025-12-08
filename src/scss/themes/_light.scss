@@ -1,31 +1,22 @@
 @use '../base/variables' as *;
 @use 'sass:color' as color;
 
-// Light mode color palette
+
 .light-mode {
-    $light-brand-colors: (
-        text-primary: #1b1b1b, /* deep charcoal */
-        text-secondary: #333333, /* dark text */
-        background: #fdfdfd, /* near-white */
-        primary: #150050, /* Navy Blue */
-        secondary: #3f0071, /* Indigo */
-        accent: #582707, /* Burnt Sienna */
-        highlight: #c88304, /* Cadmium Orange */
-        complementary-primary: #ffd700, /* Gold */
-        complementary-secondary: #ffcccb, /* Light Coral */
-        complementary-accent: #0072af /* Cerulean */
-    );
-
+    // Export light palette to CSS custom properties
     @include export-brand-vars($light-brand-colors);
+    @include export-semantic-vars($semantic-colors-light);
 
+    // Derive SCSS variables from light palette
     $text-primary: brand-color(text-primary, $light-brand-colors);
     $text-secondary: brand-color(text-secondary, $light-brand-colors);
     $background-color: brand-color(background, $light-brand-colors);
     $background-color-alt: color.scale($background-color, $lightness: -5%);
     $primary-color: brand-color(primary, $light-brand-colors);
     $secondary-color: brand-color(secondary, $light-brand-colors);
-    $accent-color: brand-color(accent, $light-brand-colors);
     $highlight-color: brand-color(highlight, $light-brand-colors);
+    $complementary-accent-cool: brand-color(complementary-accent-cool, $light-brand-colors);
+    $complementary-accent-warm: brand-color(complementary-accent-warm, $light-brand-colors);
 
     $nav-font-color: $text-secondary;
 

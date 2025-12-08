@@ -1,31 +1,22 @@
 @use '../base/variables' as *;
 @use 'sass:color' as color;
 
-// Dark mode color palette
+
 .dark-mode {
-    $dark-brand-colors: (
-        text-primary: #f5f3f5, /* light text */
-        text-secondary: #e1e1e1, /* muted light gray */
-        background: #0d0b0e, /* very dark gray */
-        primary: #1a1516, /* deep charcoal */
-        secondary: #2b2627, /* dark gray */
-        accent: #3d2f3a, /* dark purple */
-        highlight: #5a4d52, /* dark brown */
-        complementary-primary: #ffd700, /* Gold */
-        complementary-secondary: #ffcccb, /* Light Coral */
-        complementary-accent: #0072af /* Cerulean */
-    );
-
+    // Export dark palette to CSS custom properties
     @include export-brand-vars($dark-brand-colors);
+    @include export-semantic-vars($semantic-colors-dark);
 
+    // Derive SCSS variables from dark palette
     $text-primary: brand-color(text-primary, $dark-brand-colors);
     $text-secondary: brand-color(text-secondary, $dark-brand-colors);
     $background-color: brand-color(background, $dark-brand-colors);
-    $background-color-alt: color.scale($background-color, $lightness: -10%);
+    $background-color-alt: color.scale($background-color, $lightness: 5%);
     $primary-color: brand-color(primary, $dark-brand-colors);
     $secondary-color: brand-color(secondary, $dark-brand-colors);
-    $accent-color: brand-color(accent, $dark-brand-colors);
     $highlight-color: brand-color(highlight, $dark-brand-colors);
+    $complementary-accent-cool: brand-color(complementary-accent-cool, $dark-brand-colors);
+    $complementary-accent-warm: brand-color(complementary-accent-warm, $dark-brand-colors);
 
     $nav-font-color: rgb(230, 230, 230);
 

@@ -1,37 +1,44 @@
 @use '../utils/mixins' as *;
 @use '../base/variables' as *;
 
-/* put the footer in it's own space */
 footer {
-    @include flex-center;
-    flex-direction: column;
+    @include brand-gradient(background, highlight);
+    padding: 0.75rem 0;
+    display: flex;
     justify-content: center;
-    padding: 5px;
-    color: $highlight-color;
-    z-index: 333;
-
-    small {
-        // margin-top: 10px;
-        color: $text-secondary;
-    }
+    align-items: center;
+    color: brand-color(highlight);
 
     #socials {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+
+        a {
+            @include motion-link(highlight, background, highlight);
+            --motion-hover-color: currentColor;
+            font-size: 1.35rem;
+            padding: 0.25rem;
+        }
+
         .social-media-icons {
-            font-family: "Font Awesome 5 Free";
-            font-size: large;
-            position: relative;
-            top: 3em;
+            display: flex;
             align-items: center;
             justify-content: center;
-        
+            gap: 0.75rem;
+            font-family: "Font Awesome 5 Free";
+
             i {
-                transition: transform 0.5s ease;
-                cursor: pointer;
-            
-                &:hover {
-                    transform: scale(1.1);
-                }
+                color: inherit;
+                transition: transform 0.4s ease;
+            }
+
+            a:hover i,
+            a:focus-visible i {
+                transform: scale(1.1);
+                color: var(--motion-hover-color, brand-color(accent));
             }
         }
     }
-}  
+}

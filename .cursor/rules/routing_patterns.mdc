@@ -1,0 +1,574 @@
+---
+alwaysApply: true
+---
+
+# MVC Routing Architecture - MANDATORY
+
+## Core Principle
+
+**Routes route. Views structure. Partials contain.**
+
+Each layer has ONE job. Never mix concerns.
+
+## Router Files - STRICT REQUIREMENTS
+
+### What Routes Must Do
+- Register URL endpoints
+- Pass minimal data to views
+- Handle request/response only
+
+### What Routes Must NEVER Do
+- Contain business logic
+- Build HTML strings
+- Filter/transform data
+- Load external data
+- Include complex calculations
+- Contain pagination logic
+
+## The Clean Pattern
+
+### ✅ CORRECT: Minimal Route (routes/index.js, routes/brand.js)
+
+```javascript
+const express = require('express');
+const router = express.Router();
+
+router.get('/', function(req, res, next) {
+  res.render('index', { 
+    title: 'kjon · life', 
+    description: 'd4 · implimentation' 
+  });
+});
+
+module.exports = router;
+```
+
+**Why this is correct:**
+- Route only routes
+- Minimal data passed (title, description for meta tags)
+- No logic
+- No HTML generation
+- Single responsibility
+
+### ❌ FORBIDDEN: Complex Route (legacy kjon.js, v-0-0-3.js)
+
+```javascript
+// 🚫 DO NOT DO THIS
+router.get('/', function(req, res) {
+  // ❌ Loading data in route
+  const quotesData = require('../public/quotes.json');
+  const maximsData = require('../public/maxims.json');
+  
+  // ❌ Business logic in route
+  const jjQuotes = quotes.filter(quote => quote.author === "k jon");
+  const otherQuotes = quotes.filter(quote => quote.author !== "k jon");
+  
+  // ❌ Building HTML in route
+  article.content = pageQuotes.map(quote => `
+    <div class="box">
+      <blockquote>${quote.quote}</blockquote>
+    </div>
+  `).join('');
+  
+  // ❌ Pagination logic in route
+  const currentPage = parseInt(req.query.page) || 1;
+  const startIndex = (currentPage - 1) * 3;
+  
+  // ❌ Complex data structure passed to view
+  res.render('kjon', { 
+    header: { articlesData }, 
+    articlesData, 
+    title, 
+    description 
+  });
+});
+```
+
+**Why this is wrong:**
+- Business logic mixed with routing
+- HTML strings generated in JavaScript
+- Hard to test
+- Hard to maintain
+- Violates separation of concerns
+- Cannot reuse logic
+- Difficult to debug
+
+## View Files - STRICT REQUIREMENTS
+
+### What Views Must Do
+- Define page structure (HTML skeleton)
+- Include partials for content
+- Use semantic HTML (`<header>`, `<main>`, `<footer>`)
+- Keep structure minimal and readable
+
+### What Views Must NEVER Do
+- Contain actual content (use partials)
+- Include complex logic
+- Have inline styles (use SCSS)
+- Build HTML dynamically (delegate to partials)
+
+## The Clean Pattern
+
+### ✅ CORRECT: Structural View (views/index.ejs, views/brand.ejs)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  
+  <body>
+    <header>
+      <%# include('partials/navigation') %>
+    </header>
+    <main>
+      <!-- the intro section goes here -->
+      <%- include('partials/intro') %>
+      <!-- the purpose section goes here -->
+      <%- include('partials/purpose') %>
+      <!-- the cards section goes here -->
+      <%# include('partials/cards') %>
+    </main>
+    <footer>
+      <!-- the socials go here -->
+      <%- include('partials/social') %>
+      <!-- any scripts go here -->
+      <%- include('partials/scripts') %>
+    </footer>
+  </body>
+</html>
+```
+
+**Why this is correct:**
+- Pure structure
+- Human-readable comments
+- Clear semantic HTML
+- All content delegated to partials
+- Easy to scan and understand
+- Easy to modify (uncomment to enable sections)
+
+### ❌ FORBIDDEN: Complex View
+
+```html
+<!-- 🚫 DO NOT DO THIS -->
+<main>
+  <% if (articles && articles.length > 0) { %>
+    <% articles.forEach(article => { %>
+      <div class="article">
+        <h2><%= article.title %></h2>
+        <% if (article.content) { %>
+          <%- article.content %>
+        <% } else { %>
+          <p>No content available</p>
+        <% } %>
+      </div>
+    <% }); %>
+  <% } %>
+</main>
+```
+
+**Why this is wrong:**
+- Business logic in view (checking arrays, looping)
+- Content generation in view
+- Hard to test
+- Difficult to reuse
+- Mixed concerns
+
+## Partial Files - REQUIREMENTS
+
+### What Partials Must Do
+- Contain actual content and markup
+- Be self-contained (don't depend on parent view)
+- Use semantic class names
+- Handle their own structure
+
+### What Partials Must NEVER Do
+- Depend on variables from parent (unless explicitly passed)
+- Contain routing logic
+- Load external data (data comes from route)
+
+## The Clean Pattern
+
+### ✅ CORRECT: Self-Contained Partial (partials/purpose.ejs)
+
+```html
+<section id="purpose">
+  <div class="purpose-container">
+    <div class="text-container">
+      <h2>We should talk!</h2>
+      <p>
+        <span class="phrase">We build LLM systems...</span>
+        <span class="phrase">We ground enterprise LLMs...</span>
+      </p>
+    </div>
+    <div class="button-group">
+      <button class="button-primary" onclick="window.open('https://zcal.co/jonhwilliams')">
+        Let's talk
+      </button>
+    </div>
+  </div>
+</section>
+```
+
+**Why this is correct:**
+- Self-contained content
+- Semantic HTML
+- Semantic class names
+- No dependencies
+- Easy to include anywhere
+
+## Middleware Registration (app.js)
+
+### REQUIRED Pattern
+
+```javascript
+// Import route files
+var indexRouter = require('./routes/index');
+var brandRouter = require('./routes/brand');
+
+// Register routes with URL paths
+app.use('/', indexRouter);
+app.use('/brand', brandRouter);
+```
+
+**Rules:**
+- One `app.use()` per route file
+- URL path matches route purpose
+- Keep registration order logical
+- Group related routes together
+
+## Directory Structure
+
+### REQUIRED Organization
+
+```
+routes/
+  ├── index.js          # Home page route
+  ├── brand.js          # Brand palette route
+  └── colorplay.js      # Color playground route
+
+views/
+  ├── index.ejs         # Home page structure
+  ├── brand.ejs         # Brand page structure
+  └── partials/
+      ├── head.ejs      # <head> content
+      ├── intro.ejs     # Intro section
+      ├── purpose.ejs   # Purpose section
+      └── social.ejs    # Social links
+```
+
+**Rules:**
+- Route name matches view name (`brand.js` → `brand.ejs`)
+- Partials in `partials/` subdirectory
+- One route file per page
+- One view file per route
+
+## Request Flow
+
+```
+User visits URL
+     ↓
+http://localhost:3000/brand
+     ↓
+app.js: app.use('/brand', brandRouter)
+     ↓
+routes/brand.js: router.get('/')
+     ↓
+res.render('brand', { title, description })
+     ↓
+views/brand.ejs (structure)
+     ↓
+Includes partials (content):
+  - partials/head.ejs
+  - partials/brand_palette.ejs
+  - partials/social.ejs
+     ↓
+HTML sent to browser
+```
+
+## Data Flow
+
+### Minimal Data Pattern
+
+```javascript
+// Route passes minimal data
+res.render('brand', { 
+  title: 'Page Title',           // For <title> tag
+  description: 'Page description' // For meta description
+});
+```
+
+### IF Data Required (Future Pattern)
+
+When dynamic data is needed:
+
+```javascript
+// 1. Load in route (keep simple)
+const items = getItems(); // Service layer, not in route
+
+// 2. Pass to view
+res.render('page', { items });
+
+// 3. Partial iterates
+// In partial:
+<% items.forEach(item => { %>
+  <div class="item"><%= item.name %></div>
+<% }); %>
+```
+
+**Rules:**
+- Load via service layer (not inline in route)
+- Pass clean, prepared data
+- Let partial handle display logic
+- Keep route minimal
+
+## EJS Include Syntax
+
+### Active Include
+```ejs
+<%- include('partials/head') %>
+```
+Use `<%-` to include and render HTML
+
+### Commented Include
+```ejs
+<%# include('partials/navigation') %>
+```
+Use `<%#` to temporarily disable a section
+
+### Output Variable
+```ejs
+<title><%= title %></title>
+```
+Use `<%=` to output escaped content
+
+## Adding a New Page
+
+Follow this checklist:
+
+### 1. Create Route File
+```javascript
+// routes/newpage.js
+const express = require('express');
+const router = express.Router();
+
+router.get('/', function(req, res) {
+  res.render('newpage', { 
+    title: 'New Page', 
+    description: 'Description' 
+  });
+});
+
+module.exports = router;
+```
+
+### 2. Register in app.js
+```javascript
+var newpageRouter = require('./routes/newpage');
+app.use('/newpage', newpageRouter);
+```
+
+### 3. Create View File
+```html
+<!-- views/newpage.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body>
+    <main>
+      <%- include('partials/newpage_content') %>
+    </main>
+    <footer>
+      <%- include('partials/social') %>
+      <%- include('partials/scripts') %>
+    </footer>
+  </body>
+</html>
+```
+
+### 4. Create Content Partial
+```html
+<!-- views/partials/newpage_content.ejs -->
+<section id="newpage">
+  <div class="newpage-container">
+    <!-- Your content here -->
+  </div>
+</section>
+```
+
+### 5. Add SCSS (if needed)
+```scss
+// src/scss/pages/_newpage.scss
+#newpage {
+  .newpage-container {
+    // Styles
+  }
+}
+
+// src/scss/main.scss
+@use 'pages/newpage';
+```
+
+## Testing Routes
+
+### Verify Route Registration
+```bash
+# Start server
+pnpm start
+
+# Test in browser
+open http://localhost:3000/newpage
+```
+
+### Check Route Loading
+```javascript
+// In app.js, routes should load without errors
+var newpageRouter = require('./routes/newpage'); // Should not throw
+```
+
+### Debug Route Issues
+
+**Route not found (404)?**
+- Check `app.use()` registration in app.js
+- Verify route file exports router: `module.exports = router;`
+- Check URL path matches registration
+
+**Template not found?**
+- Check view name matches: `res.render('brand')` → `views/brand.ejs`
+- Verify file exists in `views/` directory
+
+**Partial not found?**
+- Check path is relative to `views/`: `include('partials/head')`
+- Verify partial file exists
+
+## Common Mistakes
+
+### ❌ Wrong: Logic in Routes
+```javascript
+router.get('/', (req, res) => {
+  const filteredData = data.filter(x => x.active); // Business logic
+  res.render('page', { filteredData });
+});
+```
+
+### ✅ Right: Clean Routes
+```javascript
+router.get('/', (req, res) => {
+  res.render('page', { title: 'Page' });
+});
+```
+
+### ❌ Wrong: Content in Views
+```html
+<main>
+  <h1>Welcome to kjon.life</h1>
+  <p>Long paragraph of content...</p>
+</main>
+```
+
+### ✅ Right: Structure in Views
+```html
+<main>
+  <%- include('partials/welcome') %>
+</main>
+```
+
+### ❌ Wrong: HTML Strings in Routes
+```javascript
+const html = `<div>${content}</div>`;
+res.render('page', { html });
+```
+
+### ✅ Right: Content in Partials
+```javascript
+res.render('page', { title: 'Page' });
+// Content lives in partial, not route
+```
+
+## Primary Example: index.ejs Pattern
+
+This is the gold standard pattern to follow:
+
+**routes/index.js:**
+```javascript
+const express = require('express');
+const router = express.Router();
+
+router.get('/', function(req, res, next) {
+  res.render('index', { 
+    title: 'kjon · life', 
+    description: 'd4 · implimentation' 
+  });
+});
+
+module.exports = router;
+```
+
+**views/index.ejs:**
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  
+  <body>
+    <header>
+      <%# include('partials/navigation') %>
+    </header>
+    <main>
+      <%- include('partials/intro') %>
+      <%- include('partials/purpose') %>
+      <%# include('partials/cards') %>
+    </main>
+    <footer>
+      <%- include('partials/social') %>
+      <%- include('partials/scripts') %>
+    </footer>
+  </body>
+</html>
+```
+
+**Key Characteristics:**
+- Route: 9 lines, no logic
+- View: Pure structure, human-readable
+- Partials: Self-contained content
+- Clear separation: routing → structure → content
+- Easy to modify: comment/uncomment sections
+- Scalable: Add new partials without touching route
+
+## Quality Checklist
+
+Before committing route changes:
+
+- [ ] Route file has no business logic
+- [ ] Route file has no HTML string building
+- [ ] Route passes only minimal data (title, description)
+- [ ] View file only contains structure and includes
+- [ ] View file has semantic HTML tags
+- [ ] View file has human-readable comments
+- [ ] Content lives in partials, not in view
+- [ ] Partials use semantic class names
+- [ ] Route name matches view name
+- [ ] URL registration in app.js is clear
+
+## Benefits of This Pattern
+
+1. **Readability**: Anyone can understand the flow
+2. **Maintainability**: Easy to modify one layer without affecting others
+3. **Testability**: Each layer can be tested independently
+4. **Reusability**: Partials can be shared across pages
+5. **Scalability**: Add pages without complexity growth
+6. **Debuggability**: Clear where to look when something breaks
+7. **Collaboration**: Multiple developers can work on different layers
+
+## Remember
+
+> "If your route file is more than 10 lines, you're doing it wrong."
+
+Routes route. Views structure. Partials contain.
+
+Keep it simple. Keep it clean. Keep it separated.

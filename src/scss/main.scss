@@ -19,6 +19,7 @@
 @use 'layout/projects';
 @use 'layout/prompt';
 @use 'layout/purpose';
+@use 'layout/empirical';
 @use 'layout/footer';
 
 // 5. Components (button, header, etc.)
@@ -29,6 +30,7 @@
 @use 'pages/v-0-0-3';
 @use 'pages/error';
 @use 'pages/colorplay';
+@use 'pages/brand';
 
 // 7. Themes (dark, light, etc.)
 @use 'themes/dark';

@@ -28,7 +28,7 @@
 
         h1 {
             position: relative;
-            color: $complementary-primary;
+            color: $highlight-color;
             font-size: clamp(3.5rem, 5vw, 6rem);
             font-weight: 800;
             z-index: 1000;
@@ -36,10 +36,10 @@
 
             @keyframes colorChange {
                 from {
-                    color: color.scale($complementary-primary, $lightness: -20%);
+                    color: color.scale($highlight-color, $lightness: -20%);
                 }
                 to {
-                    color: $highlight-color;
+                    color: $complementary-accent-cool;
                 }
             }
         }

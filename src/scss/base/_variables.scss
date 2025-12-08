@@ -1,21 +1,49 @@
 @use 'sass:color' as color;
 @use 'sass:map' as map;
 
-// Core semantic palette (Scaffold A)
-$brand-colors: (
-    text-primary: #f5f3f5, /* light text */
-    text-secondary: #333333, /* dark text */
-    background: #f5f3f5, /* Alabaster - whitesmoke */
-    primary: #150050, /* Navy Blue */
-    secondary: #3f0071, /* Indigo */
-    accent: #582707, /* Burnt Sienna */
-    highlight: #c88304, /* Cadmium Orange */
-    complementary-primary: #ffd700, /* Gold */
-    complementary-secondary: #ffcccb, /* Light Coral */
-    complementary-accent: #0072af /* Cerulean */
+
+$light-brand-colors: (
+    text-primary: #1b1b1b,                    /* Primary text, headings */
+    text-secondary: #333333,                  /* Body text, captions */
+    background: #F5F3F5,                      /* Main page background */
+    primary: #150050,                         /* Brand anchor, nav, buttons */
+    secondary: #3f0071,                       /* Hover states, accents */
+    highlight: #C88304,                       /* CTAs, links, emphasis */
+    complementary-accent-cool: #0072af,       /* Info states, secondary actions */
+    complementary-accent-warm: #582707        /* Alerts, warnings */
 );
 
-@function brand-color($key, $colors: $brand-colors, $fallback: null) {
+
+$dark-brand-colors: (
+    text-primary: #F5F3F5,                    /* Primary text, headings */
+    text-secondary: #B8B5B8,                  /* Body text, captions */
+    background: #0D0D12,                      /* Main page background */
+    primary: #1E0A5C,                         /* Brand anchor, surfaces */
+    secondary: #5A1A9E,                       /* Elevated surfaces, accents */
+    highlight: #E09A1A,                       /* CTAs, links, emphasis */
+    complementary-accent-cool: #54B7EC,       /* Info states, secondary actions */
+    complementary-accent-warm: #F07C52        /* Alerts, attention */
+);
+
+
+$semantic-colors-light: (
+    success: #22C55E,                         /* Success states */
+    warning: #EAB308,                         /* Warning states */
+    error: #EF4444,                           /* Error states */
+    info: #0072af                             /* Info states */
+);
+
+$semantic-colors-dark: (
+    success: #4ADE80,                         /* Success states */
+    warning: #FACC15,                         /* Warning states */
+    error: #F87171,                           /* Error states */
+    info: #54B7EC                             /* Info states */
+);
+
+// ══════════════════════════════════════════════════════════════
+// HELPER FUNCTIONS & MIXINS
+// ══════════════════════════════════════════════════════════════
+@function brand-color($key, $colors: $light-brand-colors, $fallback: null) {
   $value: map.get($colors, $key);
 
   @if $value != null {
@@ -35,30 +63,45 @@ $brand-colors: (
   }
 }
 
-:root {
-  @include export-brand-vars($brand-colors);
+@mixin export-semantic-vars($colors) {
+  @each $name, $value in $colors {
+    --semantic-#{$name}: #{$value};
+  }
 }
 
+// ══════════════════════════════════════════════════════════════
+// DEFAULT EXPORTS (LIGHT MODE)
+// ══════════════════════════════════════════════════════════════
+$brand-colors: $light-brand-colors !default;
+
+:root {
+  @include export-brand-vars($light-brand-colors);
+  @include export-semantic-vars($semantic-colors-light);
+  --footer-height: 3.5rem;
+}
+
+// ══════════════════════════════════════════════════════════════
+// DERIVED SCSS VARIABLES (FOR BACKWARDS COMPATIBILITY)
+// ══════════════════════════════════════════════════════════════
 $text-primary: brand-color(text-primary);
 $text-secondary: brand-color(text-secondary);
 $background-color: brand-color(background);
 $background-color-alt: color.scale($background-color, $lightness: -5%);
 $primary-color: brand-color(primary);
 $secondary-color: brand-color(secondary);
-$accent-color: brand-color(accent);
 $highlight-color: brand-color(highlight);
-$complementary-primary: brand-color(complementary-primary);
-$complementary-secondary: brand-color(complementary-secondary);
-$complementary-accent: brand-color(complementary-accent);
+$complementary-accent-cool: brand-color(complementary-accent-cool);
+$complementary-accent-warm: brand-color(complementary-accent-warm);
+
 // Hover, border colors
 $border-color: color.scale($background-color, $lightness: -10%);
 /* A neutral or slightly darker shade for borders */
 $hover-color: color.scale($primary-color, $lightness: -10%);
 /* A lighter or darker version of the primary color for hover effects */
 $shadow-color: color.scale(color.grayscale($primary-color), $lightness: -20%);
-/* A subtle shade for shadows 
-    grayscale the primary, then darken */
+/* A subtle shade for shadows - grayscale the primary, then darken */
 
+// Legacy variables (for backwards compatibility)
 $box-color: hsl(200, 50%, 50%);
 $base-color: #0072af;
 

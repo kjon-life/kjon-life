@@ -1,0 +1,191 @@
+@use '../base/variables' as *;
+@use '../utils/mixins' as *;
+
+// Brand Palette Page
+#brand-palette {
+    font-family: $font-stack;
+
+    .palette-section {
+        padding: 3rem 0;
+    }
+
+    .palette-container {
+        max-width: 75rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    // Section-specific backgrounds
+    .light-section {
+        background-color: #F5F3F5;
+        color: #150050;
+
+        h1, h2 {
+            color: #150050;
+        }
+
+        .palette-subtitle {
+            color: #C88304;
+        }
+    }
+
+    .dark-section {
+        background-color: #0D0D12;
+        color: #F5F3F5;
+
+        h2 {
+            color: #F5F3F5;
+        }
+    }
+
+    .semantic-section {
+        background-color: #150050;
+        color: #F5F3F5;
+
+        h2 {
+            color: #F5F3F5;
+        }
+
+        .semantic-info {
+            color: #F5F3F5;
+        }
+    }
+
+    .code-section {
+        background-color: #1b1b1b;
+        color: #F5F3F5;
+
+        h2 {
+            color: #C88304;
+        }
+    }
+
+    // Typography
+    h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    .palette-subtitle {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        margin-bottom: 2rem;
+    }
+
+    // Color Grid Layout
+    .color-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+
+        @include tablet-horizontal {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @include smartphone-vertical {
+            gap: 1rem;
+        }
+    }
+
+    // Color Card
+    .color-card {
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .color-preview {
+        height: 4rem;
+    }
+
+    .color-info {
+        padding: 1rem;
+    }
+
+    .color-name {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 0.25rem 0;
+    }
+
+    .color-hex {
+        font-family: 'Courier New', monospace;
+        font-size: 0.875rem;
+        margin: 0 0 0.5rem 0;
+        opacity: 0.8;
+    }
+
+    .color-usage {
+        font-size: 0.875rem;
+        margin: 0;
+        opacity: 0.7;
+    }
+
+    // Semantic Card
+    .semantic-card {
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .semantic-preview {
+        display: flex;
+        height: 4rem;
+    }
+
+    .semantic-half {
+        flex: 1;
+    }
+
+    .semantic-info {
+        padding: 1rem;
+
+        .color-hex {
+            opacity: 0.7;
+        }
+
+        .color-usage {
+            opacity: 0.6;
+        }
+    }
+
+    // Color Strip
+    .color-strip {
+        display: flex;
+        height: 3rem;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+    }
+
+    .color-strip-item {
+        flex: 1;
+    }
+
+    // Code Block
+    .code-block {
+        background-color: #0D0D12;
+        color: #F5F3F5;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        font-size: 0.75rem;
+        font-family: 'Courier New', monospace;
+        line-height: 1.5;
+        margin: 0;
+
+        code {
+            display: block;
+        }
+    }
+}
+
