@@ -126,3 +126,8 @@ public/css/main.css.map.br.gz.br
 public/css/main.css.map.br.gz.br.gz
 public/css/main.css.map.br.gz.br.gz.br
 public/css/main.css.map.br.gz.br.gz.br.gz
+
+# OS files
+.DS_Store
+.idea
+.vscode
