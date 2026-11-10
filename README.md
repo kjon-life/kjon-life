@@ -36,16 +36,18 @@ About the author: k jon / Cofounder [Orienne](https://orienne.com), AI systems B
 - Currently, I aspire to give back with open source by testing, coding, authoring, and obsessing in the best tools humans ever created. 
 
 ### Project Overview:
-* App code is a simple Go web server 
+* App code is a simple Node.js web server: Express renders EJS templates 
+* Styles are written in SCSS, compiled by Parcel, and committed as `public/css/main.css` 
 * The app is containerized into a Docker image called `kjon-life` 
-* The Dockerfile uses a Go builder image to compile the app code and copies the binary into a minimal final image
+* The Dockerfile starts from a Node.js image, installs the dependencies, and runs `npm start`
 * The app can be manually deployed using flyctl from the fly.toml config file
-* GitHub Actions deploys main to dev automatically
+* GitHub Actions deploys main to Fly.io automatically
 
 ### Tech stack:
+* Node.js - for the app code
 * Express - for routing
+* EJS - for templates
 * Parcel - for preprocessing SCSS
-* Go - for the app code
 * Docker - for unit of deployment
 * flyctl - for manual deployment
 * GitHub Actions - for CI/CD
