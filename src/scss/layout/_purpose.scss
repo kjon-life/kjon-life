@@ -15,7 +15,9 @@
         width: 100%;
 
         h2 {
+            color: $highlight-color;
             font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 300;
 
             @include tablet-horizontal {
                 margin-left: 5%;
@@ -48,7 +50,7 @@
             transition-timing-function: ease;
             transition-duration: 2s;
 
-            @for $i from 1 through 4 {
+            @for $i from 1 through 5 {
                 &:nth-child(#{$i}) {
                     transition-delay: ($i - 1) * 2.1s;
                 }
