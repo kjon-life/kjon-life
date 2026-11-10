@@ -9,7 +9,7 @@ It's a subtle, distinct difference: Individuals buy products, enterprise buys so
 
 Everything we build has far-reaching effects. That nifty new feature might require re-training hundreds of employees. That data-flow optimization? Might force 600 people to change their spreadsheets. My life requires a blend of pragmatic thinking, big-picture realism, and disciplined attention to detail.
 
-Birmingham, Alabama ⋅ Coffe [DMs](https://x.com/kjon_life) welcome!
+Birmingham, Alabama ⋅ Coffee [DMs](https://x.com/kjon_life) welcome!
 
 <img align="right" width="300" src="https://user-images.githubusercontent.com/76539355/214731371-78cb7bcb-996d-4108-9872-7af758ed5647.png" alt="A Maia">
 
@@ -22,7 +22,7 @@ Birmingham, Alabama ⋅ Coffe [DMs](https://x.com/kjon_life) welcome!
  ![GitHub top language](https://img.shields.io/github/languages/top/kjon-life/kjon-life)
  ![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fkjon.life) 
  
-This is a project that feeds my developer portfoio. To connect:  
+This is a project that feeds my developer portfolio. To connect:  
 - Mention me in an issue or pull request: @kjon-life  
 - My friends connect on [Instagram: @kilo.jon](https://www.instagram.com/kilo.jon/)   
 - [LinkedIn](https://www.linkedin.com/in/jonhwilliams) for professional connections.
