@@ -1,0 +1,32 @@
+/*  Socials strip */
+// Positioned so it sits above the fixed hero overlay and its links can be clicked.
+// No background: the hero video keeps playing through the strip.
+#socials {
+    position: relative;
+    z-index: 1;
+
+    .social-media-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0.75rem 0;
+
+        a {
+            display: grid;
+            color: $highlight-color;
+            transition: color 0.3s ease, transform 0.3s ease;
+
+            &:hover,
+            &:focus-visible {
+                color: $highlight-color-dark-surface;
+                transform: scale(1.15);
+            }
+        }
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+}

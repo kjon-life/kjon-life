@@ -25,7 +25,7 @@
 
     h1 {
         position: relative;
-        color: $complementary-primary;
+        color: $highlight-color;
         font-size: clamp(3.5rem, 5vw, 6rem);
         font-weight: 800;
         z-index: 1000;
@@ -33,10 +33,10 @@
 
         @keyframes colorChange {
             from {
-                color: darken($complementary-primary, 20%);
+                color: $highlight-color;
             }
             to {
-                color: $highlight-color;
+                color: $highlight-color-dark-surface;
             }
         }
     }
