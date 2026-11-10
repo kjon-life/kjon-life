@@ -1,31 +1,21 @@
-// imports the M object from the Materialize CSS library, which contains various methods and properties for initializing Materialize components 
-// import { M, anotherObject, someFunction } from 'materialize-css'
-
 document.addEventListener('DOMContentLoaded', () => {
-  const isMobile = window.innerWidth <= 1025;
+  // The purpose section holds one piece of state: data-state on #purpose.
+  // idle -> revealed, set once when the text scrolls into view and never switched back.
+  // The per-phrase timing lives in src/scss/layout/_purpose.scss.
+  const purpose = document.getElementById('purpose');
+  if (!purpose) return;
 
-  // Function to create and observe IntersectionObservers
-  // Perform tasks or animations based on visibility to user
-  function createObserver(selector, observerOptions, toggleClass) {
-    const items = document.querySelectorAll(selector);
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(toggleClass);
-        } else {
-          entry.target.classList.remove(toggleClass);
-        }
-      });
-    }, observerOptions);
+  const text = purpose.querySelector('.text-container') || purpose;
+  purpose.dataset.state = 'idle';
 
-    items.forEach(item => {
-      observer.observe(item);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        purpose.dataset.state = 'revealed';
+        observer.disconnect();
+      }
     });
-  }
+  }, { root: null, threshold: 0.5 });
 
-  // Create observers for different sections
-  createObserver('#purpose .phrase', { root: null, threshold: isMobile ? 0.5 : 1 }, 'active');
-  // createObserver('#gallery .image-box', { root: null, threshold: isMobile ? 0.5 : 1 }, 'active');
-  // createObserver('#blog .featured-article, #blog .article', { root: null, threshold: isMobile ? 0.01 : 0.3 }, 'fadeInUp');
-  // createObserver('#contact > div', { root: null, threshold: isMobile ? 0.01 : 0.7 }, 'fadeInUp');
+  observer.observe(text);
 });

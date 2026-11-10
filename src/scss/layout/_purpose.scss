@@ -46,16 +46,18 @@
             color: darken($text-primary, 20%);
             transition-property: color;
             transition-timing-function: ease;
+            transition-duration: 2s;
 
             @for $i from 1 through 4 {
-                :nth-child(#{$i}) {
-                    transition-delay: $i * 2.1s;
+                &:nth-child(#{$i}) {
+                    transition-delay: ($i - 1) * 2.1s;
                 }
             }
-
-            &.active {
-                color: lighten($text-primary, 20%);
-            }
         }
+    }
+
+    // set once by public/js/observers.js when the text scrolls into view
+    &[data-state="revealed"] .purpose-container .phrase {
+        color: $text-secondary;
     }
 }
