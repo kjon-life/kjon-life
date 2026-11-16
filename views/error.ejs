@@ -1,17 +1,33 @@
-<div class="error-container">
-  <h1 class="error">Oh no... </h1>
-  <h2 class="">Our pug monster is taking a break.</h2>
-  <img src="images/curious-pug-enterprise/curious-pug-dark.png" alt="Pug Monster" class="error-image">
-  <form>
-    <label for="search">Snuffle for something tasty?</label>
-    <input type="search" id="search" name="search" aria-label="Search">
-    <button type="submit">Search</button>
-  </form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+    <meta name="robots" content="noindex">
+  </head>
 
-  <div class="error-output">
-    <h2>Debug:</h2>
-    <pre class="error-message"><%= message %></pre>
-    <pre class="error-status">Status: <%= error.status %></pre>
-    <pre class="error-stack"><%= error.stack %></pre>
-  </div>
-</div>
+  <body>
+    <main>
+      <section id="error">
+        <div class="error-container">
+          <a class="error-mark" href="/" aria-label="kjon.life home">{k}</a>
+          <% if (status === 404) { %>
+            <h1>This page isn't here.</h1>
+            <p>The address may be mistyped, or the page has moved.</p>
+          <% } else { %>
+            <h1>Something broke on our side.</h1>
+            <p>Give it a moment, then try again.</p>
+          <% } %>
+          <a class="button-primary" href="/">Back to kjon.life</a>
+
+          <%# the stack is only passed in development; see the error handler in app.js %>
+          <% if (error.stack) { %>
+            <div class="error-output">
+              <pre class="error-status"><%= status %> <%= message %></pre>
+              <pre class="error-stack"><%= error.stack %></pre>
+            </div>
+          <% } %>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
