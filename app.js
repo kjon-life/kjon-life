@@ -46,7 +46,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {
+    status: res.statusCode,
+    title: res.statusCode === 404 ? 'Page not found · kjon · life' : 'Something broke · kjon · life',
+    description: ''
+  });
 });
 
 

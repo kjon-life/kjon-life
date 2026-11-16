@@ -12,6 +12,10 @@ swap_size_mb = 512
 
 [build]
 
+# Without this Express runs in development mode and prints stack traces on the error page.
+[env]
+  NODE_ENV = 'production'
+
 [http_service]
   internal_port = 8080
   force_https = true
