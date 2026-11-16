@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 var colorPlayRouter = require('./routes/colorplay');
 var kjonRouter = require('./routes/kjon');
 var v0003Router = require('./routes/v-0-0-3');
+var canvasesRouter = require('./routes/canvases');
 
 
 var app = express();
@@ -30,6 +31,7 @@ app.use('/users', usersRouter);
 app.use('/colorplay', colorPlayRouter);
 app.use('/kjon', kjonRouter);
 app.use('/v-0-0-3', v0003Router);
+app.use('/canvases', canvasesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
