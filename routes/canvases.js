@@ -65,4 +65,12 @@ router.get('/:name', function(req, res, next) {
   res.type('html').send(pages[req.params.name]);
 });
 
+// A canvas also answers to its own file name, <name>/<name>.html, so the links between
+// canvases, which are written for opening the pages from disk, work here unchanged.
+router.get('/:name/:file', function(req, res, next) {
+  if (!Object.hasOwn(pages, req.params.name)) return next();
+  if (req.params.file !== req.params.name + '.html') return next();
+  res.redirect(301, req.baseUrl + '/' + req.params.name + '/');
+});
+
 module.exports = router;
