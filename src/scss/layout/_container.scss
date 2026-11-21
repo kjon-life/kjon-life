@@ -1,0 +1,9 @@
+/*  Shared content width */
+// The one layout rule: content is as wide as the screen less a 1rem gutter each side,
+// up to a readable line length, and centered. No breakpoints.
+// ch follows the font size of the element that extends this, so set the font size there.
+%content-width {
+    box-sizing: border-box;
+    width: min(100% - 2rem, 75ch);
+    margin-inline: auto;
+}

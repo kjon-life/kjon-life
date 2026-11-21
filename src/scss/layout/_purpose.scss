@@ -1,47 +1,28 @@
 /*  Purpose section */
 #purpose {
     @extend %section;
-    height: 100vh;
-
-    @include smartphone-horizontal {
-        padding-top: 10vh;
-        padding-bottom: 50vh;
-    }
 
     .purpose-container {
+        box-sizing: border-box;
         display: grid;
         place-items: center;
-        height: 100%;
-        width: 100%;
+        gap: 2rem;
+        min-height: 100vh;
+        padding-block: 2rem;
+
+        .text-container {
+            @extend %content-width;
+            font-size: clamp(1rem, 5vw, 1.5rem);
+        }
 
         h2 {
             color: $highlight-color;
             font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 300;
-
-            @include tablet-horizontal {
-                margin-left: 5%;
-            }
-
-            @include tablet-vertical {
-                margin-left: 5%;
-            }
         }
 
         p {
-            width: 75ch;
-            font-size: clamp(1rem, 5vw, 1.5rem);
             line-height: 1.5;
-
-            @include tablet-horizontal {
-                width: 90%;
-                margin-left: 5%;
-            }
-
-            @include tablet-vertical {
-                width: 90%;
-                margin-left: 5%;
-            }
         }
 
         .phrase {
